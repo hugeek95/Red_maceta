@@ -1,0 +1,347 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+@font-face{font-family:'OpenSans-Regular';
+    src:url(../fonts/OpenSans-Regular.ttf);}
+
+@font-face{font-family:'OpenSans-ExtraBoldItalic';
+    src:url(../fonts/OpenSans-ExtraBoldItalic.ttf);} 
+
+@font-face{font-family:'OpenSans-Italic';
+    src:url(../fonts/OpenSans-Italic.ttf);}      
+
+@font-face{font-family:'OpenSans-Light';
+    src:url(../fonts/OpenSans-Light.ttf);}   
+
+@font-face{font-family:'OpenSans-LightItalic';
+    src:url(../fonts/OpenSans-LightItalic.ttf);} 
+
+@font-face{font-family:'OpenSans-Semibold';
+    src:url(../fonts/OpenSans-Semibold.ttf);}
+
+@font-face{font-family:'OpenSans-SemiboldItalic';
+    src:url(../fonts/OpenSans-SemiboldItalic.ttf);}    
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,600,800)               
+
+.container{
+    width: 70%;
+    margin:0 auto;
+}
+.header{
+    height: 157px;
+    background-color: #c35f5d; 
+}
+.menu{
+    display: inline-block;
+    padding: 10px 0px 10px 30px;
+    margin-top: 40px;
+}
+.menu ul li{
+    display: inline-block;
+}
+.menu ul li img{
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+}
+.menu a{
+    text-decoration:none;color:white;
+    font-size: 15px;
+    font-family:'OpenSans-Semibold';
+} 
+.footer{
+    height: 210px;
+    background-color: #9ac965; 
+    overflow: hidden;
+    font-family: 'Lato-Regular';
+    color:#ffffff;
+}
+}
+.frase{
+    background-color: #c35f5d; 
+    background-image:url("../img/ondas.png");
+    background-repeat: repeat;
+    height:123px;
+}
+.frase-size{
+    margin-top: 0px;
+    font-size: 27px;color:white;
+    font-family:'OpenSans-Semibold';
+}
+p{
+    padding: 20px;
+    font-size: 27px;color:white;
+    font-family:'OpenSans-Semibold';
+    margin-left:80px ;
+    margin-right:80px ;
+}
+
+.opacidad1{
+    background-color: #c35f5d;
+    opacity: 0.7;
+    margin: 0 auto;
+    text-align: center;
+    height: 100%;
+}
+.patron{ 
+    background-image:url("../img/ondas.png");
+    background-repeat: repeat;
+    height:123px;
+}
+.patron2{ 
+    background-image:url();
+    background-repeat: repeat;
+    height:123px;
+    float: left;
+    margin-top: 47px;
+}
+
+.buscador{
+    background-image:url("../img/tomato-03.png");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 443px;
+}
+.buscador2{
+    margin: 0 auto;
+    text-align: center;
+}
+.opacidad{
+    background-color: #c35f5d;
+    opacity: 0.7;
+    margin: 0 auto;
+    text-align: center;
+    height: 100%;
+}
+hr {
+   height: 1px;
+   border: 0;
+   background-color:#c35f5d;
+   margin: 0px 0px 4px 0px;
+   }
+.sidebar{
+    float: left;
+    width: 30%;
+    
+}
+.noticias{
+    float:left;
+    width: 70%;
+}
+.content{
+    background-color: #ccc;
+    overflow: hidden;
+}
+/* Clases */
+*{
+    box-sizing: border-box;
+}
+
+body{
+    font-family:'OpenSans-Regular';
+}
+div, .patron h4 {
+    text-decoration:none;color:white;
+    font-size: 15px;
+    font-family:'OpenSans-Semibold';
+    text-transform: uppercase;
+    font-weight:bold;
+}
+.paisaje{
+    
+    height:150px;
+    margin-top: 10px;
+    margin-left: 50%;              
+}
+.macetaroja{
+    height:130px;
+    margin-top: -40%;
+    margin-left: -70%;
+    z-index: 999;
+}
+div, .buscador2 h4 {
+    text-decoration:none;color:#c35f5d;
+    font-size: 31px;
+    font-family:'OpenSans-Semibold';
+    text-transform: inherit;
+    font-weight:bold;
+}    
+.fondorojo{
+background-color: #c35f5d;
+position: relative;
+height: 600px;
+text-align: center;
+font-family: helvetica, arial, sans-serif;
+font-size: 27px;
+}
+.backgroundtomato{
+    background-position: center 140px;
+    background-size: ;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 1;
+    opacity: 0.3;
+    background-image:url("../img/tomato-03.png");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+}
+.onditas{
+    background-image: url('img/ondas.png');
+    background-position: center top;
+    background-size: ;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 1;
+    opacity: 0.3;
+    background-image:url("../img/ondas.png");
+    background-repeat: repeat-x;
+    height:300px;
+}
+.super-hero-container{
+    z-index: 10;
+    position: relative;
+    color: #fff;
+    width: 80%;
+    margin: 0 auto;
+}
+.super-hero-frase{
+    padding: 10px;
+    font-size: 27px;color:white;
+    font-family:'OpenSans-Semibold';
+    margin-left:0px ;
+    margin-right:0px ;
+}
+.video{
+    margin-top: 20px;    
+}
+div, h1{
+    padding: 0px;
+    font-size: 31px;color:white;
+    font-style: inherit;
+    font-family:'OpenSans-Semibold';
+    margin-left:0px ;
+    margin-right:0px ;
+}            
+
+button{
+    font-size: 15px;color:white  !important;
+    font-style: inherit;
+    font-family:'OpenSans-Regular';
+    margin-left:0px ;
+    margin-right:0px ;
+    background-color: #c35f5d;
+    height: 2.6rem;
+    border-radius: 0px 7px 7px 0px;
+    -moz-border-radius: 0px 7px 7px 0px;
+    -webkit-border-radius: 0px 7px 7px 0px;
+    border: 0px solid #000000;
+    border: 1px solid white;
+}
+form{
+    background-color: white !important;
+    border: #c35f5d;
+    border-bottom: 1px solid #c35f5d;
+    border-radius: ;
+    outline: #c35f5d;
+    height: 3rem;
+    width: 100%;
+    font-size: 15px;
+    font-family:'OpenSans-Regular';
+    margin: 0 0 0 0;
+    padding: 0;
+    box-shadow: none;
+    box-sizing: content-box;
+    transition: all .3s;
+    border-radius: 7px 0px 0px 7px;
+    -moz-border-radius: 7px 0px 0px 7px;
+    -webkit-border-radius: 7px 0px 0px 7px;
+    border: 0px solid #000000;
+}
+
+a:link {
+text-decoration: none;
+color: white;
+}
+.icon{ 
+    height:6%;
+    width: 6%;
+    padding: 10px;
+    float: left;
+    margin-top: 6%;
+} 
+.maceta2 {
+    float: left;
+    height:13%;
+    width: 13%;
+    padding: 10px;
+    float: left;
+    margin-top: 2%;
+    margin-left: 3%;
+} 
+h5 {
+    text-decoration:none;color:white;
+    font-family:'OpenSans-ExtraBold';
+    float: left;
+} 
+
+
+
+
+
+
+
+           
