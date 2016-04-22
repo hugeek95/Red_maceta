@@ -1,0 +1,24 @@
+/*Control del alto de la barra de navegación*/
+/*Control de los márgenes de la imagen en la barra de navegación*/
+/*Centrado de las pestañas de la barra de navegación*/
+nav {
+      height: 64px;
+}
+@media only screen and (max-width: 992px){
+  a.brand-logo{
+    margin: 10px;
+  }
+}
+@media only screen and (min-width: 601px)
+{
+  nav, div.navbar-fixed{
+    height: 100px;
+    }
+  a.brand-logo{
+    margin: 20px 30px;
+  }
+}
+
+nav ul{
+    padding: 20px;
+}
