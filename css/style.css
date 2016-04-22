@@ -1,4 +1,4 @@
-/* http://meyerweb.com/eric/tools/css/reset/ 
+/* http://meyerweb.com/eric/tools/css/reset/
    v2.0 | 20110126
    License: none (public domain)
 */
@@ -12,19 +12,18 @@ b, u, i, center,
 dl, dt, dd, ol, ul, li,
 fieldset, form, label, legend,
 table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
 menu, nav, output, ruby, section, summary,
 time, mark, audio, video {
 	margin: 0;
 	padding: 0;
 	border: 0;
 	font-size: 100%;
-	font: inherit;
 	vertical-align: baseline;
 }
 /* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, 
+article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
 	display: block;
 }
@@ -50,36 +49,41 @@ table {
     src:url(../fonts/OpenSans-Regular.ttf);}
 
 @font-face{font-family:'OpenSans-ExtraBoldItalic';
-    src:url(../fonts/OpenSans-ExtraBoldItalic.ttf);} 
+    src:url(../fonts/OpenSans-ExtraBoldItalic.ttf);}
 
 @font-face{font-family:'OpenSans-Italic';
-    src:url(../fonts/OpenSans-Italic.ttf);}      
+    src:url(../fonts/OpenSans-Italic.ttf);}
 
 @font-face{font-family:'OpenSans-Light';
-    src:url(../fonts/OpenSans-Light.ttf);}   
+    src:url(../fonts/OpenSans-Light.ttf);}
 
 @font-face{font-family:'OpenSans-LightItalic';
-    src:url(../fonts/OpenSans-LightItalic.ttf);} 
+    src:url(../fonts/OpenSans-LightItalic.ttf);}
 
 @font-face{font-family:'OpenSans-Semibold';
     src:url(../fonts/OpenSans-Semibold.ttf);}
 
 @font-face{font-family:'OpenSans-SemiboldItalic';
-    src:url(../fonts/OpenSans-SemiboldItalic.ttf);}    
-@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,600,800)               
+    src:url(../fonts/OpenSans-SemiboldItalic.ttf);}
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,600,800)
 
 .container{
     width: 70%;
     margin:0 auto;
 }
+
+nav {
+	height: 70px;
+}
+
 .header{
     height: 157px;
-    background-color: #c35f5d; 
+    background-color: #DF5D5D;
 }
 .menu{
     display: inline-block;
     padding: 10px 0px 10px 30px;
-    margin-top: 40px;
+  /*  margin-top: 40px; */
 }
 .menu ul li{
     display: inline-block;
@@ -93,17 +97,17 @@ table {
     text-decoration:none;color:white;
     font-size: 15px;
     font-family:'OpenSans-Semibold';
-} 
+}
 .footer{
     height: 210px;
-    background-color: #9ac965; 
+    background-color: #38D28C;
     overflow: hidden;
     font-family: 'Lato-Regular';
     color:#ffffff;
 }
 }
 .frase{
-    background-color: #c35f5d; 
+    background-color: #DF5D5D;
     background-image:url("../img/ondas.png");
     background-repeat: repeat;
     height:123px;
@@ -128,12 +132,12 @@ p{
     text-align: center;
     height: 100%;
 }
-.patron{ 
+.patron{
     background-image:url("../img/ondas.png");
     background-repeat: repeat;
     height:123px;
 }
-.patron2{ 
+.patron2{
     background-image:url();
     background-repeat: repeat;
     height:123px;
@@ -168,7 +172,7 @@ hr {
 .sidebar{
     float: left;
     width: 30%;
-    
+
 }
 .noticias{
     float:left;
@@ -178,6 +182,7 @@ hr {
     background-color: #ccc;
     overflow: hidden;
 }
+
 /* Clases */
 *{
     box-sizing: border-box;
@@ -194,10 +199,10 @@ div, .patron h4 {
     font-weight:bold;
 }
 .paisaje{
-    
+
     height:150px;
     margin-top: 10px;
-    margin-left: 50%;              
+    margin-left: 50%;
 }
 .macetaroja{
     height:130px;
@@ -211,7 +216,7 @@ div, .buscador2 h4 {
     font-family:'OpenSans-Semibold';
     text-transform: inherit;
     font-weight:bold;
-}    
+}
 .fondorojo{
 background-color: #c35f5d;
 position: relative;
@@ -266,7 +271,7 @@ font-size: 27px;
     margin-right:0px ;
 }
 .video{
-    margin-top: 20px;    
+    margin-top: 20px;
 }
 div, h1{
     padding: 0px;
@@ -275,7 +280,7 @@ div, h1{
     font-family:'OpenSans-Semibold';
     margin-left:0px ;
     margin-right:0px ;
-}            
+}
 
 button{
     font-size: 15px;color:white  !important;
@@ -316,13 +321,13 @@ a:link {
 text-decoration: none;
 color: white;
 }
-.icon{ 
+.icon{
     height:6%;
     width: 6%;
     padding: 10px;
     float: left;
     margin-top: 6%;
-} 
+}
 .maceta2 {
     float: left;
     height:13%;
@@ -331,17 +336,13 @@ color: white;
     float: left;
     margin-top: 2%;
     margin-left: 3%;
-} 
+}
 h5 {
     text-decoration:none;color:white;
     font-family:'OpenSans-ExtraBold';
     float: left;
-} 
+}
 
-
-
-
-
-
-
-           
+.video-container{
+	z-index: inherit;
+}

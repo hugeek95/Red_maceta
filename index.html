@@ -1,99 +1,74 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Blue Maceta</title>
+        <title>Red Maceta</title>
         <meta charset="utf-8">
 
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <link rel= "icon" href="favicon.png">
         <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,800' rel='stylesheet' type='text/css'>
-
-
         <!--Import Google Icon Font-->
         <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <!--Import materialize.css-->
         <link type="text/css" rel="stylesheet" href="css/materialize.css"  media="screen,projection"/>
-        <link rel="stylesheet" type="text/css" href="css/style.css">
-        <!--Let browser know website is optimized for mobile-->
-
-        <!-- FANCYBOX -->
-	<script type="text/javascript" src="fancy/lib/jquery-1.10.1.min.js"></script>
-
-	<!-- Add mousewheel plugin (this is optional) -->
-	<script type="text/javascript" src="fancy/lib/jquery.mousewheel-3.0.6.pack.js"></script>
-
-	<!-- Add fancyBox main JS and CSS files -->
-	<script type="text/javascript" src="fancy/source/jquery.fancybox.js?v=2.1.5"></script>
-	<link rel="stylesheet" type="text/css" href="fancy/source/jquery.fancybox.css?v=2.1.5" media="screen" />
-
-	<!-- Add Button helper (this is optional) -->
-	<link rel="stylesheet" type="text/css" href="fancy/source/helpers/jquery.fancybox-buttons.css?v=1.0.5" />
-	<script type="text/javascript" src="fancy/source/helpers/jquery.fancybox-buttons.js?v=1.0.5"></script>
-
-	<!-- Add Thumbnail helper (this is optional) -->
-	<link rel="stylesheet" type="text/css" href="fancy/source/helpers/jquery.fancybox-thumbs.css?v=1.0.7" />
-	<script type="text/javascript" src="fancy/source/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>
-
-	<!-- Add Media helper (this is optional) -->
-	<script type="text/javascript" src="fancy/source/helpers/jquery.fancybox-media.js?v=1.0.6"></script>
-
-	<script type="text/javascript" src="js/fancy.js"></script>
-
-    <style type="text/css">
-		.fancybox-custom .fancybox-skin {
-			box-shadow: 0 0 50px #222;
-		}
-
-        .busca_producto{
-
-        }
-	</style>
-
-
-    <!-- FANCYBOX -->
+        <link type="text/css" rel="stylesheet" href="css/style.css">
 
     </head>
     <body>
 
 
-    <!-- MENU -->
+    <!-- BARRA DE NAVEGACIÓN -->
+    <div class="navbar-fixed">
     <nav>
         <div class="nav-wrapper">
-            <a href="#" class="brand-logo"><img class="menu" src="./img/red.png"></a>
+            <a href="#!" class="brand-logo"><img class="menu" src="./img/red.png"></a>
+            <a href="#" data-activates="mobile-demo" class="b-c"><i class="material-icons">menu</i></a>
             <ul id="nav-mobile" class="right hide-on-med-and-down">
-                <li><a href="sass.html">¿Qué es?</a></li>
-                <li><a href="badges.html">¿Qué va a llevar?</a></li>
-                <li><a href="collapsible.html">Buscamos productores</a></li>
-                <li><a href="collapsible.html">Redes</a></li>
+                <li><a href="funciona.html">Así funciona</a></li>
+                <li><a href="conocenos.html">Conócenos</a></li>
+                <li><a href="#">Soy productor</a></li>
+                <li><a href="galeria.html">¡Llévele!</a></li>
+            </ul>
+            <ul class="side-nav" id="mobile-demo">
+                <li><a href="funciona.html">Así funciona</a></li>
+                <li><a href="conocenos.html">Conócenos</a></li>
+                <li><a href="#">Soy productor</a></li>
+                <li><a href="galeria.html">¡Llévele!</a></li>
             </ul>
         </div>
     </nav>
-    <!-- MENU -->
-
+    </div>
+    <!-- BARRA DE NAVEGACIÓN -->
     <!-- CONOCE MAS -->
 
     <div class="fondorojo">
         <div class="backgroundtomato"></div>
         <div class="onditas"></div>
         <div class="super-hero-container">
-        <div class="super-hero-frase">
-        <p>Compra y vende productos alimenticios transparentes, producidos de manera independiente.</p>
-        <a href="#"><h6>conoce más <i class=" tiny material-icons">add</i></h6></a>
-    </div>
-    <div class="video">
-        <a class="fancybox-media" href="https://www.youtube.com/watch?v=bpYs-q5taKs" ><img  src="img/play.png"></a>
+            <div class="super-hero-frase">
+            <p>Compra y vende productos alimenticios transparentes, producidos de manera independiente.</p>
+            <a href="#"><h6>conoce más <i class=" tiny material-icons">add</i></h6></a>
+            </div>
+            <!-- VIDEO EN MODAL -->
+            <!-- Modal Trigger -->
+                <a class="modal-trigger" href="#modal1"><img  src="img/play.png"></a>
+                <!-- Modal Structure -->
+                <div id="modal1" class="modal">
+                  <div class="modal-content">
+                    <div class="video-container">
+                      <iframe width="560" height="315" src="https://www.youtube.com/embed/bpYs-q5taKs?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                  </div>
+                </div>
+            <!-- /VIDEO EN MODAL -->
+            <div class="mayuscula">
+            <h1 style="font-family: 'Open Sans', sans-serif; font-weight:800;">¿QUÉ VA A LLEVAR?</h1>
+            <form id="searchform" action="buscador.php" method="post" >
 
-
-            <!-- Habrá un video :) -->
-    </div>
-    <div class="mayuscula">
-        <h1 style="font-family: 'Open Sans', sans-serif; font-weight:800;">¿QUÉ VA A LLEVAR?</h1>
-        <form id="searchform" action="buscador.php" method="post" >
-
-            <input type="text" placeholder="Busca productos locales" class="busca_producto" style="width:70%; margin:0 auto; float: left; padding-left: 10px; color:black;">
-            <span style="float: right"><button type="submit">Encontrar</button></span>
-            <div><img class="paisaje" src="img/casitas.png"></div>
-        </form>
+                <input type="text" placeholder="Busca productos locales" class="busca_producto" style="width:70%; margin:0 auto; float: left; padding-left: 10px; color:black;">
+                <span style="float: right"><button type="submit">Encontrar</button></span>
+                <div><img class="paisaje" src="img/casitas.png"></div>
+            </form>
             </div>
         </div>
     </div>
@@ -102,18 +77,7 @@
 
     <!-- PRODUCTORES -->
     <div>
-        <hr width="100%" />
-        <hr width="100%" />
-        <hr width="100%" />
-        <hr width="100%" />
-        <hr width="100%" />
-        <hr width="100%" />
-        <hr width="100%" />
-        <hr width="100%" />
-        <hr width="100%" />
-        <hr width="100%" />
-        <hr width="100%" />
-        <hr width="100%" />
+
     </div>
 
     <div class="buscador2">
@@ -145,6 +109,17 @@
     <!-- FOOTER -->
 
     <!--Import jQuery before materialize.js-->
-    <script type="text/javascript" src="js/materialize.min.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="js/materialize.js"></script>
+
+    <script type="text/javascript">
+//    $(".button-collapse").sideNav();
+      $(document).ready(function(){
+        //Activar modal video
+      //  $('.modal-trigger').leanModal({opacity: 0.15});
+        //Menú movil
+        $(".b-c").sideNav();
+      });
+    </script>
     </body>
 </html>
