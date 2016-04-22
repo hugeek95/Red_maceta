@@ -79,6 +79,36 @@ div.encabezado div.container{
   right: 0;
 }
 
+/*Formulario*/
+.layer{
+  background-image: url(../img/jpgs/silla.jpg);
+  background-size: cover;
+  position: relative;
+}
+.formulario {
+    background-color: rgba(223, 93, 93, 0.5);
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding-top: 80px;
+    padding-bottom: 80px;
+    padding-right: 10%;
+    padding-left: 10%;
+}
+.llevar{
+    font-weight: 800;
+}
+.consumir{
+    font-weight: 800;
+    margin-top: -15px;
+    margin-left: 35%;
+}
+.input-field {
+  margin-top: 0;
+}
+
+
 /*Footer*/
 footer div.col{
   text-align: center;
