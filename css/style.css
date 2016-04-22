@@ -1,3 +1,15 @@
+/*Cambio a la fuente Open Sans*/
+html{
+  	font-family: 'Open Sans', sans-serif;
+}
+
+
+/* COLORES */
+/*El color #DF5D5D (ROJO) quedó nombrado como red en materialize*/
+/*El color #38D28C (VERDE)quedó nombrado como green en materialize*/
+/*El color #00AB6C (VERDE2) quedó nombrado como green darken-1 en materialize*/
+
+
 /*Control del alto de la barra de navegación*/
 /*Control de los márgenes de la imagen en la barra de navegación*/
 /*Centrado de las pestañas de la barra de navegación*/
@@ -21,4 +33,22 @@ nav {
 
 nav ul{
     padding: 20px;
+}
+
+/*Footer*/
+footer div.col{
+  text-align: center;
+}
+footer div.col a{
+  padding: 4px;
+}
+footer p{
+  font-weight: bold;
+  font-size: 1.3rem;
+  margin: 0;
+}
+.patron{
+  background-image: url(../img/png/patron3.png);
+  background-repeat: repeat;
+  height: 100px;
 }
