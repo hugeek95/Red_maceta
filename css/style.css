@@ -42,8 +42,8 @@ nav ul{
 .encabezado{
   background-image: url(../img/png/patron2.png);
   background-repeat: repeat;
-  background-size: 5%;
-  height: 150px;
+  background-size: 10%;
+  height: 170px;
   position: absolute;
   top: 0;
   width: 100%
@@ -191,6 +191,47 @@ footer p{
   .patron{
     height: 80px;
 }
+}
+/*Funcionamiento*/
+.maceta{
+  position: relative;
+}
+p.borde{
+  border-top-color: white;
+  border-top-style: solid;
+  border-bottom-color: white;
+  border-bottom-style: solid;
+  text-align: left;
+}
+.funcionamiento{
+  width: 100%;
+  margin: 0px auto;
+  padding-bottom: 30px;
+  padding-top: 20px;
+}
+div.picwrapper {
+    width:100%;
+    text-align:center;
+}
+div.pic {
+    /* remove float:left here */
+    display:inline-block;
+}
+@media only screen and (max-width: 601px) {
+    img.pic{
+      display: block;
+      margin: auto;
+      max-width: 80%;
+    }
+    img.rotate {
+      -ms-transform: rotate(90deg) scaleY(0.7); /* IE 9 */
+      -webkit-transform: rotate(90deg) scaleY(0.7); /* Chrome, Safari, Opera */
+      transform: rotate(90deg) scaleY(0.7);
+      margin: -150px auto;
+    }
+    img.separa {
+      padding-bottom: 30px;
+    }
 }
 
 /*Términos y condiciones*/
