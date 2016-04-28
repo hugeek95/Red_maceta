@@ -1,347 +1,282 @@
-/* http://meyerweb.com/eric/tools/css/reset/ 
-   v2.0 | 20110126
-   License: none (public domain)
-*/
-
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	font-size: 100%;
-	font: inherit;
-	vertical-align: baseline;
-}
-/* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, 
-footer, header, hgroup, menu, nav, section {
-	display: block;
-}
-body {
-	line-height: 1;
-}
-ol, ul {
-	list-style: none;
-}
-blockquote, q {
-	quotes: none;
-}
-blockquote:before, blockquote:after,
-q:before, q:after {
-	content: '';
-	content: none;
-}
-table {
-	border-collapse: collapse;
-	border-spacing: 0;
-}
-@font-face{font-family:'OpenSans-Regular';
-    src:url(../fonts/OpenSans-Regular.ttf);}
-
-@font-face{font-family:'OpenSans-ExtraBoldItalic';
-    src:url(../fonts/OpenSans-ExtraBoldItalic.ttf);} 
-
-@font-face{font-family:'OpenSans-Italic';
-    src:url(../fonts/OpenSans-Italic.ttf);}      
-
-@font-face{font-family:'OpenSans-Light';
-    src:url(../fonts/OpenSans-Light.ttf);}   
-
-@font-face{font-family:'OpenSans-LightItalic';
-    src:url(../fonts/OpenSans-LightItalic.ttf);} 
-
-@font-face{font-family:'OpenSans-Semibold';
-    src:url(../fonts/OpenSans-Semibold.ttf);}
-
-@font-face{font-family:'OpenSans-SemiboldItalic';
-    src:url(../fonts/OpenSans-SemiboldItalic.ttf);}    
-@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,600,800)               
-
-.container{
-    width: 70%;
-    margin:0 auto;
-}
-.header{
-    height: 157px;
-    background-color: #c35f5d; 
-}
-.menu{
-    display: inline-block;
-    padding: 10px 0px 10px 30px;
-    margin-top: 40px;
-}
-.menu ul li{
-    display: inline-block;
-}
-.menu ul li img{
-    display: inline-block;
-    width: 100%;
-    height: 100%;
-}
-.menu a{
-    text-decoration:none;color:white;
-    font-size: 15px;
-    font-family:'OpenSans-Semibold';
-} 
-.footer{
-    height: 210px;
-    background-color: #9ac965; 
-    overflow: hidden;
-    font-family: 'Lato-Regular';
-    color:#ffffff;
-}
-}
-.frase{
-    background-color: #c35f5d; 
-    background-image:url("../img/ondas.png");
-    background-repeat: repeat;
-    height:123px;
-}
-.frase-size{
-    margin-top: 0px;
-    font-size: 27px;color:white;
-    font-family:'OpenSans-Semibold';
-}
-p{
-    padding: 20px;
-    font-size: 27px;color:white;
-    font-family:'OpenSans-Semibold';
-    margin-left:80px ;
-    margin-right:80px ;
+/*Cambio a la fuente Open Sans*/
+html{
+  	font-family: 'Open Sans', sans-serif;
 }
 
-.opacidad1{
-    background-color: #c35f5d;
-    opacity: 0.7;
-    margin: 0 auto;
-    text-align: center;
-    height: 100%;
+
+/* COLORES */
+/*El color #DF5D5D (ROJO) quedó nombrado como red en materialize*/
+/*El color #38D28C (VERDE)quedó nombrado como green en materialize*/
+/*El color #00AB6C (VERDE2) quedó nombrado como green darken-1 en materialize*/
+
+
+/*Control del alto de la barra de navegación*/
+/*Control de los márgenes de la imagen en la barra de navegación*/
+/*Centrado de las pestañas de la barra de navegación*/
+nav {
+      height: 64px;
 }
-.patron{ 
-    background-image:url("../img/ondas.png");
-    background-repeat: repeat;
-    height:123px;
+@media only screen and (max-width: 992px){
+  a.brand-logo{
+    margin: 10px;
+  }
 }
-.patron2{ 
-    background-image:url();
-    background-repeat: repeat;
-    height:123px;
-    float: left;
-    margin-top: 47px;
+@media only screen and (min-width: 601px)
+{
+  nav, div.navbar-fixed{
+    height: 80px;
+    }
+  a.brand-logo{
+    margin: 10px 30px;
+  }
 }
 
-.buscador{
-    background-image:url("../img/tomato-03.png");
-    background-size: 100%;
-    background-repeat: no-repeat;
-    width: 100%;
-    height: 443px;
+nav ul{
+    padding: 10px;
 }
-.buscador2{
-    margin: 0 auto;
-    text-align: center;
+.side-nav a{
+    color: #DF5D5D;
 }
-.opacidad{
-    background-color: #c35f5d;
-    opacity: 0.7;
-    margin: 0 auto;
-    text-align: center;
-    height: 100%;
+/*Contenedor de inicio*/
+.inicio{
+  position: relative;
 }
-hr {
-   height: 1px;
-   border: 0;
-   background-color:#c35f5d;
-   margin: 0px 0px 4px 0px;
-   }
-.sidebar{
-    float: left;
-    width: 30%;
-    
+/*Encabezado*/
+.encabezado{
+  background-image: url(../img/png/patron2.png);
+  background-repeat: repeat;
+  background-size: 10%;
+  height: 170px;
+  position: absolute;
+  top: 0;
+  width: 100%
 }
-.noticias{
-    float:left;
-    width: 70%;
+div.encabezado div.container p{
+  margin: 0 auto;
+  font-size: 1.8rem;
+  font-weight: 600;
 }
-.content{
-    background-color: #ccc;
-    overflow: hidden;
+div.encabezado div.container{
+  width: 70%;
 }
-/* Clases */
-*{
-    box-sizing: border-box;
+div.encabezado div.container p.conocer{
+  font-size: 1rem;
+  text-align: right;
 }
+@media only screen and (max-width: 601px)
+{
+  div.encabezado div.container p{
+    font-size: 1.4rem;
+}
+div.encabezado div.container{
+  width: 90%;
+}
+}
+@media only screen and (max-width: 301px)
+{
+  div.encabezado div.container p{
+    font-size: 1.0rem;;
+}
+}
+/*Fondo*/
+.fondo{
+  background-image: url(../img/jpgs/tomates.jpg);
+  background-size: cover;
+  height: 600px;
+}
+.ilustracion{
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+/*Video*/
 
-body{
-    font-family:'OpenSans-Regular';
+/*Formulario*/
+.layer{
+  background-image: url(../img/jpgs/silla.jpg);
+  background-size: cover;
+  position: relative;
 }
-div, .patron h4 {
-    text-decoration:none;color:white;
-    font-size: 15px;
-    font-family:'OpenSans-Semibold';
-    text-transform: uppercase;
-    font-weight:bold;
-}
-.paisaje{
-    
-    height:150px;
-    margin-top: 10px;
-    margin-left: 50%;              
-}
-.macetaroja{
-    height:130px;
-    margin-top: -40%;
-    margin-left: -70%;
-    z-index: 999;
-}
-div, .buscador2 h4 {
-    text-decoration:none;color:#c35f5d;
-    font-size: 31px;
-    font-family:'OpenSans-Semibold';
-    text-transform: inherit;
-    font-weight:bold;
-}    
-.fondorojo{
-background-color: #c35f5d;
-position: relative;
-height: 600px;
-text-align: center;
-font-family: helvetica, arial, sans-serif;
-font-size: 27px;
-}
-.backgroundtomato{
-    background-position: center 140px;
-    background-size: ;
-    position: absolute;
+.formulario {
+    background-color: rgba(223, 93, 93, 0.5);
     top: 0;
-    right: 0;
     left: 0;
-    bottom: 0;
-    z-index: 1;
-    opacity: 0.3;
-    background-image:url("../img/tomato-03.png");
-    background-size: 100%;
-    background-repeat: no-repeat;
     width: 100%;
     height: 100%;
+    padding-top: 80px;
+    padding-bottom: 80px;
+    padding-right: 10%;
+    padding-left: 10%;
 }
-.onditas{
-    background-image: url('img/ondas.png');
-    background-position: center top;
-    background-size: ;
-    position: absolute;
+.llevar{
+    font-weight: 800;
+}
+.consumir{
+    font-weight: 800;
+    margin-top: -15px;
+    margin-left: 35%;
+}
+.input-field {
+  margin-top: 0;
+  border-radius: 15px;
+}
+.formulario .row .col{
+  padding: 0;
+}
+input:not([type]), input[type=text], input[type=password], input[type=email], input[type=url], input[type=time], input[type=date], input[type=datetime], input[type=datetime-local], input[type=tel], input[type=number], input[type=search], textarea.materialize-textarea{
+  width: 95%;
+}
+/*Productores*/
+.productores {
     top: 0;
-    right: 0;
     left: 0;
-    bottom: 0;
-    z-index: 1;
-    opacity: 0.3;
-    background-image:url("../img/ondas.png");
-    background-repeat: repeat-x;
-    height:300px;
+    width: 100%;
+    height: 100%;
+    padding-top: 80px;
+    padding-bottom: 80px;
+    padding-right: 10%;
+    padding-left: 10%;
 }
-.super-hero-container{
-    z-index: 10;
+.buscamos{
+    border-style: solid;
+    border-radius: 15px;
+    border-color: #38D28C;
     position: relative;
-    color: #fff;
-    width: 80%;
-    margin: 0 auto;
 }
-.super-hero-frase{
-    padding: 10px;
-    font-size: 27px;color:white;
-    font-family:'OpenSans-Semibold';
-    margin-left:0px ;
-    margin-right:0px ;
+.boton{
+    position: absolute;
+    right: -2px;
+    top: 0;
 }
-.video{
-    margin-top: 20px;    
+.boton a.btn-large{
+    height: 60px;
+    border-radius: 0 15px 15px 0;
 }
-div, h1{
-    padding: 0px;
-    font-size: 31px;color:white;
-    font-style: inherit;
-    font-family:'OpenSans-Semibold';
-    margin-left:0px ;
-    margin-right:0px ;
-}            
-
-button{
-    font-size: 15px;color:white  !important;
-    font-style: inherit;
-    font-family:'OpenSans-Regular';
-    margin-left:0px ;
-    margin-right:0px ;
-    background-color: #c35f5d;
-    height: 2.6rem;
-    border-radius: 0px 7px 7px 0px;
-    -moz-border-radius: 0px 7px 7px 0px;
-    -webkit-border-radius: 0px 7px 7px 0px;
-    border: 0px solid #000000;
-    border: 1px solid white;
+.productor-card{
+    position:absolute;
+    right: 10px;
+    top: -30px;
 }
-form{
-    background-color: white !important;
-    border: #c35f5d;
-    border-bottom: 1px solid #c35f5d;
-    border-radius: ;
-    outline: #c35f5d;
-    height: 3rem;
-    width: 100%;
-    font-size: 15px;
-    font-family:'OpenSans-Regular';
-    margin: 0 0 0 0;
-    padding: 0;
-    box-shadow: none;
-    box-sizing: content-box;
-    transition: all .3s;
-    border-radius: 7px 0px 0px 7px;
-    -moz-border-radius: 7px 0px 0px 7px;
-    -webkit-border-radius: 7px 0px 0px 7px;
-    border: 0px solid #000000;
+.descrip_prod{
+    width: 70%;
+    text-align: left;
+}
+.img-buscamos{
+  text-align: center;
+  bottom: -50px;
+  position: relative;
+}
+.img-buscamos img{
+  width: 151px;
+  height: 133px;
+}
+@media only screen and (max-width: 601px) {
+    .boton a.btn-large {
+      height: 60px;
+      border-radius: 15px;
+    }
+    .boton{
+        top: 130%;
+        right: 25%;
+    }
+    .img-buscamos{
+      bottom: -100px;
+    }
+}
+/*Footer*/
+footer div.col{
+  text-align: center;
+}
+footer div.col a{
+  padding: 4px;
+}
+footer p{
+  font-weight: bold;
+  font-size: 2rem;
+  margin: 0;
+}
+.patron{
+  background-image: url(../img/png/patron3.png);
+  background-repeat: repeat;
+  height: 150px;
+}
+@media only screen and (max-width: 601px)
+{
+  .patron{
+    height: 80px;
+}
+}
+/*Funcionamiento*/
+.maceta{
+  position: relative;
+}
+p.borde{
+  border-top-color: white;
+  border-top-style: solid;
+  border-bottom-color: white;
+  border-bottom-style: solid;
+  text-align: left;
+}
+.funcionamiento{
+  width: 100%;
+  margin: 0px auto;
+  padding-bottom: 30px;
+  padding-top: 20px;
+}
+div.picwrapper {
+    width:100%;
+    text-align:center;
+}
+div.pic {
+    /* remove float:left here */
+    display:inline-block;
+}
+@media only screen and (max-width: 601px) {
+    img.pic{
+      display: block;
+      margin: auto;
+      max-width: 80%;
+    }
+    img.rotate {
+      -ms-transform: rotate(90deg) scaleY(0.7); /* IE 9 */
+      -webkit-transform: rotate(90deg) scaleY(0.7); /* Chrome, Safari, Opera */
+      transform: rotate(90deg) scaleY(0.7);
+      margin: -150px auto;
+    }
+    img.separa {
+      padding-bottom: 30px;
+    }
 }
 
-a:link {
-text-decoration: none;
-color: white;
+/*Conócenos*/
+.conocenos{
+  position: relative;
 }
-.icon{ 
-    height:6%;
-    width: 6%;
-    padding: 10px;
-    float: left;
-    margin-top: 6%;
-} 
-.maceta2 {
-    float: left;
-    height:13%;
-    width: 13%;
-    padding: 10px;
-    float: left;
-    margin-top: 2%;
-    margin-left: 3%;
-} 
-h5 {
-    text-decoration:none;color:white;
-    font-family:'OpenSans-ExtraBold';
-    float: left;
-} 
+.row .col.foto{
+  padding: 0.75rem 0.75rem;
+}
 
 
-
-
-
-
-
-           
+/*Términos y condiciones*/
+div.term{
+  width: 70%;
+}
+div.term h6{
+  font-size: 0.8rem;
+  font-weight: bold;
+  line-height: normal;
+}
+footer.page-footer{
+  margin-top: 0;
+  border-top-style: solid;
+  border-top-color: white;
+  border-top-width: 5px;
+}
+footer.page-footer .footer-copyright {
+    overflow: visible;
+}
+div.term p{
+  font-weight: lighter;
+  font-size: 0.6rem;
+  line-height: normal;
+}
