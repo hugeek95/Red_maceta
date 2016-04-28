@@ -234,6 +234,15 @@ div.pic {
     }
 }
 
+/*Conócenos*/
+.conocenos{
+  position: relative;
+}
+.row .col.foto{
+  padding: 0.75rem 0.75rem;
+}
+
+
 /*Términos y condiciones*/
 div.term{
   width: 70%;
