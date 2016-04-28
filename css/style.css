@@ -34,6 +34,9 @@ nav {
 nav ul{
     padding: 10px;
 }
+.side-nav a{
+    color: #DF5D5D;
+}
 /*Contenedor de inicio*/
 .inicio{
   position: relative;
@@ -51,6 +54,7 @@ nav ul{
 div.encabezado div.container p{
   margin: 0 auto;
   font-size: 1.8rem;
+  font-weight: 600;
 }
 div.encabezado div.container{
   width: 70%;
@@ -85,6 +89,7 @@ div.encabezado div.container{
   right: 0;
   bottom: 0;
 }
+/*Video*/
 
 /*Formulario*/
 .layer{
@@ -254,6 +259,9 @@ div.term h6{
 }
 footer.page-footer{
   margin-top: 0;
+  border-top-style: solid;
+  border-top-color: white;
+  border-top-width: 5px;
 }
 footer.page-footer .footer-copyright {
     overflow: visible;
