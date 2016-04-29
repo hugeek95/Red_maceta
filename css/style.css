@@ -62,6 +62,45 @@ div.encabezado div.container{
 div.encabezado div.container p.conocer{
   font-size: 1rem;
   text-align: right;
+<<<<<<< HEAD
+}
+@media only screen and (max-width: 601px)
+{
+  div.encabezado div.container p{
+    font-size: 1.4rem;
+}
+div.encabezado div.container{
+  width: 90%;
+}
+}
+@media only screen and (max-width: 301px)
+{
+  div.encabezado div.container p{
+    font-size: 1.0rem;;
+}
+}
+/*Fondo*/
+.fondo{
+  background-image: url(../img/jpgs/tomates.jpg);
+  background-size: cover;
+  height: 600px;
+}
+.ilustracion{
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+/*Video*/
+
+/*Formulario*/
+.layer{
+  background-image: url(../img/jpgs/silla.jpg);
+  background-size: cover;
+  position: relative;
+}
+.formulario {
+    background-color: rgba(223, 93, 93, 0.5);
+=======
 }
 @media only screen and (max-width: 601px)
 {
@@ -128,6 +167,37 @@ input:not([type]), input[type=text], input[type=password], input[type=email], in
 }
 /*Productores*/
 .productores {
+>>>>>>> Hugo
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding-top: 80px;
+    padding-bottom: 80px;
+    padding-right: 10%;
+    padding-left: 10%;
+<<<<<<< HEAD
+}
+.llevar{
+    font-weight: 800;
+}
+.consumir{
+    font-weight: 800;
+    margin-top: -15px;
+    margin-left: 35%;
+}
+.input-field {
+  margin-top: 0;
+  border-radius: 15px;
+}
+.formulario .row .col{
+  padding: 0;
+}
+input:not([type]), input[type=text], input[type=password], input[type=email], input[type=url], input[type=time], input[type=date], input[type=datetime], input[type=datetime-local], input[type=tel], input[type=number], input[type=search], textarea.materialize-textarea{
+  width: 95%;
+}
+/*Productores*/
+.productores {
     top: 0;
     left: 0;
     width: 100%;
@@ -151,6 +221,32 @@ input:not([type]), input[type=text], input[type=password], input[type=email], in
 .boton a.btn-large{
     height: 60px;
     border-radius: 0 15px 15px 0;
+=======
+}
+.buscamos{
+    border-style: solid;
+    border-radius: 15px;
+    border-color: #38D28C;
+    position: relative;
+}
+.boton{
+    position: absolute;
+    right: -2px;
+    top: 0;
+}
+.boton a.btn-large{
+    height: 60px;
+    border-radius: 0 15px 15px 0;
+}
+.productor-card{
+    position:absolute;
+    right: 10px;
+    top: -30px;
+}
+.descrip_prod{
+    width: 70%;
+    text-align: left;
+>>>>>>> Hugo
 }
 .img-buscamos{
   text-align: center;
@@ -173,6 +269,59 @@ input:not([type]), input[type=text], input[type=password], input[type=email], in
     .img-buscamos{
       bottom: -100px;
     }
+}
+/*Slider y Páginas*/
+
+.slider .indicators .indicator-item{
+  display: none;
+}
+.pagination li a {
+    color: white;
+}
+div.categorias a img{
+  width: 100px;
+  height: auto;
+}
+div.categorias a img:hover{
+  width: 95px;
+  height: auto;
+}
+/*Cards*/
+.row .col.card{
+  padding: 0;
+  margin: 20px;
+}
+.foto-productor{
+  width: 30%;
+  position: absolute;
+  z-index: 2;
+  top: 60%;
+  right: 0.4rem;
+  overflow: hidden;
+}
+.foto-productor p{
+  margin: 0;
+  font-size: 0.9rem;
+  color: #818181;
+}
+.card-content p.precio{
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #818181;
+  text-align: left;
+}
+.card .card-content .card-title{
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #818181;
+  text-align: left;
+  line-height: 1rem;
+}
+.card .card-content .card-subtitle{
+  font-size: 0.8rem;
+  font-weight: 100;
+  color: #818181;
+  text-align: left;
 }
 /*Footer*/
 footer div.col{
