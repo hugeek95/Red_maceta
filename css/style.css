@@ -286,7 +286,22 @@ div.categorias a img:hover{
   width: 95px;
   height: auto;
 }
+/*Galería*/
+@media only screen and (min-width: 993px){
+.galeria .container{
+  width: 80%
+}
+}
+@media only screen and (min-width: 1180px){
+.galeria .container{
+  width: 70%
+}
+}
+
+
+
 /*Cards*/
+
 .row .col.card{
   padding: 0;
   margin: 20px;
@@ -322,6 +337,41 @@ div.categorias a img:hover{
   font-weight: 100;
   color: #818181;
   text-align: left;
+}
+.card .card-reveal .card-title{
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #818181;
+  text-align: left;
+  line-height: 1.5rem;
+}
+.card .card-reveal .precio_grande{
+  font-size: 1.3rem;
+  font-weight: 600;
+  /*color: #DF5D5D;*/
+  text-align: left;
+}
+.descripcion{
+  font-size: 0.9rem;
+  color: #818181;
+  text-align: justify;
+  line-height: 1rem;
+}
+.compra{
+  bottom: 0;
+  right: 0;
+  left: 0;
+  margin: auto;
+  position: absolute;
+}
+.compra .row{
+  margin-bottom:10px;
+}
+.compra .row .input-field input{
+  margin: 0;
+  border: 1px solid #9e9e9e;
+  text-align: center;
+  height: 2rem;
 }
 /*Footer*/
 footer div.col{
