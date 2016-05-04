@@ -34,9 +34,6 @@ nav {
 nav ul{
     padding: 10px;
 }
-.side-nav a{
-    color: #DF5D5D;
-}
 /*Contenedor de inicio*/
 .inicio{
   position: relative;
@@ -45,8 +42,8 @@ nav ul{
 .encabezado{
   background-image: url(../img/png/patron2.png);
   background-repeat: repeat;
-  background-size: 10%;
-  height: 170px;
+  background-size: 5%;
+  height: 150px;
   position: absolute;
   top: 0;
   width: 100%
@@ -54,7 +51,6 @@ nav ul{
 div.encabezado div.container p{
   margin: 0 auto;
   font-size: 1.8rem;
-  font-weight: 600;
 }
 div.encabezado div.container{
   width: 70%;
@@ -62,7 +58,6 @@ div.encabezado div.container{
 div.encabezado div.container p.conocer{
   font-size: 1rem;
   text-align: right;
-<<<<<<< HEAD
 }
 @media only screen and (max-width: 601px)
 {
@@ -90,45 +85,6 @@ div.encabezado div.container{
   right: 0;
   bottom: 0;
 }
-/*Video*/
-
-/*Formulario*/
-.layer{
-  background-image: url(../img/jpgs/silla.jpg);
-  background-size: cover;
-  position: relative;
-}
-.formulario {
-    background-color: rgba(223, 93, 93, 0.5);
-=======
-}
-@media only screen and (max-width: 601px)
-{
-  div.encabezado div.container p{
-    font-size: 1.4rem;
-}
-div.encabezado div.container{
-  width: 90%;
-}
-}
-@media only screen and (max-width: 301px)
-{
-  div.encabezado div.container p{
-    font-size: 1.0rem;;
-}
-}
-/*Fondo*/
-.fondo{
-  background-image: url(../img/jpgs/tomates.jpg);
-  background-size: cover;
-  height: 600px;
-}
-.ilustracion{
-  position: absolute;
-  right: 0;
-  bottom: 0;
-}
-/*Video*/
 
 /*Formulario*/
 .layer{
@@ -146,37 +102,6 @@ div.encabezado div.container{
     padding-bottom: 80px;
     padding-right: 10%;
     padding-left: 10%;
-}
-.llevar{
-    font-weight: 800;
-}
-.consumir{
-    font-weight: 800;
-    margin-top: -15px;
-    margin-left: 35%;
-}
-.input-field {
-  margin-top: 0;
-  border-radius: 15px;
-}
-.formulario .row .col{
-  padding: 0;
-}
-input:not([type]), input[type=text], input[type=password], input[type=email], input[type=url], input[type=time], input[type=date], input[type=datetime], input[type=datetime-local], input[type=tel], input[type=number], input[type=search], textarea.materialize-textarea{
-  width: 95%;
-}
-/*Productores*/
-.productores {
->>>>>>> Hugo
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    padding-top: 80px;
-    padding-bottom: 80px;
-    padding-right: 10%;
-    padding-left: 10%;
-<<<<<<< HEAD
 }
 .llevar{
     font-weight: 800;
@@ -221,32 +146,6 @@ input:not([type]), input[type=text], input[type=password], input[type=email], in
 .boton a.btn-large{
     height: 60px;
     border-radius: 0 15px 15px 0;
-=======
-}
-.buscamos{
-    border-style: solid;
-    border-radius: 15px;
-    border-color: #38D28C;
-    position: relative;
-}
-.boton{
-    position: absolute;
-    right: -2px;
-    top: 0;
-}
-.boton a.btn-large{
-    height: 60px;
-    border-radius: 0 15px 15px 0;
-}
-.productor-card{
-    position:absolute;
-    right: 10px;
-    top: -30px;
-}
-.descrip_prod{
-    width: 70%;
-    text-align: left;
->>>>>>> Hugo
 }
 .img-buscamos{
   text-align: center;
@@ -269,59 +168,6 @@ input:not([type]), input[type=text], input[type=password], input[type=email], in
     .img-buscamos{
       bottom: -100px;
     }
-}
-/*Slider y Páginas*/
-
-.slider .indicators .indicator-item{
-  display: none;
-}
-.pagination li a {
-    color: white;
-}
-div.categorias a img{
-  width: 100px;
-  height: auto;
-}
-div.categorias a img:hover{
-  width: 95px;
-  height: auto;
-}
-/*Cards*/
-.row .col.card{
-  padding: 0;
-  margin: 20px;
-}
-.foto-productor{
-  width: 30%;
-  position: absolute;
-  z-index: 2;
-  top: 60%;
-  right: 0.4rem;
-  overflow: hidden;
-}
-.foto-productor p{
-  margin: 0;
-  font-size: 0.9rem;
-  color: #818181;
-}
-.card-content p.precio{
-  font-size: 0.8rem;
-  font-weight: 600;
-  color: #818181;
-  text-align: left;
-}
-.card .card-content .card-title{
-  font-size: 0.9rem;
-  font-weight: 600;
-  color: #818181;
-  text-align: left;
-  line-height: 1rem;
-}
-.card .card-content .card-subtitle{
-  font-size: 0.8rem;
-  font-weight: 100;
-  color: #818181;
-  text-align: left;
 }
 /*Footer*/
 footer div.col{
@@ -346,56 +192,6 @@ footer p{
     height: 80px;
 }
 }
-/*Funcionamiento*/
-.maceta{
-  position: relative;
-}
-p.borde{
-  border-top-color: white;
-  border-top-style: solid;
-  border-bottom-color: white;
-  border-bottom-style: solid;
-  text-align: left;
-}
-.funcionamiento{
-  width: 100%;
-  margin: 0px auto;
-  padding-bottom: 30px;
-  padding-top: 20px;
-}
-div.picwrapper {
-    width:100%;
-    text-align:center;
-}
-div.pic {
-    /* remove float:left here */
-    display:inline-block;
-}
-@media only screen and (max-width: 601px) {
-    img.pic{
-      display: block;
-      margin: auto;
-      max-width: 80%;
-    }
-    img.rotate {
-      -ms-transform: rotate(90deg) scaleY(0.7); /* IE 9 */
-      -webkit-transform: rotate(90deg) scaleY(0.7); /* Chrome, Safari, Opera */
-      transform: rotate(90deg) scaleY(0.7);
-      margin: -150px auto;
-    }
-    img.separa {
-      padding-bottom: 30px;
-    }
-}
-
-/*Conócenos*/
-.conocenos{
-  position: relative;
-}
-.row .col.foto{
-  padding: 0.75rem 0.75rem;
-}
-
 
 /*Términos y condiciones*/
 div.term{
@@ -408,9 +204,6 @@ div.term h6{
 }
 footer.page-footer{
   margin-top: 0;
-  border-top-style: solid;
-  border-top-color: white;
-  border-top-width: 5px;
 }
 footer.page-footer .footer-copyright {
     overflow: visible;
