@@ -91,47 +91,6 @@ div.encabezado div.container{
   bottom: 0;
 }
 /*Video*/
-<<<<<<< HEAD
-
-/*Formulario*/
-.layer{
-  background-image: url(../img/jpgs/silla.jpg);
-  background-size: cover;
-  position: relative;
-}
-.formulario {
-    background-color: rgba(223, 93, 93, 0.5);
-=======
-}
-@media only screen and (max-width: 601px)
-{
-  div.encabezado div.container p{
-    font-size: 1.4rem;
-}
-div.encabezado div.container{
-  width: 90%;
-}
-}
-@media only screen and (max-width: 301px)
-{
-  div.encabezado div.container p{
-    font-size: 1.0rem;;
-}
-}
-/*Fondo*/
-.fondo{
-  background-image: url(../img/jpgs/tomates.jpg);
-  background-size: cover;
-  height: 600px;
-}
-.ilustracion{
-  position: absolute;
-  right: 0;
-  bottom: 0;
-}
-/*Video*/
-=======
->>>>>>> origin/mario
 
 /*Formulario*/
 .layer{
@@ -239,37 +198,6 @@ input:not([type]), input[type=text], input[type=password], input[type=email], in
 }
 /*Productores*/
 .productores {
->>>>>>> Hugo
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    padding-top: 80px;
-    padding-bottom: 80px;
-    padding-right: 10%;
-    padding-left: 10%;
-<<<<<<< HEAD
-}
-.llevar{
-    font-weight: 800;
-}
-.consumir{
-    font-weight: 800;
-    margin-top: -15px;
-    margin-left: 35%;
-}
-.input-field {
-  margin-top: 0;
-  border-radius: 15px;
-}
-.formulario .row .col{
-  padding: 0;
-}
-input:not([type]), input[type=text], input[type=password], input[type=email], input[type=url], input[type=time], input[type=date], input[type=datetime], input[type=datetime-local], input[type=tel], input[type=number], input[type=search], textarea.materialize-textarea{
-  width: 95%;
-}
-/*Productores*/
-.productores {
     top: 0;
     left: 0;
     width: 100%;
@@ -309,32 +237,6 @@ input:not([type]), input[type=text], input[type=password], input[type=email], in
 .boton a.btn-large{
     height: 60px;
     border-radius: 0 15px 15px 0;
-=======
-}
-.buscamos{
-    border-style: solid;
-    border-radius: 15px;
-    border-color: #38D28C;
-    position: relative;
-}
-.boton{
-    position: absolute;
-    right: -2px;
-    top: 0;
-}
-.boton a.btn-large{
-    height: 60px;
-    border-radius: 0 15px 15px 0;
-}
-.productor-card{
-    position:absolute;
-    right: 10px;
-    top: -30px;
-}
-.descrip_prod{
-    width: 70%;
-    text-align: left;
->>>>>>> Hugo
 }
 .productor-card{
     position:absolute;
@@ -384,7 +286,6 @@ div.categorias a img:hover{
   width: 95px;
   height: auto;
 }
-<<<<<<< HEAD
 /*Galería*/
 @media only screen and (min-width: 993px){
 .galeria .container{
@@ -401,9 +302,6 @@ div.categorias a img:hover{
 
 /*Cards*/
 
-=======
-/*Cards*/
->>>>>>> origin/mario
 .row .col.card{
   padding: 0;
   margin: 20px;
@@ -440,7 +338,6 @@ div.categorias a img:hover{
   color: #818181;
   text-align: left;
 }
-<<<<<<< HEAD
 .card .card-reveal .card-title{
   font-size: 1.5rem;
   font-weight: 600;
@@ -476,8 +373,6 @@ div.categorias a img:hover{
   text-align: center;
   height: 2rem;
 }
-=======
->>>>>>> origin/mario
 /*Footer*/
 footer div.col{
   text-align: center;
