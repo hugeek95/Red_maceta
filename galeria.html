@@ -75,7 +75,7 @@
 
       <div class="container center-align green">
 
-       <!--  fila 1 -->
+      <!--  fila 1 -->
       <div class="row">
           <!--  card 1 -->
           <div class="col l4 m6 s12">
@@ -95,7 +95,6 @@
                   <p>Rancho Xaltipa</p>
                 </div>
               </a>
-              <!-- /Productor -->
               <!-- Productor Modal Structure -->
               <div id="productor1" class="modal modal-productor">
                     <div class="modal-content">
@@ -123,33 +122,23 @@
 
               </div>
               <!-- /Productor Modal Structure -->
+              <!-- /Productor -->
               <!-- Atrás card -->
               <div class="card-reveal">
                 <span class="card-title">LECHE ENTERA TRADICIONAL<i class="material-icons right">close</i></span>
                 <span class="precio_grande red-text left">$30 MXN</span>
                 <br>
                 <p class="descripcion">Leche de vaca pasteurizada elaborada de la manera tradicional, 100% pura, sin rebajar. Al hervirla se consigue una exquisita nata.</p>
-                <div class="container compra">
-                    <div class="row">
-                        <div class="col l4 m4 s4">
-                        <a class="btn-floating waves-effect waves-light"><i class="material-icons">remove</i></a>
-                        </div>
-                        <div class="input-field col l4 m4 s4">
-                          <input value="0" id="cantidad" type="number" min="0" max="5" class="validate">
-                        </div>
-                        <div class="col l4 m4 s4">
-                        <a class="btn-floating waves-effect waves-light"><i class="material-icons">add</i></a>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="chip">litro(s)</div>
-                    </div>
-                    <div class="row">
-                        <a class="waves-effect waves-light btn red">Al huacal</a>
-                    </div>
+                <div class="compra">
+                        <a class="waves-effect waves-light btn red">A la canasta</a>
                 </div>
               </div>
               <!-- /Atrás card -->
+              <!-- Botón delantero -->
+              <div class="boton-delantero">
+                <a><img src="img/png/btn_canasta_compra.png" class="responsive-img waves-effect waves-light" alt="" /></a>
+              </div>
+              <!-- /Botón delantero -->
           </div>
           </div>
           <!--  /card 1 -->
@@ -292,49 +281,40 @@
       <!--/Numeración-->
 
       <!--Canasta-->
-            <!-- Modal Trigger -->
+       <!-- Modal Trigger -->
        <div class="canasta">
-       <span class="badge"></span>
-       <a class="waves-effect waves-light modal-trigger" href="#canasta"><img src="img/png/btn_canasta_ir.png" alt="" /></a>
+       <a class="modal-trigger" href="#canasta"><img src="img/png/btn_canasta_ir.png" class="responsive-img waves-effect waves-light" alt="" /></a>
+       <h6 class="white-text">Ver canasta</h6>
        </div>
        <!-- Modal Structure -->
        <div id="canasta" class="modal bottom-sheet">
          <div class="modal-content">
            <h4>Mi canasta</h4>
-                <ul class="collection">
-                  <li class="collection-item avatar">
-                    <img src="img/productos/1.jpg" alt="" class="circle">
-                    <span class="title">Title</span>
-                    <p>First Line <br>
-                       Second Line
-                    </p>
-                    <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
-                  </li>
-                  <li class="collection-item avatar">
-                    <i class="material-icons circle">folder</i>
-                    <span class="title">Title</span>
-                    <p>First Line <br>
-                       Second Line
-                    </p>
-                    <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
-                  </li>
-                  <li class="collection-item avatar">
-                    <i class="material-icons circle green">insert_chart</i>
-                    <span class="title">Title</span>
-                    <p>First Line <br>
-                       Second Line
-                    </p>
-                    <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
-                  </li>
-                  <li class="collection-item avatar">
-                    <i class="material-icons circle red">play_arrow</i>
-                    <span class="title">Title</span>
-                    <p>First Line <br>
-                       Second Line
-                    </p>
-                    <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
-                  </li>
-                </ul>
+           <table>
+                <thead>
+                  <tr>
+                      <th data-field="id">Producto</th>
+                      <th data-field="nombre">Nombre</th>
+                      <th data-field="precio">Precio</th>
+                      <th data-field="cantidad">Cantidad</th>
+                      <th data-field="importe">Importe</th>
+                  </tr>
+                </thead>
+
+                <tbody>
+                  <tr>
+                    <td><img  src="img/productos/leche.jpg" class="img-canasta"alt="" /></td>
+                    <td><span>LECHE ENTERA TRADICIONAL</span></td>
+                    <td>$30.00 MXN</td>
+                    <td>
+                    <!--<i class="material-icons">remove_circle</i>-->
+                    <input value="0" id="cantidad" type="number" min="0" max="5" class="validate">
+                    <!--<i class="material-icons">add_circle</i>-->
+                    </td>
+                    <td>$0.00</td>
+                  </tr>
+                </tbody>
+            </table>
          </div>
          <div class="modal-footer">
            <a href="#!" class=" modal-action modal-close waves-effect waves-red btn red">Ir a pagar</a>
