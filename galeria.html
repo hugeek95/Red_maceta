@@ -164,12 +164,15 @@
     <!--/Footer-->
 
     <!--  Scripts-->
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="js/materialize.js"></script>
     <script type="text/javascript">
     function loadgaleria() {
           var xhttp = new XMLHttpRequest();
           xhttp.onreadystatechange = function() {
             if (xhttp.readyState == 4 && xhttp.status == 200) {
               document.getElementById("galeria").innerHTML = xhttp.responseText;
+              $('.modal-trigger').leanModal();
             }
           };
           xhttp.open("GET", "galeria.php", true);
@@ -177,8 +180,6 @@
         }
     loadgaleria();
     </script>
-    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-    <script src="js/materialize.js"></script>
     <script src="js/init.js"></script>
     </body>
 </html>
