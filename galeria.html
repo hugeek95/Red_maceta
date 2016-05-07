@@ -173,6 +173,7 @@
             if (xhttp.readyState == 4 && xhttp.status == 200) {
               document.getElementById("galeria").innerHTML = xhttp.responseText;
               $('.modal-trigger').leanModal();
+              $('.tooltipped').tooltip({delay: 50});
             }
           };
           xhttp.open("GET", "galeria.php", true);
