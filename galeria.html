@@ -63,16 +63,26 @@
       <br/><br/>
 
       <div class="categorias center">
-           <a href=""><img src="img/png/categoria1_paqt.png"></a>
-           <a href=""><img src="img/png/categoria6_horneados.png"></a>
-           <a href=""><img src="img/png/categoria3_frutas.png"></a>
-           <a href=""><img src="img/png/categoria2_hortalizas.png"></a>
-           <a href=""><img src="img/png/categoria4_bebidas.png"></a>
-           <a href=""><img src="img/png/categoria5_derivadosanim.png" ></a>
-           <a href=""><img src="img/png/categoria7_condim.png"></a>
-           <a href=""><img src="img/png/categoria8_tradi.png"></a>
+           <a id="1" onclick="categoria(this.id)"><img src="img/png/categoria1_paqt.png"></a>
+           <a id="2" onclick="categoria(this.id)"><img src="img/png/categoria6_horneados.png"></a>
+           <a id="3" onclick="categoria(this.id)"><img src="img/png/categoria3_frutas.png"></a>
+           <a id="4" onclick="categoria(this.id)"><img src="img/png/categoria2_hortalizas.png"></a>
+           <a id="5" onclick="categoria(this.id)"><img src="img/png/categoria4_bebidas.png"></a>
+           <a id="6" onclick="categoria(this.id)"><img src="img/png/categoria5_derivadosanim.png" ></a>
+           <a id="7" onclick="categoria(this.id)"><img src="img/png/categoria7_condim.png"></a>
+           <a id="8" onclick="categoria(this.id)"><img src="img/png/categoria8_tradi.png"></a>
       </div>
-
+      <br/>
+      <div class="container">
+        <form id="formulario" class="row">
+        <div class="input-field white col l11 m11 s12 center-align">
+          <input id="busqueda" name="busqueda" placeholder="duraznos, aguacate, pollo, huevo" type="text" class="validate">
+        </div>
+        <div class="col l1 m1 s12 center-align">
+          <a id="boton_buscar" class="btn-floating btn-large waves-effect waves-light red" ><i class="material-icons">search</i></a>
+        </form>
+        </div>
+      </div>
       <!-- Contenido galería-->
       <div id="galeria" class="container center-align green">
       </div>
@@ -167,19 +177,39 @@
     <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script src="js/materialize.js"></script>
     <script type="text/javascript">
-    function loadgaleria() {
-          var xhttp = new XMLHttpRequest();
-          xhttp.onreadystatechange = function() {
-            if (xhttp.readyState == 4 && xhttp.status == 200) {
-              document.getElementById("galeria").innerHTML = xhttp.responseText;
-              $('.modal-trigger').leanModal();
-              $('.tooltipped').tooltip({delay: 50});
-            }
-          };
-          xhttp.open("GET", "galeria.php", true);
-          xhttp.send();
-        }
-    loadgaleria();
+    document.getElementById('boton_buscar').onclick = function() {
+    var search = document.getElementById('busqueda').value;
+    loadgaleria(search);
+    }
+    document.getElementById('formulario').addEventListener('submit', function(e) {
+    loadgaleria(document.getElementById('busqueda').value);
+    e.preventDefault();
+    }, false);
+    function loadgaleria(str) {
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                if (xhttp.readyState == 4 && xhttp.status == 200) {
+                          document.getElementById("galeria").innerHTML = xhttp.responseText;
+                          $('.modal-trigger').leanModal();
+                          $('.tooltipped').tooltip({delay: 50});
+                        }
+                };
+                xhttp.open("GET", "galeria.php?q=" + str, true);
+                xhttp.send();
+      }
+    loadgaleria("");
+    function categoria(str) {
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                if (xhttp.readyState == 4 && xhttp.status == 200) {
+                          document.getElementById("galeria").innerHTML = xhttp.responseText;
+                          $('.modal-trigger').leanModal();
+                          $('.tooltipped').tooltip({delay: 50});
+                        }
+                };
+                xhttp.open("GET", "galeria.php?cat=" + str, true);
+                xhttp.send();
+      }
     </script>
     <script src="js/init.js"></script>
     </body>

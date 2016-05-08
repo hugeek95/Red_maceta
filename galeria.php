@@ -15,7 +15,19 @@
     echo '<p>Error al conectar a base de datos: '.mysqli_connect_error().'</p>';
     }
 
-    $sql = "SELECT * FROM Producto";
+    $cat = 0;
+    $cat = $_REQUEST["cat"];
+    $q = $_REQUEST["q"];
+
+    if ($cat != 0){
+      $sql = "SELECT * FROM Producto WHERE Categoria LIKE '%$cat%'";
+    }
+    elseif ($q == ""){
+      $sql = "SELECT * FROM Producto";
+    }
+    else{
+      $sql = "SELECT * FROM Producto WHERE nombre LIKE '%$q%'";
+    }
     $result = mysqli_query($conn, $sql);
     echo '<div class="row">';
     while($row = mysqli_fetch_assoc($result)){
@@ -30,9 +42,9 @@
                 <img class="activator" src="img/productos/<?php echo $row["Imagen"] ?>.jpg">
               </div>
               <div class="card-content">
-                <p class="card-title"><?php echo $row["Nombre"] ?></p>
-                <p class="card-subtitle"><?php echo $row2["lugar"]; ?></p>
-                <p class="precio">$<?php echo $row["Precio"] ?> MXN - <?php echo $row["Unidad"] ?></p>
+                <p class="card-title activator"><?php echo $row["Nombre"] ?></p>
+                <p class="card-subtitle activator"><?php echo $row2["lugar"]; ?></p>
+                <p class="precio activator">$<?php echo $row["Precio"] ?> MXN - <?php echo $row["Unidad"] ?></p>
               </div>
               <!-- Productor -->
               <a class="modal-trigger" href="#productor<?php echo $row["id"] ?>">
