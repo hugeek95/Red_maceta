@@ -43,11 +43,12 @@ nav ul{
 }
 /*Encabezado*/
 .encabezado{
-  background-image: url(../img/png/patron2.png);
-  background-repeat: repeat;
-  background-size: 10%;
-  height: 170px;
   position: absolute;
+  background-color: rgba(223, 93, 93, 0.5);
+/*  background-image: url(../img/png/patron2.png);
+  background-repeat: repeat;
+  background-size: 10%;*/
+  height: 120px;
   top: 0;
   width: 100%
 }
@@ -62,7 +63,6 @@ div.encabezado div.container{
 div.encabezado div.container p.conocer{
   font-size: 1rem;
   text-align: right;
-<<<<<<< HEAD
 }
 @media only screen and (max-width: 601px)
 {
@@ -91,45 +91,12 @@ div.encabezado div.container{
   bottom: 0;
 }
 /*Video*/
+.video{
+  height: 170px;
 
-/*Formulario*/
-.layer{
-  background-image: url(../img/jpgs/silla.jpg);
-  background-size: cover;
-  position: relative;
+  top: 0;
+  width: 100%
 }
-.formulario {
-    background-color: rgba(223, 93, 93, 0.5);
-=======
-}
-@media only screen and (max-width: 601px)
-{
-  div.encabezado div.container p{
-    font-size: 1.4rem;
-}
-div.encabezado div.container{
-  width: 90%;
-}
-}
-@media only screen and (max-width: 301px)
-{
-  div.encabezado div.container p{
-    font-size: 1.0rem;;
-}
-}
-/*Fondo*/
-.fondo{
-  background-image: url(../img/jpgs/tomates.jpg);
-  background-size: cover;
-  height: 600px;
-}
-.ilustracion{
-  position: absolute;
-  right: 0;
-  bottom: 0;
-}
-/*Video*/
-
 /*Formulario*/
 .layer{
   background-image: url(../img/jpgs/silla.jpg);
@@ -167,7 +134,6 @@ input:not([type]), input[type=text], input[type=password], input[type=email], in
 }
 /*Productores*/
 .productores {
->>>>>>> Hugo
     top: 0;
     left: 0;
     width: 100%;
@@ -176,7 +142,6 @@ input:not([type]), input[type=text], input[type=password], input[type=email], in
     padding-bottom: 80px;
     padding-right: 10%;
     padding-left: 10%;
-<<<<<<< HEAD
 }
 .llevar{
     font-weight: 800;
@@ -197,16 +162,6 @@ input:not([type]), input[type=text], input[type=password], input[type=email], in
   width: 95%;
 }
 /*Productores*/
-.productores {
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    padding-top: 80px;
-    padding-bottom: 80px;
-    padding-right: 10%;
-    padding-left: 10%;
-}
 .buscamos{
     border-style: solid;
     border-radius: 15px;
@@ -230,7 +185,6 @@ input:not([type]), input[type=text], input[type=password], input[type=email], in
 .descrip_prod{
     width: 70%;
     text-align: left;
->>>>>>> Hugo
 }
 .img-buscamos{
   text-align: center;
