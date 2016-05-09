@@ -44,18 +44,18 @@ nav ul{
 /*Encabezado*/
 .encabezado{
   position: absolute;
-  background-color: rgba(223, 93, 93, 0.5);
-/*  background-image: url(../img/png/patron2.png);
+/*  background-color: rgba(223, 93, 93, 0.5);
+  background-image: url(../img/png/patron2.png);
   background-repeat: repeat;
   background-size: 10%;*/
   height: 120px;
-  top: 0;
+  top: 30px;
   width: 100%
 }
 div.encabezado div.container p{
   margin: 0 auto;
   font-size: 1.8rem;
-  font-weight: 600;
+  font-weight: 800;
 }
 div.encabezado div.container{
   width: 70%;
@@ -79,12 +79,12 @@ div.encabezado div.container{
     font-size: 1.0rem;;
 }
 }
-/*Fondo*/
+/*Fondo
 .fondo{
   background-image: url(../img/jpgs/tomates.jpg);
   background-size: cover;
-  height: 600px;
-}
+  height: 400px;
+}*/
 .ilustracion{
   position: absolute;
   right: 0;
@@ -93,9 +93,25 @@ div.encabezado div.container{
 /*Video*/
 .video{
   height: 170px;
-
   top: 0;
-  width: 100%
+  width: 100%;
+}
+video {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -100;
+    transform: translateX(-50%) translateY(-50%);
+ background: url('//demosthenes.info/assets/images/polina.jpg') no-repeat;
+  background-size: cover;
+  transition: 1s opacity;
+}
+.stopfade {
+   opacity: .5;
 }
 /*Formulario*/
 .layer{
