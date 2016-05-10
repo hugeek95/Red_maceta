@@ -86,9 +86,9 @@
     </div>
     <br/>
     <div class="container green">
-      <form id="formulario" class="row">
+      <form id="formulario" class="row" action="envia_email.php" >
       <div class="input-field white col l11 m11 s12 center-align">
-        <input id="busqueda" name="busqueda" placeholder="duraznos, aguacate, pollo, huevo" type="text" class="validate">
+        <input id="busqueda" name="busqueda" placeholder="duraznos, aguacate, pollo, huevo" type="text" class="validate"  required>
       </div>
       <div class="col l1 m1 s12 center-align">
         <a id="boton_buscar" class="btn-floating btn-large waves-effect waves-light red" ><i class="material-icons">search</i></a>
@@ -107,11 +107,11 @@
             </div>
           </div>
           <div class="row">
-              <div class="buscamos input-field col l6 push-l3 m12 s12 center-align">
-                <input placeholder="nombre@dominio.com" id="first_name" type="email" class="validate">
+              <form id="form_productores" method="post" class="buscamos input-field col l6 push-l3 m12 s12 center-align" action="envia_correo.php">
+                <input placeholder="nombre@dominio.com" name="email" id="email" type="email" class="validate" required>
                 <div class="boton">
-                <a class="btn-large waves-effect waves-light green">¡Quiero vender!</a>
-                </div>
+                <a class="btn-large waves-effect waves-light green" onclick="correo();">¡Quiero vender!</a>
+              </form>
               </div>
               <div class="img-buscamos col l3 pull-l6 m6 s6">
                 <img class="img-responsive" src="img/png/ilus_huacal.png" alt="Únete" />
@@ -172,6 +172,10 @@
     }, false);
     function categoria(str) {
       window.location.href = 'galeria.html?cat='+str;
+    }
+    function correo(){
+      document.getElementById('form_productores').submit();
+      Materialize.toast('Gracias, te contactaremos por correo', 4000)
     }
     </script>
     </body>

@@ -123,8 +123,13 @@ video {
     transition: 1s opacity;
 
 }
-.stopfade {
-   opacity: .5;
+@media screen and (max-width: 501px)
+{
+  .fondo{
+    background: url('../img/jpgs/pantalla.png') no-repeat;
+    background-size: cover;
+  }
+   #bgvid { display: none; }
 }
 /*Formulario*/
 .layer{
@@ -388,9 +393,18 @@ td{
  input[type=number]{
    width: 50%;
    text-align: center;
+   margin: 0;
+   height: auto;
+ }
+ .controles{
+   font-size: 16px;
  }
 #canasta{
   max-width: 100%
+}
+.modal.bottom-sheet{
+  height: 70%;
+  max-height: none;
 }
 /*Footer*/
 footer div.col{

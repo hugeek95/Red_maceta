@@ -130,13 +130,13 @@
                   <tr>
                     <td><img  src="img/productos/leche.jpg" class="img-canasta"alt="" /></td>
                     <td><span>LECHE ENTERA TRADICIONAL</span></td>
-                    <td>$30.00 MXN</td>
+                    <td>$<span id="precio">30.00</span> MXN pieza</td>
                     <td>
-                    <!--<i class="material-icons">remove_circle</i>-->
+                    <i class="controles material-icons green-text" onclick="document.getElementById('cantidad').stepDown()">remove_circle</i>
                     <input value="0" id="cantidad" type="number" min="0" max="5" class="validate">
-                    <!--<i class="material-icons">add_circle</i>-->
+                    <i class="controles material-icons green-text" onclick="document.getElementById('cantidad').stepUp()">add_circle</i>
                     </td>
-                    <td>$0.00</td>
+                    <td id="importe">$0.00</td>
                   </tr>
                 </tbody>
             </table>
@@ -221,11 +221,11 @@
       categoria(params['cat']);
       }
       else if (params['bsq']) {
-      loadgaleria(params['bsq']);  
+      loadgaleria(params['bsq']);
       }
       else {
       loadgaleria("");
-      }
+    }
     </script>
     <script src="js/init.js"></script>
     </body>
