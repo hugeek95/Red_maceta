@@ -39,7 +39,7 @@
       <div class="col l4 m6 s12">
           <div class="card">
               <div class="card-image waves-effect waves-block waves-light">
-                <img class="activator" src="img/productos/<?php echo $row["Imagen"] ?>.jpg">
+                <img class="activator" src="img/productos/<?php echo $row["Imagen"] ?>.jpg" onerror="this.src='img/productos/Default.jpg'">
               </div>
               <div class="card-content">
                 <p class="card-title activator"><?php echo $row["Nombre"] ?></p>
@@ -49,7 +49,7 @@
               <!-- Productor -->
               <a class="modal-trigger" href="#productor<?php echo $row["id"] ?>">
                 <div class="foto-productor">
-                  <img src="img/<?php echo $row2["foto_productor"]; ?>" class="circle responsive-img" alt="" />
+                  <img src="img/img_productors/<?php echo $row2["foto_productor"]; ?>.jpg" class="circle responsive-img" alt="" />
                   <p><?php echo $row2["alias"]; ?></p>
                 </div>
               </a>
@@ -58,7 +58,7 @@
                     <div class="modal-content">
                       <div class="row">
                         <div class="col l6 m6 s12">
-                          <img src="img/<?php echo $row2["foto_productor"]; ?>" class="circle responsive-img" alt="" />
+                          <img src="img/img_productors/<?php echo $row2["foto_productor"]; ?>.jpg" class="circle responsive-img" alt="" />
                         </div>
                         <div class="col l6 m6 s12 ">
                             <h4><?php echo $row2["alias"]; ?></h4>
@@ -69,7 +69,7 @@
                                 <!--<span class="left">Medallas:</span>-->
                                 <a class="tooltipped <?php if ($row2["local"] == 0) {echo "hide"; } ?>" data-position="top" data-delay="50" data-tooltip="Local"><img class="responsive-img" src="img/png/local.png" alt=""/></a>
                                 <a class="tooltipped <?php if ($row2["organico"] == 0) {echo "hide"; } ?>" data-position="top" data-delay="50" data-tooltip="Orgánico"><img class="responsive-img" src="img/png/organico.png" alt=""/></a>
-                                <a class="tooltipped <?php if ($row2["vulnerable"] == 0) {echo "hide"; } ?>" data-position="top" data-delay="50" data-tooltip="Vulnerable"><img class="responsive-img" src="img/png/pequeño.png" alt=""/></a>
+                                <a class="tooltipped <?php if ($row2["vulnerable"] == 0) {echo "hide"; } ?>" data-position="top" data-delay="50" data-tooltip="Vulnerable"><img class="responsive-img" src="img/png/vulnerable.png" alt=""/></a>
                                 <a class="tooltipped <?php if ($row2["urbano"] == 0) {echo "hide"; } ?>" data-position="top" data-delay="50" data-tooltip="Urbano"><img class="responsive-img" src="img/png/urbano.png" alt=""/></a>
                             </div>
                             </div>

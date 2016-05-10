@@ -21,7 +21,7 @@
         <a href="index.html" class="brand-logo"><img src="img/png/red.png" alt="" /></a>
         <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
         <ul class="right hide-on-med-and-down">
-          <li><a href="index.html">Home</a></li>
+          <li><a href="index.html">Inicio</a></li>
           <li><a href="funcionamiento.html">Así funciona</a></li>
           <li><a href="conocenos.html">¡Conócenos!</a></li>
           <li><a href="index.html#productores">Soy productor</a></li>
@@ -174,7 +174,6 @@
       </div>
     </footer>
     <!--/Footer-->
-
     <!--  Scripts-->
     <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script src="js/materialize.js"></script>
@@ -199,8 +198,7 @@
                 xhttp.open("GET", "galeria.php?q=" + str, true);
                 xhttp.send();
       }
-    loadgaleria("");
-    function categoria(str) {
+      function categoria(str) {
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function() {
                 if (xhttp.readyState == 4 && xhttp.status == 200) {
@@ -211,6 +209,22 @@
                 };
                 xhttp.open("GET", "galeria.php?cat=" + str, true);
                 xhttp.send();
+      }
+      var paramstr = window.location.search.substr(1);
+      var paramarr = paramstr.split ("&");
+      var params = {};
+      for ( var i = 0; i < paramarr.length; i++) {
+      var tmparr = paramarr[i].split("=");
+      params[tmparr[0]] = tmparr[1];
+      }
+      if (params['cat']) {
+      categoria(params['cat']);
+      }
+      else if (params['bsq']) {
+      loadgaleria(params['bsq']);  
+      }
+      else {
+      loadgaleria("");
       }
     </script>
     <script src="js/init.js"></script>

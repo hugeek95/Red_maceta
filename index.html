@@ -21,14 +21,14 @@
         <a href="#!" class="brand-logo"><img src="img/png/red.png" alt="" /></a>
         <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
         <ul class="right hide-on-med-and-down">
-          <li class="active"><a href="#!">Home</a></li>
+          <li class="active"><a href="#!">Inicio</a></li>
           <li><a href="funcionamiento.html">Así funciona</a></li>
           <li><a href="conocenos.html">¡Conócenos!</a></li>
           <li><a href="#productores">Soy productor</a></li>
           <li><a href="galeria.html">Llévele</a></li>
         </ul>
         <ul class="side-nav" id="mobile-demo">
-          <li class="active"><a href="#!">Home</a></li>
+          <li class="active"><a href="#!">Inicio</a></li>
           <li><a href="funcionamiento.html">Así funciona</a></li>
           <li><a href="conocenos.html">¡Conócenos!</a></li>
           <li><a href="#productores">Soy productor</a></li>
@@ -39,40 +39,34 @@
     </div>
     <!--/Navegador-->
     <!-- Inicio -->
-    <div class="inicio">
-      <!--Fondo-->
-      <div class="fondo valign-wrapper">
-        <video autoplay  poster="img/jpgs/tomates.jpg" id="bgvid" loop>
-          <source src="//demosthenes.info/assets/videos/polina.webm" type="video/webm">
-          <source src="//demosthenes.info/assets/videos/polina.mp4" type="video/mp4">
-        </video>
-        <div class="row center-align">
-          <!-- Modal Trigger -->
-          <a class="modal-trigger" href="#modal1"><img class="valign" src="img/png/btn_video.png" alt="¿Qué es Red Maceta?" /></a>
-          <!-- /Modal Trigger -->
-          <!-- Modal Structure -->
-          <div id="modal1" class="modal">
-            <div class="modal-content" style="padding: 8px;">
-              <div class="video-container">
-                <iframe width="640" height="360" src="https://www.youtube.com/embed/bpYs-q5taKs?rel=0&amp;controls=0" frameborder="0" allowfullscreen></iframe>
-              </div>
+      <div class="fondo">
+        <!--Encabezado-->
+        <div class="quees encabezado valign-wrapper">
+          <div class="container center-align white-text valign">
+            <p>COMPRA PRODUCTOS LOCALES DE PEQUEÑOS PRODUCTORES</p>
+            <div class="conocer">
+              <a href="funcionamiento.html" class="white-text"><span>conoce más </span><img src="img/png/btn_sabermas.png" alt=""/></a>
             </div>
           </div>
-          <!-- /Modal Structure -->
-          <img class="ilustracion img.responsive" src="img/png/ilus_casitas2.png" alt="" />
         </div>
-      </div>
-      <!--/Fondo-->
-      <!--Encabezado-->
-      <div class="encabezado ondas valign-wrapper">
-        <div class="container center-align white-text valign">
-          <p>COMPRA PRODUCTOS LOCALES DE PEQUEÑOS PRODUCTORES</p>
-          <p class="conocer"><a href="funcionamiento.html" class="white-text">conoce más <img src="img/png/btn_sabermas.png" alt="" /></a></p>
-          </p>
+        <!--/Encabezado-->
+        <!--Botón video-->
+        <div class="boton-video valign-wrapper center-align">
+          <!-- Modal Trigger -->
+          <div class="valign container center-align">
+            <a class="modal-trigger" href="#modal1"><img src="img/png/btn_video.png" alt="¿Qué es Red Maceta?" /></a>
+          </div>
+          <!-- /Modal Trigger -->
         </div>
+        <!--/Botón video-->
+        <!-- Video fondo -->
+        <video class="" autoplay id="bgvid" loop>
+          <source src="videos/video.mp4" type="video/webm">
+          <source src="videos/video.mp4" type="video/mp4">
+        </video>
+        <img class="ilustracion responsive-img" src="img/png/ilus_casitas2.png" alt="" />
+        <!-- Video fondo -->
       </div>
-      <!--/Encabezado-->
-    </div>
     <!-- /Inicio -->
     <!--Qué va a llevar-->
     <div class="green"  style="padding: 20px 0px;">
@@ -149,10 +143,32 @@
       </div>
     </footer>
     <!--/Footer-->
-
+    <!-- Modal Structure -->
+    <div id="modal1" class="modal">
+      <div class="modal-content" style="padding: 8px;">
+        <div class="video-container">
+          <iframe width="640" height="360" src="https://www.youtube.com/embed/bpYs-q5taKs?rel=0&amp;controls=0" frameborder="0" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+    <!-- /Modal Structure -->
     <!--  Scripts-->
     <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script src="js/materialize.js"></script>
     <script src="js/init.js"></script>
+    <script type="text/javascript">
+    document.getElementById('boton_buscar').onclick = function() {
+    var search = document.getElementById('busqueda').value;
+      window.location.href = 'galeria.html?bsq='+search;
+    }
+    document.getElementById('formulario').addEventListener('submit', function(e) {
+    var search = document.getElementById('busqueda').value;
+    window.location.href = 'galeria.html?bsq='+search;
+    e.preventDefault();
+    }, false);
+    function categoria(str) {
+      window.location.href = 'galeria.html?cat='+str;
+    }
+    </script>
     </body>
 </html>
