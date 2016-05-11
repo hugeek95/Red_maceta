@@ -123,11 +123,12 @@
                       <th data-field="precio">Precio</th>
                       <th data-field="cantidad">Cantidad</th>
                       <th data-field="importe">Importe</th>
+                      <th data-field="importe">Eliminar</th>
                   </tr>
                 </thead>
 
                 <tbody>
-                  <tr>
+                  <tr id="cont_bol">
                     <td><img  src="img/productos/leche.jpg" class="img-canasta"alt="" /></td>
                     <td><span>LECHE ENTERA TRADICIONAL</span></td>
                     <td>$<span id="precio">30.00</span> MXN pieza</td>
@@ -225,6 +226,16 @@
       }
       else {
       loadgaleria("");
+    }
+    function agregar(str) {
+          var xhttp = new XMLHttpRequest();
+          xhttp.onreadystatechange = function() {
+              if (xhttp.readyState == 4 && xhttp.status == 200) {
+                        document.getElementById("cont_bol").innerHTML = xhttp.responseText;
+                      }
+              };
+              xhttp.open("GET", "galeria.php?b=" + str, true);
+              xhttp.send();
     }
     </script>
     <script src="js/init.js"></script>
