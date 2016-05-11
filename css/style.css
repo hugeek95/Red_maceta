@@ -406,6 +406,10 @@ td{
   height: 70%;
   max-height: none;
 }
+.modal .modal-footer{
+  position: absolute;
+  bottom: 0px;
+}
 /*Footer*/
 footer div.col{
   text-align: center;
