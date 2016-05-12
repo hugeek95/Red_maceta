@@ -123,20 +123,30 @@
                       <th data-field="precio">Precio</th>
                       <th data-field="cantidad">Cantidad</th>
                       <th data-field="importe">Importe</th>
+                      <th data-field="importe">Eliminar</th>
                   </tr>
                 </thead>
 
-                <tbody>
+                <tbody id="cont_bol">
                   <tr>
                     <td><img  src="img/productos/leche.jpg" class="img-canasta"alt="" /></td>
                     <td><span>LECHE ENTERA TRADICIONAL</span></td>
                     <td>$<span id="precio">30.00</span> MXN pieza</td>
                     <td>
+<<<<<<< Updated upstream
                     <i class="controles material-icons green-text" onclick="document.getElementById('cantidad').stepDown()">remove_circle</i>
                     <input value="0" id="cantidad" type="number" min="0" max="5" class="validate">
                     <i class="controles material-icons green-text" onclick="document.getElementById('cantidad').stepUp()">add_circle</i>
                     </td>
                     <td id="importe">$0.00</td>
+=======
+                    <i class="material-icons">remove_circle</i>
+                    <input value="0" id="cantidad" type="number" min="0" max="5" class="validate">
+                    <i class="material-icons">add_circle</i>
+                    </td>
+                    <td>$0.00</td>
+                    <td></td>
+>>>>>>> Stashed changes
                   </tr>
                 </tbody>
             </table>
@@ -225,7 +235,22 @@
       }
       else {
       loadgaleria("");
+<<<<<<< Updated upstream
     }
+=======
+      }
+      /*CARRITO*/
+      function agregar(str){
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            if (xhttp.readyState == 4 && xhttp.status == 200) {
+                      document.getElementById("cont_bol").innerHTML = xhttp.responseText;
+                    }
+            };
+            xhttp.open("GET", "bolsa.php?b=" + str, true);
+            xhttp.send();
+      }
+>>>>>>> Stashed changes
     </script>
     <script src="js/init.js"></script>
     </body>

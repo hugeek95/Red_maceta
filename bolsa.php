@@ -15,25 +15,10 @@
     echo '<p>Error al conectar a base de datos: '.mysqli_connect_error().'</p>';
     }
 
-    $cat = 0;
-    $cat = $_REQUEST["cat"];
-    $q = $_REQUEST["q"];
-
-    if ($cat != 0){
-      $sql = "SELECT * FROM Producto WHERE Categoria LIKE '%$cat%'";
-    }
-    elseif ($q == ""){
-      $sql = "SELECT * FROM Producto";
-    }
-    else{
-      $sql = "SELECT * FROM Producto WHERE nombre LIKE '%$q%'";
-    }
+    $b = $_REQUEST["b"];
+    $sql = "SELECT * FROM Producto WHERE nombre LIKE '%$b%'";
     $result = mysqli_query($conn, $sql);
-    echo '<div class="row">';
     while($row = mysqli_fetch_assoc($result)){
-    $sql_productor = "SELECT * FROM productors WHERE id LIKE ".$row['IDProductor'];
-    $result_productor  = mysqli_query($conn, $sql_productor);
-    $row2 = mysqli_fetch_assoc($result_productor);
     ?>
       <!--  card <?php echo $x ?> -->
       <div class="col l4 m6 s12">
