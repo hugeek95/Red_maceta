@@ -88,13 +88,13 @@
                 <br>
                 <p class="descripcion"><?php echo $row["Descripcion"] ?></p>
                 <div class="compra">
-                        <a onclick="agregar('<?php echo $row["id"] ?>')" class="waves-effect waves-light btn red">A la canasta</a>
+                        <a onclick="agregar('<?php echo $row["id"]?>')" class="waves-effect waves-light btn red">A la canasta</a>
                 </div>
               </div>
               <!-- /Atrás card -->
               <!-- Botón delantero -->
               <div class="boton-delantero">
-                <a onclick="agregar('<?php echo $row["id"] ?>')"><img src="img/png/btn_canasta_compra.png" class="responsive-img waves-effect waves-light" alt="" /></a>
+                <a onclick="agregar('<?php echo $row["id"]?>')"><img src="img/png/btn_canasta_compra.png" class="responsive-img waves-effect waves-light" alt="" /></a>
               </div>
               <!-- /Botón delantero -->
           </div>
