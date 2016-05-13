@@ -15,12 +15,12 @@
     echo '<p>Error al conectar a base de datos: '.mysqli_connect_error().'</p>';
     }
     $b = $_REQUEST["b"];
-    $sql = "SELECT * FROM Producto WHERE id LIKE '%$b%'";
+    $sql = "SELECT * FROM Producto WHERE id = $b ";
     $result = mysqli_query($conn, $sql);
     while($row = mysqli_fetch_assoc($result)){
     ?>
       <!--  row  -->
-      <tr>
+      <tr id="row<?php echo $b ?>">
         <td><img  src="img/productos/<?php echo $row["Imagen"] ?>.jpg" class="img-canasta"alt="" /></td>
         <td><span><?php echo $row["Nombre"] ?></span></td>
         <td>$<span id="precio"><?php echo $row["Precio"] ?></span> MXN <?php echo $row["Unidad"] ?></td>
@@ -31,7 +31,7 @@
         </td>
         <td id="importe">$0.00</td>
         <td>
-        <i class="controles material-icons red-text" onclick="quitar('')">cancel</i>
+        <i class="controles material-icons red-text" onclick="quitar('row<?php echo $b ?>')">cancel</i>
         </td>
       </tr>
       <!--  /row  -->

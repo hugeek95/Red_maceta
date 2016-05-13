@@ -398,6 +398,13 @@ td{
  }
  .controles{
    font-size: 16px;
+   cursor:pointer;
+   -webkit-touch-callout: none;
+   -webkit-user-select: none;
+   -khtml-user-select: none;
+   -moz-user-select: none;
+   -ms-user-select: none;
+   user-select: none;
  }
 #canasta{
   max-width: 100%
@@ -407,8 +414,13 @@ td{
   max-height: none;
 }
 .modal .modal-footer{
-  position: absolute;
-  bottom: 0px;
+  /*position: absolute;*/
+  /*bottom: 0px;*/
+}
+.botond{
+  max-width: 80%;
+  left: -10%;
+  height: auto;
 }
 /*Footer*/
 footer div.col{

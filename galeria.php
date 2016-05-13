@@ -94,7 +94,7 @@
               <!-- /Atrás card -->
               <!-- Botón delantero -->
               <div class="boton-delantero">
-                <a onclick="agregar('<?php echo $row["id"]?>')"><img src="img/png/btn_canasta_compra.png" class="responsive-img waves-effect waves-light" alt="" /></a>
+                <a onclick="agregar('<?php echo $row["id"]?>')"><img src="img/png/btn_canasta_compra.png" class="waves-effect waves-light botond" alt="" /></a>
               </div>
               <!-- /Botón delantero -->
           </div>
