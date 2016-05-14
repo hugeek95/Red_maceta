@@ -23,13 +23,13 @@
       <tr id="row<?php echo $b ?>">
         <td><img  src="img/productos/<?php echo $row["Imagen"] ?>.jpg" class="img-canasta"alt="" /></td>
         <td><span><?php echo $row["Nombre"] ?></span></td>
-        <td>$<span id="precio"><?php echo $row["Precio"] ?></span> MXN <?php echo $row["Unidad"] ?></td>
+        <td>$<span id="precio<?php echo $b ?>"><?php echo $row["Precio"] ?></span> MXN <?php echo $row["Unidad"] ?></td>
         <td>
-        <i class="controles material-icons green-text" onclick="document.getElementById('cantidad<?php echo $b ?>').stepDown()">remove_circle</i>
-        <input value="0" id="cantidad<?php echo $b ?>" type="number" min="0" max="20" class="validate">
-        <i class="controles material-icons green-text" onclick="document.getElementById('cantidad<?php echo $b ?>').stepUp()">add_circle</i>
+        <i class="controles material-icons green-text" onclick="cantidad('<?php echo $b ?>',1)">remove_circle</i>
+        <input value="1" id="cantidad<?php echo $b ?>" type="number" min="1" max="20" class="validate">
+        <i class="controles material-icons green-text" onclick="cantidad('<?php echo $b ?>',0)">add_circle</i>
         </td>
-        <td id="importe">$0.00</td>
+        <td id="importe<?php echo $b ?>"></td>
         <td>
         <i class="controles material-icons red-text" onclick="quitar('row<?php echo $b ?>')">cancel</i>
         </td>

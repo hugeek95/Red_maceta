@@ -26,7 +26,7 @@
       $sql = "SELECT * FROM Producto";
     }
     else{
-      $sql = "SELECT * FROM Producto WHERE nombre LIKE '%$q%'";
+      $sql = "SELECT * FROM Producto WHERE nombre LIKE '%$q%' OR tags LIKE '%$q%'";
     }
     $result = mysqli_query($conn, $sql);
     echo '<div class="row">';
