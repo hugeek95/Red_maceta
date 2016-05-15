@@ -234,7 +234,7 @@
           row.parentNode.removeChild(row);
       }
       function cantidad(id,n){
-        if(n = 1){
+        if(n == 1){
           document.getElementById("cantidad"+id).stepUp();
         }
         else{
@@ -248,7 +248,8 @@
         str="importe"+id;
         a="cantidad"+id;
         b="precio"+id;
-        document.getElementById(str).innerHTML =  document.getElementById(a).value * document.getElementById(b).value + " MXN";
+        document.getElementById(str).innerHTML =  "$" + document.getElementById(a).value * document.getElementById(b).innerHTML + " MXN";
+        document.getElementById(a).innerHTML = document.getElementById(a).value;
       }
     </script>
     <script>
