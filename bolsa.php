@@ -21,15 +21,15 @@
     ?>
       <!--  row  -->
       <tr id="row<?php echo $b ?>">
-        <td><img  src="img/productos/<?php echo $row["Imagen"] ?>.jpg" class="img-canasta"alt="" /></td>
-        <td><span><?php echo $row["Nombre"] ?></span></td>
+        <td><span class="idbolsa hide"><?php echo $b ?></span><img  src="img/productos/<?php echo $row["Imagen"] ?>.jpg" class="img-canasta"alt="" /></td>
+        <td class="hide-on-small-only"><span><?php echo $row["Nombre"] ?></span></td>
         <td>$<span id="precio<?php echo $b ?>"><?php echo $row["Precio"] ?></span> MXN <?php echo $row["Unidad"] ?></td>
         <td>
         <i class="controles material-icons green-text" onclick="cantidad('<?php echo $b ?>',0)">remove_circle</i>
-        <input id="cantidad<?php echo $b ?>" type="number" min="1" max="20" class="validate" onchange="importe('<?php echo $b ?>',0)">
+        <input class="quantity validate" id="cantidad<?php echo $b ?>" value="1" type="number" min="1" max="20" onchange="importe('<?php echo $b ?>',0)">
         <i class="controles material-icons green-text" onclick="cantidad('<?php echo $b ?>',1)">add_circle</i>
         </td>
-        <td id="importe<?php echo $b ?>">$ <?php echo $row["Precio"] ?> MXN</td>
+        <td >$ <span id="importe<?php echo $b ?>" class="importe"><?php echo $row["Precio"] ?></span> MXN</td>
         <td>
         <i class="controles material-icons red-text" onclick="quitar('row<?php echo $b ?>')">cancel</i>
         </td>

@@ -1,109 +1,298 @@
 <!DOCTYPE html>
 <html>
-<body>
-  <?php
-    header("Content-Type: text/html;charset=utf-8");
-    $host_name  = "db624747361.db.1and1.com";
-    $database   = "db624747361";
-    $user_name  = "dbo624747361";
-    $password   = "tomates";
+    <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+      <title>Red Maceta</title>
+      <link rel="icon" href="img/favicon.png" type="image/png">
 
-    $conn = mysqli_connect($host_name, $user_name, $password, $database);
-    $conn->query("SET NAMES 'utf8'");
-    if(mysqli_connect_errno())
-    {
-    echo '<p>Error al conectar a base de datos: '.mysqli_connect_error().'</p>';
-    }
+      <!-- CSS  -->
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,800italic,400italic,600,600italic,700,700italic&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+      <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+      <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+    </head>
+    <body>
 
-    $cat = 0;
-    $cat = $_REQUEST["cat"];
-    $q = $_REQUEST["q"];
-
-    if ($cat != 0){
-      $sql = "SELECT * FROM Producto WHERE Categoria LIKE '%$cat%'";
-    }
-    elseif ($q == ""){
-      $sql = "SELECT * FROM Producto";
-    }
-    else{
-      $sql = "SELECT * FROM Producto WHERE nombre LIKE '%$q%' OR tags LIKE '%$q%'";
-    }
-    $result = mysqli_query($conn, $sql);
-    echo '<div class="row">';
-    while($row = mysqli_fetch_assoc($result)){
-    $sql_productor = "SELECT * FROM productors WHERE id LIKE ".$row['IDProductor'];
-    $result_productor  = mysqli_query($conn, $sql_productor);
-    $row2 = mysqli_fetch_assoc($result_productor);
-    ?>
-      <!--  card <?php echo $x ?> -->
-      <div class="col l4 m6 s12">
-          <div class="card">
-              <div class="card-image waves-effect waves-block waves-light">
-                <img class="activator" src="img/productos/<?php echo $row["Imagen"] ?>.jpg" onerror="this.src='img/productos/Default.jpg'">
-              </div>
-              <div class="card-content">
-                <p class="card-title activator"><?php echo $row["Nombre"] ?></p>
-                <p class="card-subtitle activator"><?php echo $row2["lugar"]; ?></p>
-                <p class="precio activator">$<?php echo $row["Precio"] ?> MXN - <?php echo $row["Unidad"] ?></p>
-              </div>
-              <!-- Productor -->
-              <a class="modal-trigger" href="#productor<?php echo $row["id"] ?>">
-                <div class="foto-productor">
-                  <img src="img/img_productors/<?php echo $row2["foto_productor"]; ?>.jpg" class="circle responsive-img" alt="" />
-                  <p><?php echo $row2["alias"]; ?></p>
-                </div>
-              </a>
-              <!-- Productor Modal Structure -->
-              <div id="productor<?php echo $row["id"] ?>" class="modal modal-productor">
-                    <div class="modal-content">
-                      <div class="row">
-                        <div class="col l6 m6 s12">
-                          <img src="img/img_productors/<?php echo $row2["foto_productor"]; ?>.jpg" class="circle responsive-img" alt="" />
-                        </div>
-                        <div class="col l6 m6 s12 ">
-                            <h4><?php echo $row2["alias"]; ?></h4>
-                            <h5><?php echo $row2["lugar"]; ?></h5>
-                            <p><?php echo $row2["descripcion"] ?> </p>
-                            <div class="row">
-                            <div class="medallas">
-                                <!--<span class="left">Medallas:</span>-->
-                                <a class="tooltipped <?php if ($row2["local"] == 0) {echo "hide"; } ?>" data-position="top" data-delay="50" data-tooltip="Local"><img class="responsive-img" src="img/png/local.png" alt=""/></a>
-                                <a class="tooltipped <?php if ($row2["organico"] == 0) {echo "hide"; } ?>" data-position="top" data-delay="50" data-tooltip="Orgánico"><img class="responsive-img" src="img/png/organico.png" alt=""/></a>
-                                <a class="tooltipped <?php if ($row2["vulnerable"] == 0) {echo "hide"; } ?>" data-position="top" data-delay="50" data-tooltip="Vulnerable"><img class="responsive-img" src="img/png/vulnerable.png" alt=""/></a>
-                                <a class="tooltipped <?php if ($row2["urbano"] == 0) {echo "hide"; } ?>" data-position="top" data-delay="50" data-tooltip="Urbano"><img class="responsive-img" src="img/png/urbano.png" alt=""/></a>
-                            </div>
-                            </div>
-                            <a href="#!" class=" modal-action modal-close waves-effect waves-green btn green">¡Entendido!</a>
-                        </div>
-                    </div>
-                </div>
-
-              </div>
-              <!-- /Productor Modal Structure -->
-              <!-- /Productor -->
-              <!-- Atrás card -->
-              <div class="card-reveal">
-                <span class="card-title"><?php echo $row["Nombre"] ?><i class="material-icons right">close</i></span>
-                <span class="precio_grande red-text left">$<?php echo $row["Precio"] ?> MXN</span>
-                <br>
-                <p class="descripcion"><?php echo $row["Descripcion"] ?></p>
-                <div class="compra">
-                        <a onclick="agregar('<?php echo $row["id"]?>')" class="waves-effect waves-light btn red">A la canasta</a>
-                </div>
-              </div>
-              <!-- /Atrás card -->
-              <!-- Botón delantero -->
-              <div class="boton-delantero">
-                <a onclick="agregar('<?php echo $row["id"]?>')"><img src="img/png/btn_canasta_compra.png" class="waves-effect waves-light botond" alt="" /></a>
-              </div>
-              <!-- /Botón delantero -->
-          </div>
-          </div>
-      <!--  /card <?php echo "$x" ?> -->
-      <?php
-        $x++;
-        }
-      ?>
+    <!--Navegador-->
+    <div class="navbar-fixed green">
+      <nav class="green">
+      <div class="nav-wrapper">
+        <a href="index.html" class="brand-logo"><img src="img/png/red.png" alt="" /></a>
+        <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+        <ul class="right hide-on-med-and-down">
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="funcionamiento.html">Así funciona</a></li>
+          <li><a href="conocenos.html">¡Conócenos!</a></li>
+          <li><a href="index.html#productores">Soy productor</a></li>
+          <li class="active"><a href="#">Llévele</a></li>
+        </ul>
+        <ul class="side-nav" id="mobile-demo">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="funcionamiento.html">Así funciona</a></li>
+          <li><a href="conocenos.html">¡Conócenos!</a></li>
+          <li><a href="index.html#productores">Soy productor</a></li>
+          <li class="active"><a href="#">Llévele</a></li>
+        </ul>
       </div>
-</body>
+      </nav>
+    </div>
+    <!--/Navegador-->
+    <!-- Inicio -->
+    <div class="inicio">
+      <!--Encabezado-->
+      <div class="encabezado conocenos green valign-wrapper">
+        <div class="slider center-align">
+              <ul class="slides">
+                <li>
+                  <img src="img/jpgs/slider1.jpg"> <!-- random image -->
+                </li>
+                <li>
+                  <img src="img/jpgs/slider2.jpg"> <!-- random image -->
+                </li>
+                <li>
+                  <img src="img/jpgs/slider3.jpg"> <!-- random image -->
+                </li>
+              </ul>
+        </div>
+
+      </div>
+
+      <!--/Encabezado-->
+
+      <!--Galeria-->
+      <div class="green galeria">
+      <br/><br/>
+
+      <div class="categorias center">
+           <a id="1" onclick="categoria(this.id)"><img src="img/png/categoria1_paqt.png"></a>
+           <a id="2" onclick="categoria(this.id)"><img src="img/png/categoria6_horneados.png"></a>
+           <a id="3" onclick="categoria(this.id)"><img src="img/png/categoria3_frutas.png"></a>
+           <a id="4" onclick="categoria(this.id)"><img src="img/png/categoria2_hortalizas.png"></a>
+           <a id="5" onclick="categoria(this.id)"><img src="img/png/categoria4_bebidas.png"></a>
+           <a id="6" onclick="categoria(this.id)"><img src="img/png/categoria5_derivadosanim.png" ></a>
+           <a id="7" onclick="categoria(this.id)"><img src="img/png/categoria7_condim.png"></a>
+           <a id="8" onclick="categoria(this.id)"><img src="img/png/categoria8_tradi.png"></a>
+      </div>
+      <br/>
+      <div class="container">
+        <form id="formulario" class="row">
+        <div class="input-field white col l11 m11 s12 center-align">
+          <input id="busqueda" name="busqueda" placeholder="duraznos, aguacate, pollo, huevo" type="text" class="validate">
+        </div>
+        <div class="col l1 m1 s12 center-align">
+          <a id="boton_buscar" class="btn-floating btn-large waves-effect waves-light red" ><i class="material-icons">search</i></a>
+        </form>
+        </div>
+      </div>
+      <!-- Contenido galería-->
+      <div id="galeria" class="container center-align green">
+      </div>
+      <!-- /Contenido galería-->
+
+      <!--Numeración
+      <div class="paginas center-align">
+              <ul class="pagination text-white">
+              <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
+              <li class="active"><a href="#!">1</a></li>
+              <li class="waves-effect"><a href="#!">2</a></li>
+              <li class="waves-effect"><a href="#!">3</a></li>
+              <li class="waves-effect"><a href="#!">4</a></li>
+              <li class="waves-effect"><a href="#!">5</a></li>
+              <li class="waves-effect"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
+              </ul>
+      </div>
+      /Numeración-->
+      </div>
+      <!--/Galeria-->
+      <!--Canasta-->
+       <!-- Modal Trigger -->
+       <div class="canasta">
+       <a class="modal-trigger" href="#canasta"><img src="img/png/btn_canasta_ir.png" class="responsive-img waves-effect waves-light" alt="" /></a>
+       <h6 class="white-text">Ver canasta</h6>
+       </div>
+       <!-- Modal Structure -->
+       <div id="canasta" class="modal bottom-sheet">
+         <div class="modal-content">
+           <h4>Mi canasta</h4>
+           <table>
+                <thead>
+                  <tr>
+                      <th data-field="id">Producto</th>
+                      <th data-field="nombre" class="hide-on-small-only">Nombre</th>
+                      <th data-field="precio">Precio</th>
+                      <th data-field="cantidad">Cantidad</th>
+                      <th data-field="importe">Importe</th>
+                      <th data-field="importe">Eliminar</th>
+                  </tr>
+                </thead>
+                <tbody id="cont_bol">
+                </tbody>
+            </table>
+         </div>
+         <div class="modal-footer">
+           <div class="total red-text">
+             TOTAL: $ <span id="total" ></span> MXN
+           </div>
+           <a href="#!" class=" modal-action modal-close waves-effect waves-red btn red">Ir a pagar</a>
+         </div>
+       </div>
+
+      <!--/Canasta-->
+    <!-- /Inicio -->
+
+    <footer class="page-footer green">
+        <div class="row">
+              <div class="col l4 push-l4 m4 push-m4 s12">
+                <img class="img-responsive" src="img/png/ilus_red.png" alt="Únete" />
+                <p class="white-text">Únete a la red</p>
+              </div>
+              <div class="col l4 pull-l4 pull-m4 m4 s12">
+                <a href="https://www.youtube.com/channel/UCgfJfuLthCYz6ojpH8xHq1g" target="_blank"><img class="img-responsive" src="img/png/redes_youtube.png" alt="Canal de youtube" /></a>
+                <a href="https://www.youtube.com/channel/UCgfJfuLthCYz6ojpH8xHq1g" target="_blank"><img class="img-responsive" src="img/png/redes_insta.png" alt="Instagram" /></a>
+                <a href="https://www.facebook.com/redmaceta/?fref=ts" target="_blank"><img class="img-responsive" src="img/png/redes_face.png" alt="Facebook" /></a>
+                <a href="https://twitter.com/RedMaceta" target="_blank"><img class="img-responsive" src="img/png/redes_twitter.png" alt="Twitter" /></a>
+              </div>
+              <div class="col l4 m4 s12 patron">
+              </div>
+        </div>
+      <div class="footer-copyright white">
+        <div class="container center-align term">
+        <h6 class="black-text">Términos y condiciones</h6>
+        <p class="black-text">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+        </p>
+        </div>
+      </div>
+    </footer>
+    <!--/Footer-->
+    <!--  Scripts-->
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="js/materialize.js"></script>
+    <script type="text/javascript">
+    document.getElementById('boton_buscar').onclick = function() {
+    var search = document.getElementById('busqueda').value;
+    loadgaleria(search);
+    }
+    document.getElementById('formulario').addEventListener('submit', function(e) {
+    loadgaleria(document.getElementById('busqueda').value);
+    e.preventDefault();
+    }, false);
+    total();
+    function loadgaleria(str) {
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                if (xhttp.readyState == 4 && xhttp.status == 200) {
+                          document.getElementById("galeria").innerHTML = xhttp.responseText;
+                          $('.modal-trigger').leanModal();
+                          $('.tooltipped').tooltip({delay: 50});
+                        }
+                };
+                xhttp.open("GET", "fichas.php?q=" + str, true);
+                xhttp.send();
+      }
+      function categoria(str) {
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                if (xhttp.readyState == 4 && xhttp.status == 200) {
+                          document.getElementById("galeria").innerHTML = xhttp.responseText;
+                          $('.modal-trigger').leanModal();
+                          $('.tooltipped').tooltip({delay: 50});
+                        }
+                };
+                xhttp.open("GET", "fichas.php?cat=" + str, true);
+                xhttp.send();
+      }
+      var paramstr = window.location.search.substr(1);
+      var paramarr = paramstr.split ("&");
+      var params = {};
+      for ( var i = 0; i < paramarr.length; i++) {
+      var tmparr = paramarr[i].split("=");
+      params[tmparr[0]] = tmparr[1];
+      }
+      if (params['cat']) {
+      categoria(params['cat']);
+      }
+      else if (params['bsq']) {
+      loadgaleria(params['bsq']);
+      }
+      else {
+      loadgaleria("");
+    }
+      /*CARRITO*/
+      function cantidad(id,n){
+        if(n == 1){
+          document.getElementById("cantidad"+id).stepUp();
+        }
+        else{
+          document.getElementById("cantidad"+id).stepDown();
+        }
+        importe(id);
+      }
+      function agregar(str){
+        var flag = 0;
+        var ids = document.getElementsByClassName("idbolsa");
+        for (var i = 0; i < ids.length; i++) {
+          if (ids[i].innerText==str) {
+              cantidad(str,1);
+              Materialize.toast('Otro más', 4000);
+              return;
+          }
+        }
+        var xhttp = new XMLHttpRequest();
+        var id = [];
+        var cantidades = [];
+        var x = document.getElementsByClassName("quantity");
+        for (var i = 0; i < x.length; i++) {
+          cantidades[i] = x[i].value;
+          id[i] = x[i].id;
+        }
+        xhttp.onreadystatechange = function() {
+            if (xhttp.readyState == 4 && xhttp.status == 200) {
+                      document.getElementById("cont_bol").innerHTML += xhttp.responseText;
+                      for (var i = 0; i < cantidades.length; i++) {
+                        document.getElementById(id[i]).value = cantidades[i];
+                      }
+                      Materialize.toast('Agregado', 4000);
+                      total();
+                    }
+            };
+            xhttp.open("GET", "bolsa.php?b=" + str, true);
+            xhttp.send();
+      }
+      function quitar(rowid)
+      {
+          var row = document.getElementById(rowid);
+          row.parentNode.removeChild(row);
+          total();
+      }
+
+      function importe(id)
+      {
+        str="importe"+id;
+        a="cantidad"+id;
+        b="precio"+id;
+        document.getElementById(str).innerHTML =  document.getElementById(a).value * document.getElementById(b).innerHTML;
+        document.getElementById(a).innerHTML = document.getElementById(a).value;
+        total();
+      }
+      function total(){
+        var tot=0;
+        var x = document.getElementsByClassName("importe");
+        for (var i = 0; i < x.length; i++) {
+          tot += parseFloat(x[i].innerText);
+        }
+        document.getElementById("total").innerHTML =tot;
+      }
+    </script>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-77722516-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+    <script src="js/init.js"></script>
+    </body>
 </html>

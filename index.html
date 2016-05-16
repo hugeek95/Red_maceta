@@ -1,7 +1,18 @@
 <!DOCTYPE html>
-<html>
+<html lang="Spanish">
     <head>
-      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+      <meta http-equiv="content-Type" content="text/html; ISO-8859-1">
+      <meta name="DC.Language" SCHEME="RFC1766" content="Spanish">
+      <meta name="AUTHOR" content="Equipo Red Maceta">
+      <meta name="REPLY-TO" content="aloha@redmaceta.com">
+      <link rev="made" href="mailto:aloha@redmaceta.com">
+      <link rel=”image_src” href="img/png/red.png" />
+      <meta name="DESCRIPTION" content="Es una plataforma que brinda productos locales de primera calidad. Además los consumidores pueden recibirlos de la mano de los productores.">
+      <meta name="KEYWORDS" content="productos locales,pequeños productores,comercio local,organico">
+      <meta name="Resource-type" content="Catalog">
+      <meta name="DateCreated" content="Mon, 16 May 2016 00:00:00 GMT-6">
+      <meta name="robots" content="ALL">
+      <meta http-equiv="content-Type" content="text/html; charset=UTF-8"/>
       <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
       <title>Red Maceta</title>
       <link rel="icon" href="img/favicon.png" type="image/png">
@@ -25,14 +36,14 @@
           <li><a href="funcionamiento.html">Así funciona</a></li>
           <li><a href="conocenos.html">¡Conócenos!</a></li>
           <li><a href="#productores">Soy productor</a></li>
-          <li><a href="galeria.html">Llévele</a></li>
+          <li><a href="galeria">Llévele</a></li>
         </ul>
         <ul class="side-nav" id="mobile-demo">
           <li class="active"><a href="#!">Inicio</a></li>
           <li><a href="funcionamiento.html">Así funciona</a></li>
           <li><a href="conocenos.html">¡Conócenos!</a></li>
           <li><a href="#productores">Soy productor</a></li>
-          <li><a href="galeria.html">Llévele</a></li>
+          <li><a href="galeria">Llévele</a></li>
         </ul>
       </div>
       </nav>
@@ -73,6 +84,11 @@
       </div>
     <!-- /Inicio -->
     <!--Qué va a llevar-->
+    <div class="green">
+      <div class="quelleva container center-align white-text">
+        <h3>¿Qué va a llevar?</h3>
+      </div>
+    </div>
     <div class="green"  style="padding: 20px 0px;">
     <div class="categorias center green">
          <a id="1" onclick="categoria(this.id)"><img src="img/png/categoria1_paqt.png"></a>
@@ -163,7 +179,7 @@
     <script type="text/javascript">
         (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
         (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        m=s.getElementsByTagname(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
         })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
         ga('create', 'UA-77722516-1', 'auto');
@@ -172,15 +188,15 @@
     <script type="text/javascript">
     document.getElementById('boton_buscar').onclick = function() {
     var search = document.getElementById('busqueda').value;
-      window.location.href = 'galeria.html?bsq='+search;
+      window.location.href = 'galeria?bsq='+search;
     }
     document.getElementById('formulario').addEventListener('submit', function(e) {
     var search = document.getElementById('busqueda').value;
-    window.location.href = 'galeria.html?bsq='+search;
+    window.location.href = 'galeria?bsq='+search;
     e.preventDefault();
     }, false);
     function categoria(str) {
-      window.location.href = 'galeria.html?cat='+str;
+      window.location.href = 'galeria?cat='+str;
     }
     function correo(){
       document.getElementById('form_productores').submit();

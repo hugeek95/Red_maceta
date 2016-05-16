@@ -1,3 +1,21 @@
+<?php
+   require_once 'init.php';
+   
+    require("Carrito.class.php");
+   
+ 
+       $carrito = new Carrito();
+
+
+    if($user->premium){
+        
+        // header('Location: index.php');
+        // exit();
+    }
+
+
+?>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -10,7 +28,8 @@
       <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
       <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,800italic,400italic,600,600italic,700,700italic&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
       <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-      <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+      <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>       
+<link rel="stylesheet" href="https://checkout.stripe.com/v3/checkout/button.css"/>
     </head>
     <body>
 
@@ -90,7 +109,7 @@
       </div>
       <!-- /Contenido galería-->
 
-      <!--Numeración-->
+      <!--Numeración
       <div class="paginas center-align">
               <ul class="pagination text-white">
               <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
@@ -102,7 +121,7 @@
               <li class="waves-effect"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
               </ul>
       </div>
-      <!--/Numeración-->
+      /Numeración-->
       </div>
       <!--/Galeria-->
       <!--Canasta-->
@@ -126,14 +145,57 @@
                       <th data-field="importe">Eliminar</th>
                   </tr>
                 </thead>
-
                 <tbody id="cont_bol">
                 </tbody>
             </table>
          </div>
          <div class="modal-footer">
-           <a href="#!" class=" modal-action modal-close waves-effect waves-red btn red">Ir a pagar</a>
-         </div>
+           <div class="total red-text">
+             TOTAL: $ <span id="total" ></span> MXN
+           </div>
+      
+             
+             <form action="premium_charge.php" method="post">
+        <noscript>You must <a href="http://www.enable-javascript.com" target="_blank">enable JavaScript</a> in your web browser in order to pay via Stripe.</noscript>
+
+        <input 
+            type="submit" 
+            value="Ir a paggar"
+               data-key="<?php echo $stripe['publishable']; ?>"
+    data-name="Red Maceta"
+    data-description="Premium membership"
+    data-currency="mxn"
+    data-email="<?php echo $user->email; ?>"
+    data-amount="<?php 
+             
+                $carrito->update_carrito();
+                 echo $carrito->precio_total()*100; 
+                 
+                 ?>"
+       class="waves-effect waves-light btn" />
+
+        <script src="https://checkout.stripe.com/v2/checkout.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
+        <script>
+        $(document).ready(function() {
+            $(':submit').on('click', function(event) {
+                 
+                event.preventDefault();
+                var $button = $(this),
+                    $form = $button.parents('form');
+                var opts = $.extend({}, $button.data(), {
+                    token: function(result) {
+                        $form.append($('<input>').attr({ type: 'hidden', name: 'stripeToken', value: result.id })).submit();
+                    }
+                });
+                StripeCheckout.open(opts);
+            });
+        });
+        </script>
+</form>
+             
+             
+           </div>
        </div>
 
       <!--/Canasta-->
@@ -176,6 +238,7 @@
     loadgaleria(document.getElementById('busqueda').value);
     e.preventDefault();
     }, false);
+    total();
     function loadgaleria(str) {
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function() {
@@ -185,7 +248,7 @@
                           $('.tooltipped').tooltip({delay: 50});
                         }
                 };
-                xhttp.open("GET", "galeria.php?q=" + str, true);
+                xhttp.open("GET", "fichas.php?q=" + str, true);
                 xhttp.send();
       }
       function categoria(str) {
@@ -197,7 +260,7 @@
                           $('.tooltipped').tooltip({delay: 50});
                         }
                 };
-                xhttp.open("GET", "galeria.php?cat=" + str, true);
+                xhttp.open("GET", "fichas.php?cat=" + str, true);
                 xhttp.send();
       }
       var paramstr = window.location.search.substr(1);
@@ -218,11 +281,46 @@
     }
       /*CARRITO*/
       function agregar(str){
+  
+          <?
+    $host_name  = "db624747361.db.1and1.com";
+    $database   = "db624747361";
+    $user_name  = "dbo624747361";
+    $password   = "tomates";
+
+    $conn = mysqli_connect($host_name, $user_name, $password, $database);
+          $str = ?> str; <?
+                $sql_productor = "SELECT * FROM Producto WHERE id = $str ";
+                $result_productor  = mysqli_query($conn, $sql_productor);
+                $row3 = mysqli_fetch_assoc($result_productor);
+              
+          
+          
+          $carrito->add(   $articulo = array(
+                "id"			=>		$str,
+                "cantidad"		=>		1,
+                "precio"		=>		$row3['Precio'],
+                "nombre"		=>		$row3['Nombre']
+            )
+                );
+          ?>
+          
         var xhttp = new XMLHttpRequest();
+        var id = [];
+        var cantidad = [];
+        var x = document.getElementsByClassName("quantity");
+        for (var i = 0; i < x.length; i++) {
+          cantidad[i] = x[i].value;
+          id[i] = x[i].id;
+        }
         xhttp.onreadystatechange = function() {
             if (xhttp.readyState == 4 && xhttp.status == 200) {
                       document.getElementById("cont_bol").innerHTML += xhttp.responseText;
-                       Materialize.toast('Agregado', 4000);
+                      for (var i = 0; i < cantidad.length; i++) {
+                        document.getElementById(id[i]).value = cantidad[i];
+                      }
+                      Materialize.toast('Agregado', 4000);
+                      total();
                     }
             };
             xhttp.open("GET", "bolsa.php?b=" + str, true);
@@ -232,6 +330,7 @@
       {
           var row = document.getElementById(rowid);
           row.parentNode.removeChild(row);
+          total();
       }
       function cantidad(id,n){
         if(n == 1){
@@ -248,8 +347,18 @@
         str="importe"+id;
         a="cantidad"+id;
         b="precio"+id;
-        document.getElementById(str).innerHTML =  "$" + document.getElementById(a).value * document.getElementById(b).innerHTML + " MXN";
+        document.getElementById(str).innerHTML =  document.getElementById(a).value * document.getElementById(b).innerHTML;
         document.getElementById(a).innerHTML = document.getElementById(a).value;
+        total();
+      }
+      function total(){
+        var tot=0;
+        var x = document.getElementsByClassName("importe");
+        for (var i = 0; i < x.length; i++) {
+          console.log(x[i].innerText);
+          tot += parseFloat(x[i].innerText);
+        }
+        document.getElementById("total").innerHTML =tot;
       }
     </script>
     <script>
