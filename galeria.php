@@ -1,3 +1,6 @@
+<?php
+require_once 'init.php';
+?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -13,7 +16,11 @@
       <script src='https://www.google.com/recaptcha/api.js'></script>
     </head>
     <body>
-
+    <?php if ($user->premium): ?>
+        <p>Eres premium</p>
+    <?php else: ?>
+    <p>No eres premium. <a href="premium.php">Ve a premium</a></p>
+    <?php endif; ?>
     <!--Navegador-->
     <div class="navbar-fixed green">
       <nav class="green">
