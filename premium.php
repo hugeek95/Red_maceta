@@ -28,7 +28,7 @@ if($user->premium){
   <script
     src="https://checkout.stripe.com/checkout.js" class="stripe-button"
     data-key="<?php echo $stripe['publishable']; ?>"
-    data-amount="2000"
+    data-amount= "<?php $_SESSION['total'] ?>"
     data-name="Sitio Web"
     data-description="Premium"
     data-email="<?php echo $user->email; ?>"

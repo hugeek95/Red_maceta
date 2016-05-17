@@ -136,7 +136,7 @@ require_once 'init.php';
                 <tbody id="cont_bol">
                 </tbody>
             </table>
-         </div>8
+         </div>
          <div class="modal-footer">
            <div class="total red-text">
              TOTAL: $ <span id="total" ></span> MXN
@@ -382,15 +382,29 @@ require_once 'init.php';
         document.getElementById("total").innerHTML =tot;
       }
       function pagar(){
+        var products_bolsa=[];
+        var cant=[];
+        var x = document.getElementsByClassName("idbolsa");
+        for (var i = 0; i < x.length; i++) {
+          products_bolsa[i] = parseInt(x[i].innerText);
+        }
+        var y = document.getElementsByClassName("quantity");
+        for (var i = 0; i < y.length; i++) {
+          cant[i] = parseInt(y[i].value);
+        }
+        lista_str = products_bolsa.toString();
+        cant_str = cant.toString();
+        //SEND POST
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function() {
             if (xhttp.readyState == 4 && xhttp.status == 200) {
-                      //document.getElementById("galeria").innerHTML = xhttp.responseText;
-                      $('#login').openModal();
-                    }
+              //document.getElementById("login").innerHTML = xhttp.responseText;
+            }
             };
-            xhttp.open("GET", "Carrito.class.php", true);
+            xhttp.open("GET", "continuar.php?products="+lista_str+"&quants="+cant_str, true);
             xhttp.send();
+        //ABRIR MODAL LOGIN
+        $('#login').openModal();
       }
       function checkpass(){
         var pass1 = document.getElementById('password1');

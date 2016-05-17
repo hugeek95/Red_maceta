@@ -1,13 +1,13 @@
 <?php
 
-require_once 'initFer.php';
+require_once 'init.php';
 
 if (isset($_POST['stripeToken'])){
 	$token = $_POST['stripeToken'];
 
 	try{
 		Stripe_Charge::create([
-  "amount" => 2000,
+  "amount" => $_SESSION['total'],
   "currency" => "mxn",
   "source" => $token, // obtained with Stripe.js
   "description" => $user->email
