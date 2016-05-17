@@ -560,3 +560,12 @@ div.term p{
   font-size: 0.6rem;
   line-height: normal;
 }
+/*Usuario*/
+.usuario{
+  font-weight: 600;
+  margin: 0;
+  padding: 0 100px;
+}
+.tostada {
+  background-color:  rgba(223, 93, 93, 0.87);
+}

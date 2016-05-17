@@ -1,9 +1,9 @@
 <?php
 
-require_once 'initFer.php';
+require_once 'init.php';
 
 if (!$user->premium){
-	header('Location: galeriaFer.php');
+	header('Location: galeria.php');
 	exit();
 }
 ?>

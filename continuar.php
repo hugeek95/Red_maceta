@@ -18,7 +18,7 @@ require_once 'init.php';
 		$importe = $precio[$i]*$cants[$i];
 		$total = $total+$importe;
 	}
-	$_SESSION['total']=$total;
+	$_SESSION['total']=$total*100;
 
 
 /*

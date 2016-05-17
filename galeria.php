@@ -16,11 +16,6 @@ require_once 'init.php';
       <script src='https://www.google.com/recaptcha/api.js'></script>
     </head>
     <body>
-    <?php if ($user->premium): ?>
-        <p>Eres premium</p>
-    <?php else: ?>
-    <p>No eres premium. <a href="premium.php">Ve a premium</a></p>
-    <?php endif; ?>
     <!--Navegador-->
     <div class="navbar-fixed green">
       <nav class="green">
@@ -70,7 +65,11 @@ require_once 'init.php';
       <!--Galeria-->
       <div class="green galeria">
       <br/><br/>
-
+      <?php if ($user->premium): ?>
+      <p class="usuario white-text">Logeado como: ...</p>
+      <?php else: ?>
+      <p class="usuario white-text">No estás logeado.<a href="premium.php">Registrarse</a></p>
+      <?php endif; ?>
       <div class="categorias center">
            <a id="1" onclick="categoria(this.id)"><img src="img/png/categoria1_paqt.png"></a>
            <a id="2" onclick="categoria(this.id)"><img src="img/png/categoria6_horneados.png"></a>
@@ -155,7 +154,7 @@ require_once 'init.php';
            <h4 class="red-text">Ingresa</h4>
            <br/><br/>
             <div class="row">
-              <form class="col s12" id="form1" name="form1" method="POST" action="login.php">
+              <form class="col s12" id="form1" name="form1" method="POST" action="/premium_charge.php">
               <div class="row">
                   <div class="input-field col s12">
                       <input placeholder="" id="first_name" type="text" class="validate">
@@ -169,12 +168,24 @@ require_once 'init.php';
                       </div>
                   </div>
                   <div class="row">
+                    <form action="/premium_charge.php" method="POST">
+                    <script
+                    src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                    data-key="<?php echo $stripe['publishable']; ?>"
+                    data-amount= "<?php echo $_SESSION['total'] ?>"
+                    data-name="Sitio Web"
+                    data-description="Premium"
+                    data-email="<?php echo $user->email; ?>"
+                    data-currency="mxn">
+                    </script>
+                    </form>
+                    <!--
                       <div class="col l6 m6 s6">
                         <a href="#registro" class="modal-trigger modal-action modal-close waves-effect waves-red btn green">REGISTRARME</a>
                       </div>
                   <div class="col l6 m6 s6">
                         <a class="modal-action modal-close waves-effect waves-red btn red">CONTINUAR</a>
-                  </div>
+                  </div>-->
                 </div>
               </form>
             </div>
@@ -332,7 +343,7 @@ require_once 'init.php';
         for (var i = 0; i < ids.length; i++) {
           if (ids[i].innerText==str) {
               cantidad(str,1);
-              Materialize.toast('Otro más', 4000);
+              Materialize.toast('Otro más', 4000,'tostada');
               return;
           }
         }
@@ -350,7 +361,7 @@ require_once 'init.php';
                       for (var i = 0; i < cantidades.length; i++) {
                         document.getElementById(id[i]).value = cantidades[i];
                       }
-                      Materialize.toast('Agregado', 4000);
+                      Materialize.toast('Agregado', 4000,'tostada');
                       total();
                     }
             };
