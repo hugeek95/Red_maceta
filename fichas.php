@@ -103,7 +103,7 @@
               <!-- /Atrás card -->
               <!-- Botón delantero -->
               <div class="boton-delantero">
-                <a onclick="agregar('<?php echo $row["id"]?>')"><img src="img/png/btn_canasta_compra.png" class="waves-effect waves-light botond" alt="" /></a>
+                <img src="img/png/btn_canasta_compra.png" onclick="agregar('<?php echo $row["id"]?>')" onmouseover="hoverimg(this)" onmouseout="mouseaway(this)" class="waves-effect waves-light botond" alt="" />
               </div>
               <!-- /Botón delantero -->
           </div>

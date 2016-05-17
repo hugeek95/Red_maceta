@@ -281,6 +281,24 @@ div.categorias a img:hover{
   padding: 20px 0;
   font-size: 2rem;
 }
+.login{
+  width: 35%;
+}
+@media only screen and (max-width: 992px){
+  .login{
+    width: 55%;
+  }
+}
+@media only screen and (max-width: 601px)
+{
+  .login{
+    width: 75%;
+    transform:scale(0.77);
+    -webkit-transform:scale(0.77);
+    transform-origin:0 0;
+    -webkit-transform-origin:0 0;
+  }
+}
 /*Cards*/
 
 .row .col.card{

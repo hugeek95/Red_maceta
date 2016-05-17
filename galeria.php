@@ -5,12 +5,12 @@
       <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
       <title>Red Maceta</title>
       <link rel="icon" href="img/favicon.png" type="image/png">
-
       <!-- CSS  -->
       <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
       <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,800italic,400italic,600,600italic,700,700italic&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
       <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
       <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+      <script src='https://www.google.com/recaptcha/api.js'></script>
     </head>
     <body>
 
@@ -129,17 +129,107 @@
                 <tbody id="cont_bol">
                 </tbody>
             </table>
-         </div>
+         </div>8
          <div class="modal-footer">
            <div class="total red-text">
              TOTAL: $ <span id="total" ></span> MXN
            </div>
-           <a href="#!" class=" modal-action modal-close waves-effect waves-red btn red">Ir a pagar</a>
+           <a class="modal-action modal-close waves-effect waves-red btn red" href="#login" onclick="pagar()">CONTINUAR</a>
          </div>
        </div>
 
       <!--/Canasta-->
+      <!--Login-->
+       <!-- Modal Trigger -->
+       <!-- El modal se activa cuando se va a pagar -->
+       <!-- Modal Structure -->
+       <div id="login" class="modal login">
+         <div class="modal-content">
+           <h4 class="red-text">Ingresa</h4>
+           <br/><br/>
+            <div class="row">
+              <form class="col s12" id="form1" name="form1" method="POST" action="login.php">
+              <div class="row">
+                  <div class="input-field col s12">
+                      <input placeholder="" id="first_name" type="text" class="validate">
+                      <label for="first_name">Usuario</label>
+                  </div>
+                  </div>
+                  <div class="row">
+                      <div class="input-field col s12">
+                          <input id="password" type="password" class="validate">
+                          <label for="password">Password</label>
+                      </div>
+                  </div>
+                  <div class="row">
+                      <div class="col l6 m6 s6">
+                        <a href="#registro" class="modal-trigger modal-action modal-close waves-effect waves-red btn green">REGISTRARME</a>
+                      </div>
+                  <div class="col l6 m6 s6">
+                        <a class="modal-action modal-close waves-effect waves-red btn red">CONTINUAR</a>
+                  </div>
+                </div>
+              </form>
+            </div>
+         </div>
+       </div>
+
+      <!--/Login-->
+      <!--Registro-->
+       <!-- Modal Trigger -->
+       <!-- El modal se activa cuando se va a pagar -->
+       <!-- Modal Structure -->
+       <div id="registro" class="modal login">
+         <div class="modal-content">
+             <h4 class="red-text">Únete a la red</h4>
+             <br/><br/>
+                <form id="form_reg" name="form_reg" class="" action="registro_cliente.php" method="POST">
+                      <div class="row">
+                        <div class="input-field col s12">
+                          <input id="user" placeholder="" type="text" name="user" required>
+                          <label for="user">Nombre</label>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="input-field col l6 m6 s12">
+                              <input id="email" name="email" data-error="Formato incorrecto" type="email" class="validate" required>
+                              <label for="email">Email</label>
+                        </div>
+                        <div class="input-field col l6 m6 s12">
+                              <input id="telefono" type="tel" name="telefono" class="validate" required>
+                              <label for="telefono">Teléfono</label>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="input-field col l6 m6 s12">
+                              <input id="password1" name="password1" type="password" class="validate">
+                              <label for="password1">Password</label>
+                        </div>
+                        <div class="input-field col l6 m6 s12">
+                              <input id="password2" name="password2" type="password" class="validate" onkeyup="checkpass(); return false;">
+                              <label for="password2">Repeat password</label>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="g-recaptcha" align="center" data-sitekey="6LcWqB8TAAAAAKQfCKJBvOL1ZjcyA3ME0_OUQW7D"></div>
+                      </div>
+                      <div class="row">
+                        <p>
+                          <input type="checkbox" id="termcheck" onclick="activar_reg()"/>
+                          <label for="termcheck">Acepto Términos y Condiciones</label>
+                        </p>
+                      </div>
+                      <div class="row">
+                         <div class="col l12 m12 s12">
+                             <button id="btn_reg" type="submit" name="button" disabled class="btn disabled green">REGISTRARME</button>
+                         </div>
+                      </div>
+              </form>
+        </div>
+      <!--/Login-->
+      </div>
     <!-- /Inicio -->
+
 
     <footer class="page-footer green">
         <div class="row">
@@ -283,6 +373,45 @@
           tot += parseFloat(x[i].innerText);
         }
         document.getElementById("total").innerHTML =tot;
+      }
+      function pagar(){
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            if (xhttp.readyState == 4 && xhttp.status == 200) {
+                      //document.getElementById("galeria").innerHTML = xhttp.responseText;
+                      $('#login').openModal();
+                    }
+            };
+            xhttp.open("GET", "Carrito.class.php", true);
+            xhttp.send();
+      }
+      function checkpass(){
+        var pass1 = document.getElementById('password1');
+        var pass2 = document.getElementById('password2');
+        if(pass1.value == pass2.value){
+          pass2.className = "validation valid";
+        } else{
+          pass2.className = "validation invalid";
+        }
+      }
+      function activar_reg(){
+        if (document.getElementById('termcheck').checked) {
+          document.getElementById('btn_reg').className = "";
+          document.getElementById('btn_reg').className = "modal-action modal-close waves-effect waves-red btn green";
+        }
+        else {
+          document.getElementById('btn_reg').className = "";
+          document.getElementById('btn_reg').className = "btn disabled green";
+        }
+      }
+      function hoverimg(x){
+         x.src="img/png/btn_canasta_over.png";
+      }
+      function mouseaway(x){
+          x.src = "img/png/btn_canasta_compra.png";
+      }
+      function press(x){
+          x.src = "img/png/btn_canasta_press.png";
       }
     </script>
     <script>
