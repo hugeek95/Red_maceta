@@ -569,3 +569,12 @@ div.term p{
 .tostada {
   background-color:  rgba(223, 93, 93, 0.87);
 }
+/*Legal*/
+.collapsible-body p {
+    margin: 0;
+    padding: 1rem;
+    text-align: justify;
+  }
+.collapsible-header{
+  font-weight: 600;
+}

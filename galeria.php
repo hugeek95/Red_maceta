@@ -14,6 +14,7 @@ require_once 'init.php';
       <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
       <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
       <script src='https://www.google.com/recaptcha/api.js'></script>
+      <script src="https://checkout.stripe.com/checkout.js"></script>
     </head>
     <body>
     <!--Navegador-->
@@ -71,7 +72,7 @@ require_once 'init.php';
       <p class="usuario white-text">No estás logeado.<a href="premium.php">Registrarse</a></p>
       <?php endif; ?>
       <div class="categorias center">
-           <a id="1" onclick="categoria(this.id)"><img src="img/png/categoria1_paqt.png"></a>
+           <a id="" onclick="categoria(this.id)"><img src="img/png/categoria_todos.png"></a>
            <a id="2" onclick="categoria(this.id)"><img src="img/png/categoria6_horneados.png"></a>
            <a id="3" onclick="categoria(this.id)"><img src="img/png/categoria3_frutas.png"></a>
            <a id="4" onclick="categoria(this.id)"><img src="img/png/categoria2_hortalizas.png"></a>
@@ -136,6 +137,7 @@ require_once 'init.php';
                 </tbody>
             </table>
          </div>
+
          <div class="modal-footer">
            <div class="total red-text">
              TOTAL: $ <span id="total" ></span> MXN
@@ -154,7 +156,7 @@ require_once 'init.php';
            <h4 class="red-text">Ingresa</h4>
            <br/><br/>
             <div class="row">
-              <form class="col s12" id="form1" name="form1" method="POST" action="/premium_charge.php">
+            <!--  <form class="col s12" id="form1" name="form1" method="POST" action="premium_charge.php">
               <div class="row">
                   <div class="input-field col s12">
                       <input placeholder="" id="first_name" type="text" class="validate">
@@ -168,25 +170,19 @@ require_once 'init.php';
                       </div>
                   </div>
                   <div class="row">
-                    <form action="/premium_charge.php" method="POST">
-                    <script
-                    src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-                    data-key="<?php echo $stripe['publishable']; ?>"
-                    data-amount= "<?php echo $_SESSION['total'] ?>"
-                    data-name="Sitio Web"
-                    data-description="Premium"
-                    data-email="<?php echo $user->email; ?>"
-                    data-currency="mxn">
-                    </script>
-                    </form>
-                    <!--
+
+
                       <div class="col l6 m6 s6">
                         <a href="#registro" class="modal-trigger modal-action modal-close waves-effect waves-red btn green">REGISTRARME</a>
                       </div>
                   <div class="col l6 m6 s6">
+                        <button type="submit" id="estraip" class="waves-effect waves-red btn red">Pagar</button>
                         <a class="modal-action modal-close waves-effect waves-red btn red">CONTINUAR</a>
-                  </div>-->
+                  </div>
                 </div>
+              </form>-->
+              <form class="" action="premium_charge.php" method="post">
+              <button type="submit" id="estraip" class="waves-effect waves-red btn red">Pagar</button>
               </form>
             </div>
          </div>
@@ -201,7 +197,7 @@ require_once 'init.php';
          <div class="modal-content">
              <h4 class="red-text">Únete a la red</h4>
              <br/><br/>
-                <form id="form_reg" name="form_reg" class="" action="registro_cliente.php" method="POST">
+                <form id="form_reg" name="form_reg" class="" action="" method="POST">
                       <div class="row">
                         <div class="input-field col s12">
                           <input id="user" placeholder="" type="text" name="user" required>
@@ -278,15 +274,19 @@ require_once 'init.php';
     <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script src="js/materialize.js"></script>
     <script type="text/javascript">
+
     document.getElementById('boton_buscar').onclick = function() {
     var search = document.getElementById('busqueda').value;
     loadgaleria(search);
     }
+
     document.getElementById('formulario').addEventListener('submit', function(e) {
     loadgaleria(document.getElementById('busqueda').value);
     e.preventDefault();
     }, false);
+
     total();
+
     function loadgaleria(str) {
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function() {
@@ -361,8 +361,8 @@ require_once 'init.php';
                       for (var i = 0; i < cantidades.length; i++) {
                         document.getElementById(id[i]).value = cantidades[i];
                       }
-                      Materialize.toast('Agregado', 4000,'tostada');
                       total();
+                      Materialize.toast('Agregado', 4000,'tostada');
                     }
             };
             xhttp.open("GET", "bolsa.php?b=" + str, true);
@@ -391,6 +391,7 @@ require_once 'init.php';
           tot += parseFloat(x[i].innerText);
         }
         document.getElementById("total").innerHTML =tot;
+        return tot;
       }
       function pagar(){
         var products_bolsa=[];
@@ -398,6 +399,7 @@ require_once 'init.php';
         var x = document.getElementsByClassName("idbolsa");
         for (var i = 0; i < x.length; i++) {
           products_bolsa[i] = parseInt(x[i].innerText);
+
         }
         var y = document.getElementsByClassName("quantity");
         for (var i = 0; i < y.length; i++) {
@@ -445,6 +447,43 @@ require_once 'init.php';
       function press(x){
           x.src = "img/png/btn_canasta_press.png";
       }
+    </script>
+    <script src="https://checkout.stripe.com/v2/checkout.js"></script>
+    <script>
+      var handler = StripeCheckout.configure({
+        key: 'pk_test_7Hli1EdDwN0BMP3VI4t4Ytzb',
+        image: 'img/png/logorojo.png',
+        locale: 'auto',
+        token: function(token) {
+          console.log(token)
+          var stripeToken = token.id;
+          var stripeEmail = token.email;
+          $.post(
+              "/premium_charge.php", /* your route here */
+              { stripeToken: token.id, stripeEmail: stripeEmail },
+              function(data) {
+                console.log(data);
+              }
+          );
+
+        }
+      });
+
+      $('#estraip').on('click', function(e) {
+        // Open Checkout with further options:
+        handler.open({
+          name: 'Red Maceta',
+          description: 'Siembra la diferencia',
+          currency: "MXN",
+          amount: total()*100
+        });
+        e.preventDefault();
+      });
+
+      // Close Checkout on page navigation:
+      $(window).on('popstate', function() {
+        handler.close();
+      });
     </script>
     <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
