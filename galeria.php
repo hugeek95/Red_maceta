@@ -66,11 +66,6 @@ require_once 'init.php';
       <!--Galeria-->
       <div class="green galeria">
       <br/><br/>
-      <?php if ($user->premium): ?>
-      <p class="usuario white-text">Logeado como: ...</p>
-      <?php else: ?>
-      <p class="usuario white-text">No estás logeado.<a href="premium.php">Registrarse</a></p>
-      <?php endif; ?>
       <div class="categorias center">
            <a id="" onclick="categoria(this.id)"><img src="img/png/categoria_todos.png"></a>
            <a id="2" onclick="categoria(this.id)"><img src="img/png/categoria6_horneados.png"></a>
@@ -153,35 +148,28 @@ require_once 'init.php';
        <!-- Modal Structure -->
        <div id="login" class="modal login">
          <div class="modal-content">
-           <h4 class="red-text">Ingresa</h4>
-           <br/><br/>
+           <h4 class="red-text">Confirmar pedido</h4>
             <div class="row">
-            <!--  <form class="col s12" id="form1" name="form1" method="POST" action="premium_charge.php">
-              <div class="row">
-                  <div class="input-field col s12">
-                      <input placeholder="" id="first_name" type="text" class="validate">
-                      <label for="first_name">Usuario</label>
-                  </div>
-                  </div>
-                  <div class="row">
-                      <div class="input-field col s12">
-                          <input id="password" type="password" class="validate">
-                          <label for="password">Password</label>
-                      </div>
-                  </div>
-                  <div class="row">
-
-
-                      <div class="col l6 m6 s6">
-                        <a href="#registro" class="modal-trigger modal-action modal-close waves-effect waves-red btn green">REGISTRARME</a>
-                      </div>
-                  <div class="col l6 m6 s6">
-                        <button type="submit" id="estraip" class="waves-effect waves-red btn red">Pagar</button>
-                        <a class="modal-action modal-close waves-effect waves-red btn red">CONTINUAR</a>
-                  </div>
-                </div>
-              </form>-->
               <form class="" action="premium_charge.php" method="post">
+                <div class="row">
+                  <p>
+                    Estás a un paso de sembrar la diferencia, este es tu pedido.
+                  </p>
+                </div>
+                <div class="row">
+                  <table>
+                       <thead>
+                         <tr>
+                             <th data-field="id">Producto</th>
+                             <th data-field="cantidad">Cantidad</th>
+                             <th data-field="cantidad">Unidad</th>
+                             <th data-field="importe">Importe</th>
+                         </tr>
+                       </thead>
+                       <tbody id="tabla_confirmar">
+                       </tbody>
+                   </table>
+                </div>
               <button type="submit" id="estraip" class="waves-effect waves-red btn red">Pagar</button>
               </form>
             </div>
@@ -262,10 +250,7 @@ require_once 'init.php';
         </div>
       <div class="footer-copyright white">
         <div class="container center-align term">
-        <h6 class="black-text">Términos y condiciones</h6>
-        <p class="black-text">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-        </p>
+          <h6 class="black-text"><a href="legal.html">Aviso de privacidad</a> | <a href="legal.html">Términos y condiciones</a></h6>
         </div>
       </div>
     </footer>
@@ -411,7 +396,7 @@ require_once 'init.php';
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function() {
             if (xhttp.readyState == 4 && xhttp.status == 200) {
-              //document.getElementById("login").innerHTML = xhttp.responseText;
+              document.getElementById("tabla_confirmar").innerHTML = xhttp.responseText;
             }
             };
             xhttp.open("GET", "continuar.php?products="+lista_str+"&quants="+cant_str, true);

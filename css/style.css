@@ -282,7 +282,7 @@ div.categorias a img:hover{
   font-size: 2rem;
 }
 .login{
-  width: 35%;
+  width: 45%;
 }
 @media only screen and (max-width: 992px){
   .login{
