@@ -578,3 +578,14 @@ div.term p{
 .collapsible-header{
   font-weight: 600;
 }
+/* LOADING */
+#overlay{
+  position:absolute;;
+  z-index:99999;
+  top:0;
+  left:0;
+  bottom:0;
+  right:0;
+  background:rgba(0,0,0,0.9);
+  transition: 1s 0.4s;
+}

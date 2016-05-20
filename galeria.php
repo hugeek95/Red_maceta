@@ -89,9 +89,14 @@ require_once 'init.php';
       </div>
       <!-- Contenido galería-->
       <div id="galeria" class="container center-align green">
+        <div id="overlay green">
+            <div class='oops white-text'>Tus productos locales se estan cargando...</div>
+            <div class="progress">
+                <div class="indeterminate"></div>
+            </div>
+        </div>
       </div>
       <!-- /Contenido galería-->
-
       <!--Numeración
       <div class="paginas center-align">
               <ul class="pagination text-white">
@@ -468,6 +473,12 @@ require_once 'init.php';
       // Close Checkout on page navigation:
       $(window).on('popstate', function() {
         handler.close();
+      });
+
+      $(window).load(function(){
+         // PAGE IS FULLY LOADED
+         // FADE OUT YOUR OVERLAYING DIV
+         $('#overlay').fadeOut();
       });
     </script>
     <script>
