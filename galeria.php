@@ -11,10 +11,8 @@ require_once 'init.php';
       <!-- CSS  -->
       <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
       <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,800italic,400italic,600,600italic,700,700italic&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
-      <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+      <link href="css/materialize_custom.min.css" type="text/css" rel="stylesheet" media="screen,projection"/>
       <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-      <script src='https://www.google.com/recaptcha/api.js'></script>
-      <script src="https://checkout.stripe.com/checkout.js"></script>
     </head>
     <body>
     <!--Navegador-->
@@ -89,7 +87,7 @@ require_once 'init.php';
       </div>
       <!-- Contenido galería-->
       <div id="galeria" class="container center-align green">
-        <div id="overlay green">
+        <div id="overlay" class="green">
             <div class='oops white-text'>Tus productos locales se estan cargando...</div>
             <div class="progress">
                 <div class="indeterminate"></div>
@@ -263,181 +261,9 @@ require_once 'init.php';
     <!--  Scripts-->
     <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script src="js/materialize.js"></script>
-    <script type="text/javascript">
-
-    document.getElementById('boton_buscar').onclick = function() {
-    var search = document.getElementById('busqueda').value;
-    loadgaleria(search);
-    }
-
-    document.getElementById('formulario').addEventListener('submit', function(e) {
-    loadgaleria(document.getElementById('busqueda').value);
-    e.preventDefault();
-    }, false);
-
-    total();
-
-    function loadgaleria(str) {
-            var xhttp = new XMLHttpRequest();
-            xhttp.onreadystatechange = function() {
-                if (xhttp.readyState == 4 && xhttp.status == 200) {
-                          document.getElementById("galeria").innerHTML = xhttp.responseText;
-                          $('.modal-trigger').leanModal();
-                          $('.tooltipped').tooltip({delay: 50});
-                        }
-                };
-                xhttp.open("GET", "fichas.php?q=" + str, true);
-                xhttp.send();
-      }
-      function categoria(str) {
-            var xhttp = new XMLHttpRequest();
-            xhttp.onreadystatechange = function() {
-                if (xhttp.readyState == 4 && xhttp.status == 200) {
-                          document.getElementById("galeria").innerHTML = xhttp.responseText;
-                          $('.modal-trigger').leanModal();
-                          $('.tooltipped').tooltip({delay: 50});
-                        }
-                };
-                xhttp.open("GET", "fichas.php?cat=" + str, true);
-                xhttp.send();
-      }
-      var paramstr = window.location.search.substr(1);
-      var paramarr = paramstr.split ("&");
-      var params = {};
-      for ( var i = 0; i < paramarr.length; i++) {
-      var tmparr = paramarr[i].split("=");
-      params[tmparr[0]] = tmparr[1];
-      }
-      if (params['cat']) {
-      categoria(params['cat']);
-      }
-      else if (params['bsq']) {
-      loadgaleria(params['bsq']);
-      }
-      else {
-      loadgaleria("");
-    }
-      /*CARRITO*/
-      function cantidad(id,n){
-        if(n == 1){
-          document.getElementById("cantidad"+id).stepUp();
-        }
-        else{
-          document.getElementById("cantidad"+id).stepDown();
-        }
-        importe(id);
-      }
-      function agregar(str){
-        var flag = 0;
-        var ids = document.getElementsByClassName("idbolsa");
-        for (var i = 0; i < ids.length; i++) {
-          if (ids[i].innerText==str) {
-              cantidad(str,1);
-              Materialize.toast('Otro más', 4000,'tostada');
-              return;
-          }
-        }
-        var xhttp = new XMLHttpRequest();
-        var id = [];
-        var cantidades = [];
-        var x = document.getElementsByClassName("quantity");
-        for (var i = 0; i < x.length; i++) {
-          cantidades[i] = x[i].value;
-          id[i] = x[i].id;
-        }
-        xhttp.onreadystatechange = function() {
-            if (xhttp.readyState == 4 && xhttp.status == 200) {
-                      document.getElementById("cont_bol").innerHTML += xhttp.responseText;
-                      for (var i = 0; i < cantidades.length; i++) {
-                        document.getElementById(id[i]).value = cantidades[i];
-                      }
-                      total();
-                      Materialize.toast('Agregado', 4000,'tostada');
-                    }
-            };
-            xhttp.open("GET", "bolsa.php?b=" + str, true);
-            xhttp.send();
-      }
-      function quitar(rowid)
-      {
-          var row = document.getElementById(rowid);
-          row.parentNode.removeChild(row);
-          total();
-      }
-
-      function importe(id)
-      {
-        str="importe"+id;
-        a="cantidad"+id;
-        b="precio"+id;
-        document.getElementById(str).innerHTML =  document.getElementById(a).value * document.getElementById(b).innerHTML;
-        document.getElementById(a).innerHTML = document.getElementById(a).value;
-        total();
-      }
-      function total(){
-        var tot=0;
-        var x = document.getElementsByClassName("importe");
-        for (var i = 0; i < x.length; i++) {
-          tot += parseFloat(x[i].innerText);
-        }
-        document.getElementById("total").innerHTML =tot;
-        return tot;
-      }
-      function pagar(){
-        var products_bolsa=[];
-        var cant=[];
-        var x = document.getElementsByClassName("idbolsa");
-        for (var i = 0; i < x.length; i++) {
-          products_bolsa[i] = parseInt(x[i].innerText);
-
-        }
-        var y = document.getElementsByClassName("quantity");
-        for (var i = 0; i < y.length; i++) {
-          cant[i] = parseInt(y[i].value);
-        }
-        lista_str = products_bolsa.toString();
-        cant_str = cant.toString();
-        //SEND POST
-        var xhttp = new XMLHttpRequest();
-        xhttp.onreadystatechange = function() {
-            if (xhttp.readyState == 4 && xhttp.status == 200) {
-              document.getElementById("tabla_confirmar").innerHTML = xhttp.responseText;
-            }
-            };
-            xhttp.open("GET", "continuar.php?products="+lista_str+"&quants="+cant_str, true);
-            xhttp.send();
-        //ABRIR MODAL LOGIN
-        $('#login').openModal();
-      }
-      function checkpass(){
-        var pass1 = document.getElementById('password1');
-        var pass2 = document.getElementById('password2');
-        if(pass1.value == pass2.value){
-          pass2.className = "validation valid";
-        } else{
-          pass2.className = "validation invalid";
-        }
-      }
-      function activar_reg(){
-        if (document.getElementById('termcheck').checked) {
-          document.getElementById('btn_reg').className = "";
-          document.getElementById('btn_reg').className = "modal-action modal-close waves-effect waves-red btn green";
-        }
-        else {
-          document.getElementById('btn_reg').className = "";
-          document.getElementById('btn_reg').className = "btn disabled green";
-        }
-      }
-      function hoverimg(x){
-         x.src="img/png/btn_canasta_over.png";
-      }
-      function mouseaway(x){
-          x.src = "img/png/btn_canasta_compra.png";
-      }
-      function press(x){
-          x.src = "img/png/btn_canasta_press.png";
-      }
-    </script>
+    <script src="js/galeria.js"></script>
+    <script src='https://www.google.com/recaptcha/api.js'></script>
+    <script src="https://checkout.stripe.com/checkout.js"></script>
     <script src="https://checkout.stripe.com/v2/checkout.js"></script>
     <script>
       var handler = StripeCheckout.configure({
