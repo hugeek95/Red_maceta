@@ -17,14 +17,13 @@ Stripe::setApiKey($stripe['private']);
 $db= new PDO(
 
     'mysql:host=db624747361.db.1and1.com;
-dbname=db624747361', 'dbo624747361', 'tomates');
+dbname=db624747361', 'dbo624747361', 'tomates'); 
 
-
-    $userQuery = $db -> prepare("
+ 
+    $userQuery = $db -> prepare(" 
         SELECT id, username, email, premium
         FROM users
         WHERE id = :user_id
-        SET NAMES 'utf8'
     ");
 
 
@@ -32,5 +31,5 @@ $userQuery -> execute(['user_id' => $_SESSION['user_id']]);
 
     $user= $userQuery -> fetchObject();
 
-
+    
 ?>

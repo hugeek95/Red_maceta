@@ -13,6 +13,8 @@ require_once 'init.php';
       <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,800italic,400italic,600,600italic,700,700italic&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
       <link href="css/materialize_custom.min.css" type="text/css" rel="stylesheet" media="screen,projection"/>
       <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+      <script src='https://www.google.com/recaptcha/api.js'></script>
+      <script src="https://checkout.stripe.com/checkout.js"></script>
     </head>
     <body>
     <!--Navegador-->
@@ -48,12 +50,12 @@ require_once 'init.php';
                 <li>
                   <img src="img/jpgs/slider1.jpg"> <!-- random image -->
                 </li>
-                <li>
-                  <img src="img/jpgs/slider2.jpg"> <!-- random image -->
+        <!--        <li>
+                  <img src="img/jpgs/slider2.jpg">
                 </li>
                 <li>
-                  <img src="img/jpgs/slider3.jpg"> <!-- random image -->
-                </li>
+                  <img src="img/jpgs/slider3.jpg">
+                </li>-->
               </ul>
         </div>
 
@@ -78,7 +80,7 @@ require_once 'init.php';
       <div class="container">
         <form id="formulario" class="row">
         <div class="input-field white col l11 m11 s12 center-align">
-          <input id="busqueda" name="busqueda" placeholder="duraznos, aguacate, pollo, huevo" type="text" class="validate">
+          <input id="busqueda" name="busqueda" placeholder="aguacate, pollo, huevo" type="text" class="validate">
         </div>
         <div class="col l1 m1 s12 center-align">
           <a id="boton_buscar" class="btn-floating btn-large waves-effect waves-light red" ><i class="material-icons">search</i></a>
@@ -95,6 +97,7 @@ require_once 'init.php';
         </div>
       </div>
       <!-- /Contenido galería-->
+
       <!--Numeración
       <div class="paginas center-align">
               <ul class="pagination text-white">
@@ -173,7 +176,11 @@ require_once 'init.php';
                        </tbody>
                    </table>
                 </div>
-              <button type="submit" id="estraip" class="waves-effect waves-red btn red">Pagar</button>
+                <p>
+                  <input type="checkbox" id="termcheck" onclick="activar_reg()"/>
+                  <label for="termcheck">Acepto <a href="/legal.html" target="_blank">Términos y Condiciones</a></label>
+                </p>
+              <button type="submit" id="estraip" class="btn disabled red">Pagar</button>
               </form>
             </div>
          </div>
@@ -262,14 +269,14 @@ require_once 'init.php';
     <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script src="js/materialize.js"></script>
     <script src="js/galeria.js"></script>
-    <script src='https://www.google.com/recaptcha/api.js'></script>
-    <script src="https://checkout.stripe.com/checkout.js"></script>
     <script src="https://checkout.stripe.com/v2/checkout.js"></script>
     <script>
       var handler = StripeCheckout.configure({
-        key: 'pk_test_7Hli1EdDwN0BMP3VI4t4Ytzb',
+        //key: 'pk_test_7Hli1EdDwN0BMP3VI4t4Ytzb',
+        key: 'pk_live_7zVF7HnpsFQsamuOlZCKMruB',
         image: 'img/png/logorojo.png',
         locale: 'auto',
+        billingAddress: 'true',
         token: function(token) {
           console.log(token)
           var stripeToken = token.id;
@@ -299,12 +306,6 @@ require_once 'init.php';
       // Close Checkout on page navigation:
       $(window).on('popstate', function() {
         handler.close();
-      });
-
-      $(window).load(function(){
-         // PAGE IS FULLY LOADED
-         // FADE OUT YOUR OVERLAYING DIV
-         $('#overlay').fadeOut();
       });
     </script>
     <script>

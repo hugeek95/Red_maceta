@@ -154,12 +154,12 @@
       }
       function activar_reg(){
         if (document.getElementById('termcheck').checked) {
-          document.getElementById('btn_reg').className = "";
-          document.getElementById('btn_reg').className = "modal-action modal-close waves-effect waves-red btn green";
+          document.getElementById('estraip').className = "";
+          document.getElementById('estraip').className = "modal-action modal-close waves-effect waves-red btn green";
         }
         else {
-          document.getElementById('btn_reg').className = "";
-          document.getElementById('btn_reg').className = "btn disabled green";
+          document.getElementById('estraip').className = "";
+          document.getElementById('estraip').className = "btn disabled green";
         }
       }
       function hoverimg(x){
