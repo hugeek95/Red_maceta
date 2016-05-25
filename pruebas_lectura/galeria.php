@@ -282,8 +282,8 @@ require_once 'init.php';
           var stripeToken = token.id;
           var stripeEmail = token.email;
           $.post(
-              "/prueba/premium_charge.php",
-              { stripeToken: token.id, stripeEmail: stripeEmail, args },
+              "/premium_charge.php", /* your route here */
+              { stripeToken: token.id, stripeEmail: stripeEmail },
               function(data) {
                 console.log(data);
               }
