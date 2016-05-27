@@ -73,8 +73,13 @@ div.encabezado div.container p{
   font-size: 1.8rem;
   font-weight: 800;
 }
+div.encabezado div.container h1{
+  margin: 0 auto;
+  font-size: 3.0rem;
+  font-weight: 800;
+}
 div.encabezado div.container{
-  width: 70%;
+  width: 80%;
 }
 .conocer{
     text-align: right;

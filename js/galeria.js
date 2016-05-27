@@ -140,7 +140,8 @@
             };
             xhttp.open("GET", "continuar.php?products="+lista_str+"&quants="+cant_str, true);
             xhttp.send();
-        //ABRIR MODAL LOGIN
+        //ABRIR MODAL LOGIN CON BOTON DESACTIVADO
+        document.getElementById('estraip').style.pointerEvents = 'none';
         $('#login').openModal();
       }
       function checkpass(){
@@ -154,10 +155,12 @@
       }
       function activar_reg(){
         if (document.getElementById('termcheck').checked) {
+          document.getElementById('estraip').style.pointerEvents = 'auto';
           document.getElementById('estraip').className = "";
           document.getElementById('estraip').className = "modal-action modal-close waves-effect waves-red btn green";
         }
         else {
+          document.getElementById('estraip').style.pointerEvents = 'none';
           document.getElementById('estraip').className = "";
           document.getElementById('estraip').className = "btn disabled green";
         }

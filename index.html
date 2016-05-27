@@ -54,7 +54,8 @@
         <!--Encabezado-->
         <div class="quees encabezado valign-wrapper">
           <div class="container center-align white-text valign">
-            <p>COMPRA PRODUCTOS LOCALES DE PEQUEÑOS PRODUCTORES</p>
+            <h1>Compra aquí tus productos locales</h1>
+            <p>de pequeños productores</p>
             <div class="conocer">
               <a href="funcionamiento.html" class="white-text"><span>conoce más </span><img src="img/png/btn_sabermas.png" alt=""/></a>
             </div>
@@ -84,12 +85,22 @@
       </div>
     <!-- /Inicio -->
     <!--Qué va a llevar-->
-    <div class="green">
+    <!--<div class="green">
       <div class="quelleva container center-align white-text">
         <h3>¿Qué va a llevar?</h3>
       </div>
-    </div>
+    </div>-->
     <div class="green"  style="padding: 20px 0px;">
+    <div class="container green">
+        <form id="formulario" class="row" action="envia_email.php" >
+        <div class="input-field white col l11 m11 s12 center-align">
+          <input id="busqueda" name="busqueda" placeholder="¿Qué va a llevar?" type="text" class="validate"  required>
+        </div>
+        <div class="col l1 m1 s12 center-align">
+          <a id="boton_buscar" class="btn-floating btn-large waves-effect waves-light red" ><i class="material-icons">search</i></a>
+        </form>
+        </div>
+    </div>
     <div class="categorias center green">
          <a id="" onclick="categoria(this.id)"><img src="img/png/categoria_todos.png"></a>
          <a id="2" onclick="categoria(this.id)"><img src="img/png/categoria6_horneados.png"></a>
@@ -99,17 +110,6 @@
          <a id="6" onclick="categoria(this.id)"><img src="img/png/categoria5_derivadosanim.png" ></a>
          <a id="7" onclick="categoria(this.id)"><img src="img/png/categoria7_condim.png"></a>
          <a id="8" onclick="categoria(this.id)"><img src="img/png/categoria8_tradi.png"></a>
-    </div>
-    <br/>
-    <div class="container green">
-      <form id="formulario" class="row" action="envia_email.php" >
-      <div class="input-field white col l11 m11 s12 center-align">
-        <input id="busqueda" name="busqueda" placeholder="duraznos, aguacate, pollo, huevo" type="text" class="validate"  required>
-      </div>
-      <div class="col l1 m1 s12 center-align">
-        <a id="boton_buscar" class="btn-floating btn-large waves-effect waves-light red" ><i class="material-icons">search</i></a>
-      </form>
-      </div>
     </div>
     </div>
 

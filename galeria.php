@@ -123,6 +123,13 @@ require_once 'init.php';
        <div id="canasta" class="modal bottom-sheet">
          <div class="modal-content">
            <h4>Mi canasta</h4>
+           <p>
+             NOTAS:
+           <br>
+             -(Compra mínima de $30 MXN)
+           <br>
+             -Recuerda que tu compra la podrás recoger este 5 de Junio en el Huerto Roma Verde.
+           </p>
            <table>
                 <thead>
                   <tr>
@@ -191,56 +198,53 @@ require_once 'init.php';
        <!-- Modal Trigger -->
        <!-- El modal se activa cuando se va a pagar -->
        <!-- Modal Structure -->
-       <div id="registro" class="modal login">
+       <div id="exito" class="modal login">
          <div class="modal-content">
-             <h4 class="red-text">Únete a la red</h4>
-             <br/><br/>
-                <form id="form_reg" name="form_reg" class="" action="" method="POST">
-                      <div class="row">
-                        <div class="input-field col s12">
-                          <input id="user" placeholder="" type="text" name="user" required>
-                          <label for="user">Nombre</label>
-                        </div>
-                      </div>
-                      <div class="row">
-                        <div class="input-field col l6 m6 s12">
-                              <input id="email" name="email" data-error="Formato incorrecto" type="email" class="validate" required>
-                              <label for="email">Email</label>
-                        </div>
-                        <div class="input-field col l6 m6 s12">
-                              <input id="telefono" type="tel" name="telefono" class="validate" required>
-                              <label for="telefono">Teléfono</label>
-                        </div>
-                      </div>
-                      <div class="row">
-                        <div class="input-field col l6 m6 s12">
-                              <input id="password1" name="password1" type="password" class="validate">
-                              <label for="password1">Password</label>
-                        </div>
-                        <div class="input-field col l6 m6 s12">
-                              <input id="password2" name="password2" type="password" class="validate" onkeyup="checkpass(); return false;">
-                              <label for="password2">Repeat password</label>
-                        </div>
-                      </div>
-                      <div class="row">
-                        <div class="g-recaptcha" align="center" data-sitekey="6LcWqB8TAAAAAKQfCKJBvOL1ZjcyA3ME0_OUQW7D"></div>
-                      </div>
-                      <div class="row">
-                        <p>
-                          <input type="checkbox" id="termcheck" onclick="activar_reg()"/>
-                          <label for="termcheck">Acepto Términos y Condiciones</label>
-                        </p>
-                      </div>
-                      <div class="row">
-                         <div class="col l12 m12 s12">
-                             <button id="btn_reg" type="submit" name="button" disabled class="btn disabled green">REGISTRARME</button>
-                         </div>
-                      </div>
-              </form>
+              <h4 class="red-text">!Gracias por sembrar la diferencia!</h4>
+              <br/>
+              <p style="text-align: justify;">En breve recibirás un correo con la confirmación de tu compra (si no está en tu bandeja principal revisa en Spam, por si acaso).<br> Nuestros productores estarán felices de entregarte tus alimentos en nuestra próxima Maceta. <br>Te invitamos a seguir apoyando la economía local compartiendo Red Maceta con tus amigos.
+                <br>En caso de que no te llegue la confirmación, avísanos a <a href="mailto:aloha@redmaceta.com">aloha@redmaceta.com</a> para solucionarlo.
+              </p>
+              <br>
+              <a style="text-align: center;" href="#!" onClick="window.location.reload()" class=" modal-action modal-close waves-effect waves-green btn green">¡Entendido!</a>
         </div>
       <!--/Login-->
       </div>
-    <!-- /Inicio -->
+    <!-- Procesando pago -->
+    <!-- Modal Structure -->
+    <div id="procesando" class="modal login">
+      <div class="modal-content center-align">
+         <h4 class="red-text">Estamos procesando tu pago...</h4>
+         <div  class="preloader-wrapper active">
+           <div class="spinner-layer spinner-red-only">
+             <div class="circle-clipper left">
+               <div class="circle"></div>
+             </div><div class="gap-patch">
+               <div class="circle"></div>
+             </div><div class="circle-clipper right">
+               <div class="circle"></div>
+             </div>
+           </div>
+         </div>
+     </div>
+   </div>
+   <!-- /Procesando pago -->
+   <!-- /Modal Structure -->
+   <!-- Pago fallido -->
+   <!-- Modal Structure -->
+   <div id="pago_fail" class="modal login">
+     <div class="modal-content">
+       <h4 class="red-text">Oops, tuvimos problemas con tu pago</h4>
+      <p>
+        ¿Tienes otra opción de pago?
+        <br>
+        Si continuas teniendo problemas por favor comunícate con nosotros a <a href="mailto:aloha@redmaceta.com">aloha@redmaceta.com</a> para solucionarlo.
+      </p>
+    </div>
+  </div>
+  <!-- /Pago fallido -->
+  <!-- /Modal Structure -->
+ <!-- /Inicio -->
 
 
     <footer class="page-footer green">
@@ -271,9 +275,13 @@ require_once 'init.php';
     <script src="js/galeria.js"></script>
     <script src="https://checkout.stripe.com/v2/checkout.js"></script>
     <script>
+          $('#exito').leanModal({
+          dismissible: false, // Modal can be dismissed by clicking outside of the modal
+        }
+      );
       var handler = StripeCheckout.configure({
-        key: 'pk_test_7Hli1EdDwN0BMP3VI4t4Ytzb',
-        //key: 'pk_live_7zVF7HnpsFQsamuOlZCKMruB',
+        //key: 'pk_test_7Hli1EdDwN0BMP3VI4t4Ytzb',
+        key: 'pk_live_7zVF7HnpsFQsamuOlZCKMruB',
         image: 'img/png/logorojo.png',
         locale: 'auto',
         billingAddress: 'true',
@@ -282,10 +290,17 @@ require_once 'init.php';
           var stripeToken = token.id;
           var stripeEmail = token.email;
           $.post(
-              "/prueba/premium_charge.php",
-              { stripeToken: token.id, stripeEmail: stripeEmail, args },
+              "/premium_charge.php",
+              { stripeToken: token.id, stripeEmail: stripeEmail},
               function(data) {
-                console.log(data);
+                if (data == 'success') {
+                $('#procesando').closeModal();
+                $('#exito').openModal();
+                      }
+                      else {
+                        $('#procesando').closeModal();
+                        $('#pago_fail').openModal();
+                      }
               }
           );
 
@@ -293,6 +308,8 @@ require_once 'init.php';
       });
 
       $('#estraip').on('click', function(e) {
+        $('#login').closeModal();
+        $('#procesando').openModal();
         // Open Checkout with further options:
         handler.open({
           name: 'Red Maceta',
