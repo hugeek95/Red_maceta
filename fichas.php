@@ -20,10 +20,16 @@
     $q = $_REQUEST["q"];
 
     if ($cat != 0){
+      if ($cat == 4){
+      $sql = "SELECT * FROM Producto ORDER BY Orden";
+      }
+      else{
       $sql = "SELECT * FROM Producto WHERE Categoria LIKE '%$cat%'";
+      }
     }
     elseif ($q == ""){
-      $sql = "SELECT * FROM Producto";
+      echo "<div class='oops white-text'>Te recomendamos...</div>";
+      $sql = "SELECT * FROM Producto WHERE recomendados = '1'";
     }
     else{
       $sql = "SELECT * FROM Producto WHERE nombre LIKE '%$q%' OR tags LIKE '%$q%'";

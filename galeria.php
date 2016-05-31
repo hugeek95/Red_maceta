@@ -4,7 +4,21 @@ require_once 'init.php';
 <!DOCTYPE html>
 <html>
     <head>
-      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+      <meta http-equiv="content-Type" content="text/html; ISO-8859-1">
+      <meta name="DC.Language" SCHEME="RFC1766" content="Spanish">
+      <meta name="AUTHOR" content="Equipo Red Maceta">
+      <meta name="REPLY-TO" content="aloha@redmaceta.com">
+      <link rev="made" href="mailto:aloha@redmaceta.com">
+      <link rel=”image_src” href="https://www.redmaceta.com/img/png/logorojo.png" />
+      <meta property="og:image" content="https://www.redmaceta.com/img/png/fb1.png"/>
+      <meta property="og:image" content="https://www.redmaceta.com/img/png/fb2.png"/>
+      <meta property="og:image" content="https://www.redmaceta.com/img/png/fb3.png"/>
+      <meta name="DESCRIPTION" content="Es una plataforma que brinda productos locales de primera calidad. Además los consumidores pueden recibirlos de la mano de los productores.">
+      <meta name="KEYWORDS" content="productos locales,pequeños productores,comercio local,organico">
+      <meta name="Resource-type" content="Catalog">
+      <meta name="DateCreated" content="Mon, 16 May 2016 00:00:00 GMT-6">
+      <meta name="robots" content="ALL">
+      <meta http-equiv="content-Type" content="text/html; charset=UTF-8"/>
       <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
       <title>Red Maceta</title>
       <link rel="icon" href="img/favicon.png" type="image/png">
@@ -79,27 +93,26 @@ require_once 'init.php';
 
       <!--Galeria-->
       <div class="green galeria">
-      <br/><br/>
-      <div class="categorias center">
-           <a id="" onclick="categoria(this.id)"><img src="img/png/categoria_todos.png"></a>
-           <a id="2" onclick="categoria(this.id)"><img src="img/png/categoria6_horneados.png"></a>
-           <a id="3" onclick="categoria(this.id)"><img src="img/png/categoria3_frutas.png"></a>
-           <a id="4" onclick="categoria(this.id)"><img src="img/png/categoria2_hortalizas.png"></a>
-           <a id="5" onclick="categoria(this.id)"><img src="img/png/categoria4_bebidas.png"></a>
-           <a id="6" onclick="categoria(this.id)"><img src="img/png/categoria5_derivadosanim.png" ></a>
-           <a id="7" onclick="categoria(this.id)"><img src="img/png/categoria7_condim.png"></a>
-           <a id="8" onclick="categoria(this.id)"><img src="img/png/categoria8_tradi.png"></a>
-      </div>
-      <br/>
+      <br><br>
       <div class="container">
         <form id="formulario" class="row">
         <div class="input-field white col l11 m11 s12 center-align">
-          <input id="busqueda" name="busqueda" placeholder="aguacate, pollo, huevo" type="text" class="validate">
+          <input id="busqueda" name="busqueda" placeholder="aguacate, pollo, huevo, duraznos, tortilla" type="text" class="validate">
         </div>
         <div class="col l1 m1 s12 center-align">
           <a id="boton_buscar" class="btn-floating btn-large waves-effect waves-light red" ><i class="material-icons">search</i></a>
         </form>
         </div>
+      </div>
+      <div class="categorias center">
+          <a id="1" onclick="categoria(this.id)"><img src="img/png/categoria1_paqt.png"></a>
+          <a id="2" onclick="categoria(this.id)"><img src="img/png/categoria6_horneados.png"></a>
+          <a id="3" onclick="categoria(this.id)"><img src="img/png/categoria3_frutas.png"></a>
+          <a id="5" onclick="categoria(this.id)"><img src="img/png/categoria4_bebidas.png"></a>
+          <a id="6" onclick="categoria(this.id)"><img src="img/png/categoria5_derivadosanim.png" ></a>
+          <a id="7" onclick="categoria(this.id)"><img src="img/png/categoria7_condim.png"></a>
+          <a id="8" onclick="categoria(this.id)"><img src="img/png/categoria8_tradi.png"></a>
+          <a id="4" onclick="categoria(this.id)"><img src="img/png/categoria_todos.png"></a>
       </div>
       <!-- Contenido galería-->
       <div id="galeria" class="container center-align green">
