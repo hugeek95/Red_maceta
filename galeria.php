@@ -23,17 +23,18 @@ require_once 'init.php';
       <div class="nav-wrapper">
         <a href="index.html" class="brand-logo"><img src="img/png/red.png" alt="" /></a>
         <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+        <div class="white-text hide-on-med-and-down whatsapp"><img style="height: 1em; margin-bottom: -3px;" src="img/png/whatsapp.png" alt="" />  55 24 12 18 98</div>
         <ul class="right hide-on-med-and-down">
           <li><a href="index.html">Inicio</a></li>
           <li><a href="funcionamiento.html">Así funciona</a></li>
-          <li><a href="conocenos.html">¡Conócenos!</a></li>
+          <!--<li><a href="conocenos.html">¡Conócenos!</a></li>-->
           <li><a href="index.html#productores">Soy productor</a></li>
           <li class="active"><a href="#">Llévele</a></li>
         </ul>
         <ul class="side-nav" id="mobile-demo">
           <li><a href="index.html">Home</a></li>
           <li><a href="funcionamiento.html">Así funciona</a></li>
-          <li><a href="conocenos.html">¡Conócenos!</a></li>
+          <!--<li><a href="conocenos.html">¡Conócenos!</a></li>-->
           <li><a href="index.html#productores">Soy productor</a></li>
           <li class="active"><a href="#">Llévele</a></li>
         </ul>
@@ -45,18 +46,31 @@ require_once 'init.php';
     <div class="inicio">
       <!--Encabezado-->
       <div class="encabezado conocenos green valign-wrapper">
+        <div class="quees2 encabezado valign-wrapper">
+          <div class="container center-align white-text valign">
+              <h2>
+                Compra aquí tus productos y recógelos este 5 junio.
+              </h2>
+          </div>
+        </div>
         <div class="slider center-align">
-                 <ul class="slides">
-            <!--     <li>
+          <ul class="slides">
+                 <li>
                   <img src="img/jpgs/slider1.jpg">
-                </li>-->
-           <li>
+                </li>
+                <li>
                   <img src="img/jpgs/slider2.jpg">
                 </li>
                 <li>
                   <img src="img/jpgs/slider3.jpg">
-                </li>-->
-              </ul>
+                </li>
+                <li>
+                  <img src="img/jpgs/slider4.jpg">
+                </li>
+                <li>
+                  <img src="img/jpgs/slider5.jpg">
+                </li>
+          </ul>
         </div>
 
       </div>
@@ -121,12 +135,12 @@ require_once 'init.php';
        </div>
        <!-- Modal Structure -->
        <div id="canasta" class="modal bottom-sheet">
-         <div class="modal-content">
+         <div class="modal-content red-text">
            <h4>Mi canasta</h4>
            <p>
              NOTAS:
            <br>
-             -(Compra mínima de $30 MXN)
+             -Compra mínima de $30 MXN
            <br>
              -Recuerda que tu compra la podrás recoger este 5 de Junio en el Huerto Roma Verde.
            </p>
@@ -150,7 +164,7 @@ require_once 'init.php';
            <div class="total red-text">
              TOTAL: $ <span id="total" ></span> MXN
            </div>
-           <a class="modal-action modal-close waves-effect waves-red btn red" href="#login" onclick="pagar()">CONTINUAR</a>
+           <button id="continuar" class="modal-action modal-close waves-effect waves-red btn red" href="#login" onclick="pagar()">CONTINUAR</button>
          </div>
        </div>
 

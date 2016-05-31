@@ -115,6 +115,16 @@
           tot += parseFloat(x[i].innerText);
         }
         document.getElementById("total").innerHTML =tot;
+        if (tot<30) {
+          document.getElementById('continuar').style.pointerEvents = 'none';
+          document.getElementById('continuar').className = "";
+          document.getElementById('continuar').className = "btn disabled red";
+        }
+        else {
+          document.getElementById('continuar').style.pointerEvents = 'auto';
+          document.getElementById('continuar').className = "";
+          document.getElementById('continuar').className = "modal-action modal-close waves-effect waves-red btn red";
+        }
         return tot;
       }
       function pagar(){

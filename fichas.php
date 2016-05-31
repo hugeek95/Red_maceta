@@ -93,8 +93,12 @@
               <!-- Atrás card -->
               <div class="card-reveal">
                 <span class="card-title"><?php echo $row["Nombre"] ?><i class="material-icons right">close</i></span>
-                <span class="precio_grande red-text left">$<?php echo $row["Precio"] ?> MXN</span>
-                <br>
+                <div class="row" style="margin: 0;">
+                  <span class="precio_grande red-text left">$<?php echo $row["Precio"] ?> MXN</span>
+                </div>
+                <div class="row" style="margin: 0;">
+                  <span class="unidad_grande red-text left"><?php echo $row["Unidad"] ?></span>
+                </div>
                 <p class="descripcion"><?php echo $row["Descripcion"] ?></p>
                 <div class="compra">
                         <a onclick="agregar('<?php echo $row["id"]?>')" class="waves-effect waves-light btn red">A la canasta</a>
