@@ -107,12 +107,12 @@ require_once 'init.php';
       <div class="categorias center">
           <a id="1" onclick="categoria(this.id)"><img src="img/png/categoria1_paqt.png"></a>
           <a id="2" onclick="categoria(this.id)"><img src="img/png/categoria6_horneados.png"></a>
-          <a id="3" onclick="categoria(this.id)"><img src="img/png/categoria3_frutas.png"></a>
+          <a id="3" onclick="categoria(this.id)"><img src="img/png/categoria3_fyv.png"></a>
           <a id="5" onclick="categoria(this.id)"><img src="img/png/categoria4_bebidas.png"></a>
           <a id="6" onclick="categoria(this.id)"><img src="img/png/categoria5_derivadosanim.png" ></a>
           <a id="7" onclick="categoria(this.id)"><img src="img/png/categoria7_condim.png"></a>
           <a id="8" onclick="categoria(this.id)"><img src="img/png/categoria8_tradi.png"></a>
-          <a id="4" onclick="categoria(this.id)"><img src="img/png/categoria_todos.png"></a>
+          <a id="4" onclick="categoria(this.id)"><img src="img/png/categoria4_todos.png"></a>
       </div>
       <!-- Contenido galería-->
       <div id="galeria" class="container center-align green">
