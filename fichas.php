@@ -29,7 +29,7 @@
     }
     elseif ($q == ""){
       echo "<div class='oops white-text'>Te recomendamos...</div>";
-      $sql = "SELECT * FROM Producto WHERE recomendados = '1'";
+      $sql = "SELECT * FROM Producto WHERE recomendados = '1' ORDER BY Orden";
     }
     else{
       $sql = "SELECT * FROM Producto WHERE nombre LIKE '%$q%' OR tags LIKE '%$q%'";
@@ -124,5 +124,10 @@
         }
       ?>
       </div>
+      <?php
+      if ($q == ""){
+        echo "<div class='oops white-text'>No olvides revisar las demás categorías.</div>";
+      }
+       ?>
 </body>
 </html>
