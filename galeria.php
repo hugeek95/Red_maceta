@@ -65,6 +65,8 @@ require_once 'init.php';
               <h2>
                 Compra aquí tus productos y recógelos este 5 junio.
               </h2>
+              <br>
+                <a href="#detalles" class="modal-trigger waves-effect waves-teal btn red">Más detalles</a>
           </div>
         </div>
         <div class="slider center-align">
@@ -186,7 +188,7 @@ require_once 'init.php';
        <!-- Modal Trigger -->
        <!-- El modal se activa cuando se va a pagar -->
        <!-- Modal Structure -->
-       <div id="login" class="modal login">
+       <div id="login" class="modal login" style="max-height: 85%;">
          <div class="modal-content">
            <h4 class="red-text">Confirmar pedido</h4>
             <div class="row">
@@ -227,7 +229,7 @@ require_once 'init.php';
        <!-- Modal Structure -->
        <div id="exito" class="modal login">
          <div class="modal-content">
-              <h4 class="red-text">!Gracias por sembrar la diferencia!</h4>
+              <h4 class="red-text">¡Gracias por sembrar la diferencia!</h4>
               <br/>
               <p style="text-align: justify;">En breve recibirás un correo con la confirmación de tu compra (si no está en tu bandeja principal revisa en Spam, por si acaso).<br> Nuestros productores estarán felices de entregarte tus alimentos en nuestra próxima Maceta. <br>Te invitamos a seguir apoyando la economía local compartiendo Red Maceta con tus amigos.
                 <br>En caso de que no te llegue la confirmación, avísanos a <a href="mailto:aloha@redmaceta.com">aloha@redmaceta.com</a> para solucionarlo.
@@ -271,6 +273,31 @@ require_once 'init.php';
   </div>
   <!-- /Pago fallido -->
   <!-- /Modal Structure -->
+  <!-- Pago fallido -->
+  <!-- Modal Structure -->
+      <div id="detalles" class="modal login" style="max-height: 90%;">
+        <div class="modal-content">
+          <h4 class="red-text">Nuestra maceta</h4>
+         <p style="text-align: justify;">
+           Los productos que compres aquí los podrás recoger este Domingo 5 de Junio a partir de las 11:00 am en el Huerto Roma Verde.
+           <span class="hide-on-large-only red-text"><a href="https://www.google.com.mx/maps/place/Huerto+Roma+Verde/@19.4111937,-99.1618023,17z/data=!3m1!4b1!4m5!3m4!1s0x85d1ff3daa4ba98d:0x503f6a2225f6d130!8m2!3d19.4111887!4d-99.1596136"><i class="material-icons">pin_drop</i></a></span>
+           <br>
+        </p>
+        <p>
+         <iframe style="display:block; margin: 0 auto;" class="hide-on-med-and-down" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3763.028055484004!2d-99.16180228540216!3d19.411193746395448!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d1ff3daa4ba98d%3A0x503f6a2225f6d130!2sHuerto+Roma+Verde!5e0!3m2!1ses!2smx!4v1464818257354" width="400" height="300" frameborder="0" style="border:0" allowfullscreen></iframe>
+        </p>
+        <p style="text-align: justify;">
+          <span class="red-text" style="font-weight: 600;">¿Por qué comprar antes?</span>
+          <br>
+          La preventa ayuda al productor a saber cuánto cosechar y evita el desperdicio de comida. Además puedes estar seguro de que ese producto ha sido cosechado para ti.
+        </p>
+        <p style="text-align: center;">
+          <a href="#!" class=" modal-action modal-close waves-effect waves-green btn green">¡Entendido!</a>
+        </p>
+       </div>
+     </div>
+ <!-- /Pago fallido -->
+
  <!-- /Inicio -->
 
 

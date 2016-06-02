@@ -108,6 +108,9 @@ div.encabezado div.container .conocer span{
 div.encabezado div.container h1{
   font-size: 2.0rem;
 }
+div.encabezado div.container h2{
+  font-size: 1.8rem;
+}
 }
 @media only screen and (max-width: 601px)
 {
@@ -118,7 +121,7 @@ div.encabezado div.container h1{
   font-size: 2.2rem;
 }
 div.encabezado div.container h2{
-  font-size: 2.0rem;
+  font-size: 1.4rem;
 }
 div.encabezado div.container{
   width: 90%;
@@ -381,6 +384,9 @@ div.categorias a img:hover{
   color: #818181;
   text-align: left;
   line-height: 1rem;
+}
+.card .card-content .card-title:hover{
+  text-decoration: underline;
 }
 .card .card-content .card-subtitle{
   font-size: 0.8rem;

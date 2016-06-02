@@ -59,7 +59,7 @@
               <div class="card-content">
                 <p class="card-title activator"><?php echo $row["Nombre"] ?></p>
                 <p class="card-subtitle activator"><?php echo $row2["lugar"]; ?></p>
-                <p class="precio activator">$<?php echo $row["Precio"] ?> MXN - <?php echo $row["Unidad"] ?></p>
+                <p class="precio activator truncate" style="width: 70%">$<?php echo $row["Precio"] ?> MXN - <?php echo $row["Unidad"] ?></p>
               </div>
               <!-- Productor -->
               <a class="modal-trigger" href="#productor<?php echo $row["id"] ?>">
