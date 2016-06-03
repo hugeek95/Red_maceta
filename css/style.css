@@ -377,6 +377,7 @@ div.categorias a img:hover{
   font-weight: 600;
   color: #818181;
   text-align: left;
+  cursor: pointer;
 }
 .card .card-content .card-title{
   font-size: 0.9rem;
@@ -393,6 +394,7 @@ div.categorias a img:hover{
   font-weight: 100;
   color: #818181;
   text-align: left;
+  cursor: pointer;
 }
 .card .card-reveal .card-title{
   font-size: 1.5rem;

@@ -279,7 +279,7 @@ require_once 'init.php';
         <div class="modal-content">
           <h4 class="red-text">Nuestra maceta</h4>
          <p style="text-align: justify;">
-           Los productos que compres aquí los podrás recoger este Domingo 5 de Junio a partir de las 11:00 am en el Huerto Roma Verde.
+           Los productos que compres aquí los podrás recoger este domingo 5 de junio a partir de las 10:00 am en el Huerto Roma Verde.
            <span class="hide-on-large-only red-text"><a href="https://www.google.com.mx/maps/place/Huerto+Roma+Verde/@19.4111937,-99.1618023,17z/data=!3m1!4b1!4m5!3m4!1s0x85d1ff3daa4ba98d:0x503f6a2225f6d130!8m2!3d19.4111887!4d-99.1596136"><i class="material-icons">pin_drop</i></a></span>
            <br>
         </p>

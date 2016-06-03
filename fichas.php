@@ -124,10 +124,17 @@
         }
       ?>
       </div>
-      <?php
-      if ($q == ""){
-        echo "<div class='oops white-text'>No olvides revisar las demás categorías.</div>";
-      }
-       ?>
+      <div class="green galeria">
+        <div class="categorias center">
+            <a id="1" href="#1" onclick="categoria(this.id)"><img src="img/png/categoria1_paqt.png"></a>
+            <a id="2" href="#1" onclick="categoria(this.id)"><img src="img/png/categoria6_horneados.png"></a>
+            <a id="3" href="#1" onclick="categoria(this.id)"><img src="img/png/categoria3_fyv.png"></a>
+            <a id="5" href="#1" onclick="categoria(this.id)"><img src="img/png/categoria4_bebidas.png"></a>
+            <a id="6" href="#1" onclick="categoria(this.id)"><img src="img/png/categoria5_derivadosanim.png" ></a>
+            <a id="7" href="#1" onclick="categoria(this.id)"><img src="img/png/categoria7_condim.png"></a>
+            <a id="8" href="#1" onclick="categoria(this.id)"><img src="img/png/categoria8_tradi.png"></a>
+            <a id="4" href="#1" onclick="categoria(this.id)"><img src="img/png/categoria4_todos.png"></a>
+        </div>
+      </div>
 </body>
 </html>
