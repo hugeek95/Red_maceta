@@ -297,6 +297,26 @@ require_once 'init.php';
        </div>
      </div>
  <!-- /Pago fallido -->
+ <!-- Pago fallido -->
+ <!-- Modal Structure -->
+     <div id="cerrado" class="modal login" style="max-height: 90%;">
+       <div class="modal-content">
+         <h4 class="red-text">¡Oops, llegaste un poco tarde!</h4>
+        <p style="text-align: justify;">
+          Nuestra tienda está cerrada. De cualquier manera, te invitamos a asistir a nuestra Primera Maceta este domingo a las 10:00 a.m. en el Huerto Roma Verde y, quién sabe, a lo mejor alcanzas a comprar algo ¡Gracias por ayudarnos a sembrar la diferencia!
+          <span class="hide-on-large-only red-text"><a href="https://www.google.com.mx/maps/place/Huerto+Roma+Verde/@19.4111937,-99.1618023,17z/data=!3m1!4b1!4m5!3m4!1s0x85d1ff3daa4ba98d:0x503f6a2225f6d130!8m2!3d19.4111887!4d-99.1596136"><i class="material-icons">pin_drop</i></a></span>
+          <br>
+       </p>
+       <p>
+        <iframe style="display:block; margin: 0 auto;" class="hide-on-med-and-down" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3763.028055484004!2d-99.16180228540216!3d19.411193746395448!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d1ff3daa4ba98d%3A0x503f6a2225f6d130!2sHuerto+Roma+Verde!5e0!3m2!1ses!2smx!4v1464818257354" width="400" height="300" frameborder="0" style="border:0" allowfullscreen></iframe>
+       </p>
+       <p style="text-align: center;">
+         <a href="#!" class=" modal-action modal-close waves-effect waves-green btn green">¡Entendido!</a>
+       </p>
+      </div>
+    </div>
+ <!-- /Pago fallido -->
+
 
  <!-- /Inicio -->
 
@@ -329,10 +349,15 @@ require_once 'init.php';
     <script src="js/galeria.js"></script>
     <script src="https://checkout.stripe.com/v2/checkout.js"></script>
     <script>
-          $('#exito').leanModal({
+       $('#cerrado').leanModal({
+               dismissible: false, // Modal can be dismissed by clicking outside of the modal
+             }
+       );
+       $('#exito').leanModal({
           dismissible: false, // Modal can be dismissed by clicking outside of the modal
-        }
-      );
+            }
+          );
+       $('#cerrado').openModal();
       var handler = StripeCheckout.configure({
         //key: 'pk_test_7Hli1EdDwN0BMP3VI4t4Ytzb',
         key: 'pk_live_7zVF7HnpsFQsamuOlZCKMruB',

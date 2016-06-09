@@ -40,11 +40,8 @@ if ($conn->connect_error) {
         	//Creamos los dos arreglos separados
         	$ids = explode(',',$products);
         	$cants = explode(',',$quants);
-
         	$idslenght = count($ids);
-
           $codigoPHP ="";
-
         for ($i=0; $i < $idslenght; $i++) {
         	$stmt = $db->query('SELECT * FROM Producto WHERE id ='.$ids[$i]);
         	$db->query("SET NAMES 'utf8'");
