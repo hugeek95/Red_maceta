@@ -653,7 +653,7 @@ div.term p{
 /* LOADING */
 #overlay{
   position:relative;;
-  z-index:99999;
+/*  z-index:99999;*/
   padding-bottom: 400px;
   top:0;
   left:0;

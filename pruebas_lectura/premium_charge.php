@@ -2,7 +2,8 @@
 require_once 'init.php';
 
 if (isset($_POST['stripeToken'])){
-	$token = $_POST['stripeToken'];
+   
+    $token = $_POST['stripeToken'];
 
 
 	try{
@@ -12,36 +13,51 @@ if (isset($_POST['stripeToken'])){
   "source" => $token, // obtained with Stripe.js
   "description" => $_POST['stripeEmail'].", ".$token
 ]);
-
+        
         $email= $_POST["stripeEmail"];
-
+        
 		$db->query('
 			UPDATE bolsa
 			SET email = "'.$email.'"
 			WHERE id =
 			'.$_SESSION["user"]);
-
+        
         $db->query('
 			UPDATE bolsa
 			SET pago = 1
 			WHERE id =
 			'.$_SESSION["user"]);
-
+        
         $db->query('
 			UPDATE bolsa
 			SET token = "'.$token.'"
 			WHERE id =
 			'.$_SESSION["user"]);
-
-    echo "success";
-
-
+        
+        echo "success";
+        
+        
 	} catch(Stripe_CardError $e){
-		//Do something whit the error here
+        
 
 	}
+
     unset($_SESSION['total']);
+
    ///session_destroy();
+}
+
+$servername = "db624747361.db.1and1.com";
+$username = "dbo624747361";
+$password = "tomates";
+$dbname = "db624747361";
+
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+$conn->query("SET NAMES 'utf8'");
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
 }
 
 $sql = "SELECT * FROM bolsa WHERE id =".$_SESSION["user"];
@@ -50,7 +66,7 @@ $sql = "SELECT * FROM bolsa WHERE id =".$_SESSION["user"];
             $quants= $row['quants'];
             $products = $row['products'];
     }
-
+    
 	//Creamos los dos arreglos separados
 	$ids = explode(',',$products);
 	$cants = explode(',',$quants);
@@ -67,27 +83,27 @@ $codigoPHP ="";
 		$importe = $precio[$i]*$cants[$i];
 		$total = $total+$importe;
 	}
-
-for ($i=0; $i < $idslenght; $i++) { /// magic
+    
+for ($i=0; $i < $idslenght; $i++) {
 	$stmt = $db->query('SELECT * FROM Producto WHERE id ='.$ids[$i]);
 	$db->query("SET NAMES 'utf8'");
 	$row = $stmt->fetch(PDO::FETCH_ASSOC);
-
+    
    $price = $precio[$i]*$cants[$i];
-
+    
     $codigoPHP = '<tr>
 		<td><span>'.$row["Nombre"].'</span></td>
 		<td><span></span>'.$row["Unidad"].'(s)</td>
 		<td><span>'.$cants[$i].'</td>
 		<td >$ <span>'.$price.'</span> MXN</td>
 	</tr>'.$codigoPHP;
-
+ 
 }
-
+    
 
 $msg = null;
 //if(isset($_POST["phpmailer"])){
-    $nombre = "RED MACETA"; // htmlspecialchars($_POST["nombre"]);
+    $nombre = "RED MACETA"; // htmlspecialchars($_POST["nombre"]); 
     $email =  $_POST['stripeEmail'];   // htmlspecialchars($_POST["email"]);
    // $asunto = htmlspecialchars($_POST["asunto"]);
     $asunto= "Detalles de compra";
@@ -98,7 +114,7 @@ $msg = null;
     <head>
       <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
       <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css">
-
+      
       <style>
         body {word-wrap: break-word;font-family: "Open Sans", sans-serif;}
           .contenedor{
@@ -125,9 +141,9 @@ $msg = null;
               left: 5%;
               top: -200px;
               z-index: 10;
-              padding: 10px;
+              padding: 10px; 
               text-align: center;
-
+              
           }
           .espan{
               display: block;
@@ -155,10 +171,10 @@ $msg = null;
 <p style="
     word-wrap: break-word;">
 Gracias por sembrar la diferencia a través de Red Maceta. Con tu compra no sólo
-consumirás productos orgánicos, saludables y de la mejor calidad, también
+consumirás productos orgánicos, saludables y de la mejor calidad, también 
 apoyas la economía local y ayudas a mejorar los ingresos de los productores.
 
-Sólo muestra el siguiente código, y te entregaremos tus productos. <br/> <br/>
+Para que no se te olvide, te dejamos una lista con las cosas que pediste: <br/> <br/>
            <table style="margin: 0 auto;">
                 <thead>
                   <tr>
@@ -174,11 +190,11 @@ Sólo muestra el siguiente código, y te entregaremos tus productos. <br/> <br/>
 
 <br/>
 <span style="font-size: 16px;font-weight: bolder;"> Código: '.$token.' </span>
-
+    
 <br/><br/>
-<span class="espan">Recuerda que debes recogerlos este próximo 5 de junio a las 10:00 a.m. en el
-Huerto Roma Verde.</span> Nuestros productores  estarán muy contentos de platicar
-contigo y entregarte tus deliciosos alimentos. Además podrás disfrutar de talleres,
+<span class="espan">Recuerda que debes recogerlos este próximo 5 de junio a las 10:00 a.m. en el 
+Huerto Roma Verde.</span> Nuestros productores  estarán muy contentos de platicar 
+contigo y entregarte tus deliciosos alimentos. Además podrás disfrutar de talleres, 
 conferencias y hasta clase de Yoga.
 
 Sabemos que tienes GPS y podrás llegar, pero de todos modos te dejamos un mapa
@@ -193,19 +209,20 @@ con la ubicación de nuestra Primera Maceta para que lo tengas a la mano: <br/>
  Calle Jalapa s/n, Cuauhtémoc,Roma Sur,06760 Ciudad de México, D.F.,México
 <br/><br/>
  Los productores y Red Maceta estamos muy felices de que formes parte de nuestra
- comunidad. Tú puedes hacerla crecer compartiendo tu experiencia con tus amigos.
+ comunidad. Tú puedes hacerla crecer compartiendo tu experiencia con tus amigos. 
 
 </p>
 <img src="http://redmaceta.com/prueba/bulbasaur.jpg"  height="auto" width="420" style="text-align:center;">
-
+<br/>
+P.D.: Nos preocupa el planeta, por lo que no es necesario que imprimas este correo, sólo muestra tu código para recibir tus productos.
 </div>
-
+    
 </body>
 </html>';
     $adjunto = $_FILES["adjunto"];
-
+    
     require "PHPMailer-master/PHPMailer-master/class.phpmailer.php";
-
+    
     $mail = new PHPMailer;
     $mail->Host ="u81005991.1and1-data.host";
     $mail->From ="aloha@redmaceta.com";
@@ -214,12 +231,12 @@ con la ubicación de nuestra Primera Maceta para que lo tengas a la mano: <br/>
     $mail->addAddress($email, $nombre);
     $mail->MsgHTML($mensaje);
     $mail->CharSet = 'UTF-8';
-
+    
     if($adjunto["size"] > 0){
         $mail-> addAttachment($adjunto["tmp_name"], $adjunto["name"]);
     }
     if($mail->send()){
-            $msg ="Enhorabuena mensaje enviado a $email";
+            $msg ="Enhorabuena mensaje enviado a $email"; 
     }else{
         $msg ="ah ocurrido un errorts";
     }
