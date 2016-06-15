@@ -132,10 +132,10 @@
             </div>
           </div>
           <div class="row">
-              <form id="form_productores" method="post" class="buscamos input-field col l6 push-l3 m12 s12 center-align" action="envia_correo.php">
+              <form id="form_productores" method="post" class="buscamos input-field col l6 push-l3 m12 s12 center-align" action="envia_correo.php" onsubmit="correo()">
                 <input placeholder="nombre@dominio.com" name="email" id="email" type="email" class="validate" required>
                 <div class="boton">
-                <a class="btn-large waves-effect waves-light green" onclick="correo();">¡Quiero vender!</a>
+                <button type="submit" class="btn-large waves-effect waves-light green">¡Quiero vender!</button>
               </form>
               </div>
               <div class="img-buscamos col l3 pull-l6 m6 s6">
@@ -205,7 +205,7 @@
       window.location.href = 'galeria?cat='+str;
     }
     function correo(){
-      document.getElementById('form_productores').submit();
+      window.open('https://docs.google.com/forms/d/18BO9u9VnSADEhoyoHr2CgmZqnNmbUCQJxemXXYvX0kE/viewform', '_blank');
     }
     function alerta(){
 

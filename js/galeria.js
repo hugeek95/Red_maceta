@@ -62,7 +62,8 @@
         importe(id);
       }
       function agregar(str){
-        var flag = 0;
+        Materialize.toast('Espera la siguiente Maceta', 4000,'tostada');
+        /*var flag = 0;
         var ids = document.getElementsByClassName("idbolsa");
         for (var i = 0; i < ids.length; i++) {
           if (ids[i].innerText==str) {
@@ -90,7 +91,7 @@
                     }
             };
             xhttp.open("GET", "bolsa.php?b=" + str, true);
-            xhttp.send();
+            xhttp.send();*/
       }
       function quitar(rowid)
       {

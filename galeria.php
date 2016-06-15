@@ -63,7 +63,7 @@ require_once 'init.php';
         <div class="quees2 encabezado valign-wrapper">
           <div class="container center-align white-text valign">
               <h2>
-                Compra aquí tus productos y recógelos este 5 junio.
+                Espera nuestra siguiente Maceta para comprar.
               </h2>
               <br>
                 <a href="#detalles" class="modal-trigger waves-effect waves-teal btn red">Más detalles</a>
@@ -155,9 +155,10 @@ require_once 'init.php';
            <p>
              NOTAS:
            <br>
-             -Compra mínima de $30 MXN
+            - Espera nuestra siguiente Maceta para ayudar a sembrar la diferencia.
+            <!-- -Compra mínima de $30 MXN
            <br>
-             -Recuerda que tu compra la podrás recoger este 5 de Junio en el Huerto Roma Verde.
+             -Recuerda que tu compra la podrás recoger este 5 de Junio en el Huerto Roma Verde.-->
            </p>
            <table>
                 <thead>
@@ -277,14 +278,19 @@ require_once 'init.php';
   <!-- Modal Structure -->
       <div id="detalles" class="modal login" style="max-height: 90%;">
         <div class="modal-content">
-          <h4 class="red-text">Nuestra maceta</h4>
+          <h4 class="red-text">Nuestra Maceta</h4>
          <p style="text-align: justify;">
-           Los productos que compres aquí los podrás recoger este domingo 5 de junio a partir de las 10:00 am en el Huerto Roma Verde.
-           <span class="hide-on-large-only red-text"><a href="https://www.google.com.mx/maps/place/Huerto+Roma+Verde/@19.4111937,-99.1618023,17z/data=!3m1!4b1!4m5!3m4!1s0x85d1ff3daa4ba98d:0x503f6a2225f6d130!8m2!3d19.4111887!4d-99.1596136"><i class="material-icons">pin_drop</i></a></span>
+           Los productos que compres aquí los podrás recoger en alguna de nuestras Macetas.
+           <br>
+           Una Maceta es un evento dedicado a la comunidad que funciona como punto de distribución.
+           <br>
+           ¿Te gustaría hacer uno en tu comunidad? Escríbenos a <a href="mailto:aloha@redmaceta.com">aloha@redmaceta.com</a>
+           <!--<span class="hide-on-large-only red-text"><a href="https://www.google.com.mx/maps/place/Huerto+Roma+Verde/@19.4111937,-99.1618023,17z/data=!3m1!4b1!4m5!3m4!1s0x85d1ff3daa4ba98d:0x503f6a2225f6d130!8m2!3d19.4111887!4d-99.1596136"><i class="material-icons">pin_drop</i></a></span>
            <br>
         </p>
         <p>
          <iframe style="display:block; margin: 0 auto;" class="hide-on-med-and-down" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3763.028055484004!2d-99.16180228540216!3d19.411193746395448!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d1ff3daa4ba98d%3A0x503f6a2225f6d130!2sHuerto+Roma+Verde!5e0!3m2!1ses!2smx!4v1464818257354" width="400" height="300" frameborder="0" style="border:0" allowfullscreen></iframe>
+       -->
         </p>
         <p style="text-align: justify;">
           <span class="red-text" style="font-weight: 600;">¿Por qué comprar antes?</span>
@@ -303,12 +309,13 @@ require_once 'init.php';
        <div class="modal-content">
          <h4 class="red-text">¡Oops, llegaste un poco tarde!</h4>
         <p style="text-align: justify;">
-          Nuestra tienda está cerrada. De cualquier manera, te invitamos a asistir a nuestra Primera Maceta este domingo a las 10:00 a.m. en el Huerto Roma Verde y, quién sabe, a lo mejor alcanzas a comprar algo ¡Gracias por ayudarnos a sembrar la diferencia!
-          <span class="hide-on-large-only red-text"><a href="https://www.google.com.mx/maps/place/Huerto+Roma+Verde/@19.4111937,-99.1618023,17z/data=!3m1!4b1!4m5!3m4!1s0x85d1ff3daa4ba98d:0x503f6a2225f6d130!8m2!3d19.4111887!4d-99.1596136"><i class="material-icons">pin_drop</i></a></span>
+          Nuestra tienda está cerrada. De cualquier manera, te invitamos a que conozcas a los productos y a los productores. Síguenos en redes para enterarte de la siguiente Maceta. ¡Gracias por ayudarnos a sembrar la diferencia!
+          <!--<span class="hide-on-large-only red-text"><a href="https://www.google.com.mx/maps/place/Huerto+Roma+Verde/@19.4111937,-99.1618023,17z/data=!3m1!4b1!4m5!3m4!1s0x85d1ff3daa4ba98d:0x503f6a2225f6d130!8m2!3d19.4111887!4d-99.1596136"><i class="material-icons">pin_drop</i></a></span>
           <br>
        </p>
        <p>
         <iframe style="display:block; margin: 0 auto;" class="hide-on-med-and-down" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3763.028055484004!2d-99.16180228540216!3d19.411193746395448!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d1ff3daa4ba98d%3A0x503f6a2225f6d130!2sHuerto+Roma+Verde!5e0!3m2!1ses!2smx!4v1464818257354" width="400" height="300" frameborder="0" style="border:0" allowfullscreen></iframe>
+        -->
        </p>
        <p style="text-align: center;">
          <a href="#!" class=" modal-action modal-close waves-effect waves-green btn green">¡Entendido!</a>
@@ -349,15 +356,9 @@ require_once 'init.php';
     <script src="js/galeria.js"></script>
     <script src="https://checkout.stripe.com/v2/checkout.js"></script>
     <script>
-       $('#cerrado').leanModal({
-               dismissible: false, // Modal can be dismissed by clicking outside of the modal
-             }
-       );
-       $('#exito').leanModal({
-          dismissible: false, // Modal can be dismissed by clicking outside of the modal
-            }
-          );
-       $('#cerrado').openModal();
+    $('#cerrado').openModal({
+       dismissible: false, // Modal can be dismissed by clicking outside of the modal
+         });
       var handler = StripeCheckout.configure({
         //key: 'pk_test_7Hli1EdDwN0BMP3VI4t4Ytzb',
         key: 'pk_live_7zVF7HnpsFQsamuOlZCKMruB',
@@ -374,7 +375,9 @@ require_once 'init.php';
               function(data) {
                 if (data == 'success') {
                 $('#procesando').closeModal();
-                $('#exito').openModal();
+                $('#exito').openModal({
+                   dismissible: false, // Modal can be dismissed by clicking outside of the modal
+                     });
                       }
                       else {
                         $('#procesando').closeModal();
